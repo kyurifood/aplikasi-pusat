@@ -20,6 +20,7 @@
         <activity android:name=".Marketer" />
         <activity android:name=".Produk"/>
         <activity android:name=".Pesanan"/>
+        <activity android:name=".Regional"/>
     </application>
 
 </manifest>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#EEE"
+    android:minHeight="90dp"
+    android:padding="4dp"
+    tools:ignore="HardcodedText,ContentDescription" >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:maxHeight="60dp"
+        android:maxWidth="60dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_launcher"
+        android:layout_marginStart="30dp"
+        android:layout_alignTop="@+id/CheckBox01"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox android:id="@+id/CheckBox01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:focusable="false"
+
+        android:text="BARU"
+        android:checked="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/CheckBox02">
+    </CheckBox>
+    <CheckBox android:id="@+id/CheckBox02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:focusable="false"
+        android:text="LUNAS"
+        android:checked="false"
+        android:layout_marginRight="88dp"
+        android:layout_marginEnd="42dp"
+        android:layout_below="@+id/CheckBox01"
+        android:layout_alignParentEnd="true">
+    </CheckBox>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox"
+        android:padding="10dp"
+        android:checked="false"
+        android:layout_below="@+id/CheckBox02"
+        android:layout_alignLeft="@+id/CheckBox02"
+        android:layout_alignStart="@+id/CheckBox02"
+        android:text="DIKIRIM" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox2"
+        android:padding="10dp"
+        android:checked="false"
+        android:layout_below="@+id/checkBox"
+        android:layout_alignLeft="@+id/checkBox"
+        android:layout_alignStart="@+id/checkBox"
+        android:text="DITERIMA" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LIHAT PROFIL"
+        android:id="@+id/button"
+        android:layout_below="@+id/checkBox"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignBottom="@+id/checkBox2"
+        android:onClick="buton01"/>
+
+
+</RelativeLayout>
