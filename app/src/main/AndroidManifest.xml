@@ -16,11 +16,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Distributor" />
-        <activity android:name=".Laporan" />
         <activity android:name=".Marketer" />
         <activity android:name=".Produk"/>
         <activity android:name=".Pesanan"/>
         <activity android:name=".Regional"/>
+        <activity android:name=".Laporan"/>
     </application>
 
 </manifest>
