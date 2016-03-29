@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <ImageButton android:id="@+id/btnProduk"
+            android:onClick="btn_produk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/produk"/>
+        <ImageButton android:id="@+id/btnRegional"
+            android:onClick="btn_regional"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/regional"/>
+    </LinearLayout>
+    <LinearLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <ImageButton android:id="@+id/btnDistributor"
+            android:onClick="btn_distributor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/distributor" />
+        <ImageButton android:id="@+id/btnMarketer"
+            android:onClick="btn_distributor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/marketer" />
+    </LinearLayout>
+    <LinearLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <ImageButton android:id="@+id/btnPesanan"
+            android:onClick="btn_pesanan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/pesanan" />
+        <ImageButton android:id="@+id/btnLaporan"
+            android:onClick="btn_laporan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:src="@drawable/laporan"/>
+    </LinearLayout>
+
+  </LinearLayout>

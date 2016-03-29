@@ -1,0 +1,100 @@
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <ImageView
+
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/produk"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="profil" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="baru"
+            android:padding="7dp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:id="@+id/item_baru"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lunas"
+            android:padding="7dp"
+            android:textColor="@android:color/black"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:id="@+id/item_lunas"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="di kirim"
+            android:padding="7dp"
+            android:textColor="@android:color/black"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:id="@+id/item_dikirim"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="di bayar"
+            android:padding="7dp"
+            android:textColor="@android:color/black"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:id="@+id/item_diterima"/>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <CheckBox
+            android:theme="@style/Platform.AppCompat.Light"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/black"
+            android:enabled="false"
+            android:id="@+id/item_check1" />
+        <CheckBox
+            android:theme="@style/Platform.AppCompat.Light"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/black"
+            android:enabled="false"
+            android:id="@+id/item_check2" />
+        <CheckBox
+            android:theme="@style/Platform.AppCompat.Light"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/black"
+            android:enabled="false"
+            android:id="@+id/item_check3" />
+        <CheckBox
+            android:theme="@style/Platform.AppCompat.Light"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:checked="@android:color/black"
+            android:enabled="false"
+            android:id="@+id/item_check4" />
+    </LinearLayout>
+</LinearLayout>
