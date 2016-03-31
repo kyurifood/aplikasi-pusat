@@ -18,9 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:drawableTop="@drawable/produk"
             android:text="Produk"
-            android:textSize="18dp"/>
+            android:textSize="18dp"
+            android:drawableTop="@drawable/my_produk"/>
         <Button
             android:id="@+id/btnRegional"
             android:onClick="btn_regional"
@@ -29,7 +29,7 @@
             android:layout_weight="1"
             android:text="Regional"
             android:textSize="18dp"
-            android:drawableTop="@drawable/regional"/>
+            android:drawableTop="@drawable/my_regional"/>
     </LinearLayout>
     <LinearLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -44,17 +44,16 @@
             android:layout_weight="1"
             android:text="Distributor"
             android:textSize="18dp"
-            android:drawableTop="@drawable/distributor" />
+            android:drawableTop="@drawable/my_distributor" />
         <Button android:id="@+id/btnMarketer"
-            android:onClick="btn_distributor"
+            android:onClick="btn_marketer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Marketer"
             android:textSize="18dp"
-            android:drawableTop="@drawable/marketer" />
+            android:text="Marketer"
+            android:drawableTop="@drawable/my_marketer"/>
     </LinearLayout>
-
     <LinearLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -69,7 +68,7 @@
             android:layout_weight="1"
             android:text="Pesanan"
             android:textSize="18dp"
-            android:drawableTop="@drawable/pesanan" />
+            android:drawableTop="@drawable/my_pesanan"/>
         <Button android:id="@+id/btnLaporan"
             android:onClick="btn_laporan"
             android:layout_width="match_parent"
@@ -77,6 +76,6 @@
             android:layout_weight="1"
             android:text="Laporan"
             android:textSize="18dp"
-            android:drawableTop="@drawable/laporan"/>
+            android:drawableTop="@drawable/my_laporan"/>
     </LinearLayout>
   </LinearLayout>
