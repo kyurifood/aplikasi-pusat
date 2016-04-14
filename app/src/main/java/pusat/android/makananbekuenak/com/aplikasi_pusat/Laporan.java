@@ -10,6 +10,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListBarangAdapter;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ListBarang;
+
+
 public class Laporan extends AppCompatActivity {
 
     ListView lvBarang;
@@ -22,12 +26,14 @@ public class Laporan extends AppCompatActivity {
         lvBarang = (ListView) findViewById(R.id.listview);
 
         ListBarang barang1 = new ListBarang();
+        barang1.setNama_produk("KARAPAO");
         barang1.setBaru("Baru");
         barang1.setLunas("Lunas");
         barang1.setDikirim("DiKirim");
         barang1.setDiterima("DiTerima");
 
         ListBarang barang2 = new ListBarang();
+        barang2.setNama_produk("TERIAKI");
         barang2.setBaru("Baru");
         barang2.setLunas("Lunas");
         barang2.setDikirim("DiKirim");
