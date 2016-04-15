@@ -15,12 +15,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="pusat.android.makananbekuenak.com.aplikasi_pusat.LoginActivity" android:theme="@style/AppTheme.Dark" />
+        <activity android:name="pusat.android.makananbekuenak.com.aplikasi_pusat.SignupActivity" android:theme="@style/AppTheme.Dark" />
         <activity android:name=".Distributor" />
-        <activity android:name=".Laporan" />
         <activity android:name=".Marketer" />
         <activity android:name=".Produk"/>
         <activity android:name=".Pesanan"/>
         <activity android:name=".Regional"/>
+        <activity android:name=".Laporan"/>
     </application>
 
 </manifest>
