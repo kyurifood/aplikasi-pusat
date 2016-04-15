@@ -1,14 +1,19 @@
-package pusat.android.makananbekuenak.com.aplikasi_pusat;
+package pusat.android.makananbekuenak.com.aplikasi_pusat.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
+
+import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ListBarang;
 
 /**
  * Created by id-oz on 3/28/16.
@@ -17,10 +22,10 @@ public class ListBarangAdapter extends BaseAdapter {
 
     private Context context;
     private List<ListBarang> barangList;
-
     public ListBarangAdapter(Context context, List<ListBarang> barangList){
         this.context = context;
         this.barangList = barangList;
+
 
     }
 
@@ -44,6 +49,8 @@ public class ListBarangAdapter extends BaseAdapter {
         if(convertView == null)
             convertView = LayoutInflater.from(context).inflate(R.layout.list_barang_layout, parent, false);
 
+        TextView namaproduk = (TextView) convertView.findViewById(R.id.nama_produk);
+
         TextView lblItemBaru = (TextView) convertView.findViewById(R.id.item_baru);
         TextView lblItemLunas = (TextView) convertView.findViewById(R.id.item_lunas);
         TextView lblItemdiKirim = (TextView) convertView.findViewById(R.id.item_dikirim);
@@ -53,8 +60,11 @@ public class ListBarangAdapter extends BaseAdapter {
         CheckBox cbBarangcheck3 = (CheckBox) convertView.findViewById(R.id.item_check3);
         CheckBox cbBarangcheck4 = (CheckBox) convertView.findViewById(R.id.item_check4);
 
-        ListBarang barang = getItem(position);
+        Button profil = (Button) convertView.findViewById(R.id.profil);
 
+        final ListBarang barang = getItem(position);
+
+        namaproduk.setText(barang.getNama_produk());
         lblItemBaru.setText(barang.getBaru());
         lblItemLunas.setText(barang.getLunas());
         lblItemdiKirim.setText(barang.getDikirim());
@@ -63,6 +73,15 @@ public class ListBarangAdapter extends BaseAdapter {
         cbBarangcheck2.setChecked(barang.isCheck2());
         cbBarangcheck3.setChecked(barang.isCheck3());
         cbBarangcheck4.setChecked(barang.isCheck4());
+
+        profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, barang.getNama_produk(), Toast.LENGTH_SHORT).show();
+            }
+
+
+        });
 
         return convertView;
     }

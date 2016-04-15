@@ -1,18 +1,29 @@
-package pusat.android.makananbekuenak.com.aplikasi_pusat;
+package pusat.android.makananbekuenak.com.aplikasi_pusat.domain;
 
 /**
  * Created by id-oz on 3/28/16.
  */
 public class ListBarang {
+    private String nama_produk;
 
     private String baru;
     private String lunas;
     private String dikirim;
     private String diterima;
+    private boolean button;
     private boolean check1;
     private boolean check2;
     private boolean check3;
     private boolean check4;
+
+
+    public String getNama_produk() {
+        return nama_produk;
+    }
+
+    public void setNama_produk(String nama_produk) {
+        this.nama_produk = nama_produk;
+    }
 
     public String getBaru() {
         return baru;
@@ -46,6 +57,14 @@ public class ListBarang {
         this.diterima = diterima;
     }
 
+    public boolean isButton() {
+        return button;
+    }
+
+    public void setButton(boolean button) {
+        this.button = button;
+    }
+
     public boolean isCheck1() {
         return check1;
     }
@@ -77,6 +96,4 @@ public class ListBarang {
     public void setCheck4(boolean check4) {
         this.check4 = check4;
     }
-
-
 }

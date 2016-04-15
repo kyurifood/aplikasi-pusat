@@ -5,23 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
+        android:paddingTop="7dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:id="@+id/nama_produk"/>
         <ImageView
 
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/produk"/>
-        <Button
+        <Button android:id="@+id/profil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="profil" />
+            android:text="profil"
+            />
         </LinearLayout>
 
     <LinearLayout
+        android:paddingTop="15dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -64,7 +76,9 @@
             android:textStyle="bold"
             android:id="@+id/item_diterima"/>
     </LinearLayout>
-    <LinearLayout android:layout_height="wrap_content"
+    <LinearLayout
+        android:paddingTop="15dp"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_weight="1">
