@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Panel.Vertical"
+    android:layout_weight="1"
+    android:descendantFocusability="blocksDescendants">
+
+
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="0.7"
+            android:orientation="vertical"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                style="@style/Text.Label"
+                android:text="No order"
+                android:id="@+id/no_order"/>
+            <TextView style="@style/Text.Label"
+                android:text="Tanggal"
+                android:id="@+id/tgl_pesan"/>
+            <TextView style="@style/Text.Label"
+                android:text="Nama"
+                android:id="@+id/nama"/>
+            <TextView style="@style/Text.Label"
+                android:text="Bank"
+                android:id="@+id/bank"/>
+            <TextView style="@style/Text.Label"
+                android:text="Total"
+                android:id="@+id/nominal"/>
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="0.9"
+            android:orientation="vertical"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                style="@style/Text.Label"
+                android:text="Baru"
+                android:id="@+id/baru"/>
+            <TextView style="@style/Text.Label"
+                android:text="Lunas"
+                android:id="@+id/lunas"/>
+            <TextView style="@style/Text.Label"
+                android:text="Di Kirim"
+                android:id="@+id/dikirim"/>
+            <TextView style="@style/Text.Label"
+                android:text="Di Terima"
+                android:id="@+id/diterima"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="vertical"
+            android:descendantFocusability="blocksDescendants">
+
+
+            <CheckBox
+                style="@style/Text.Label"
+                android:theme="@style/Platform.AppCompat.Light"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@android:color/black"
+                android:enabled="true"
+                android:id="@+id/item_check1" />
+            <CheckBox
+                style="@style/Text.Label"
+                android:theme="@style/Platform.AppCompat.Light"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@android:color/black"
+                android:enabled="false"
+                android:id="@+id/item_check2" />
+            <CheckBox
+                style="@style/Text.Label"
+                android:theme="@style/Platform.AppCompat.Light"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@android:color/black"
+                android:enabled="false"
+                android:id="@+id/item_check3" />
+            <CheckBox
+                style="@style/Text.Label"
+                android:theme="@style/Platform.AppCompat.Light"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@android:color/black"
+                android:enabled="false"
+                android:id="@+id/item_check4" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/ComponentLayout"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+
+        <LinearLayout style="@style/ComponentLayout"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <Button style="@style/OrangeButton"
+                android:text="LIHAT DETAIL"
+                android:id="@+id/btn_action_2"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/ComponentLayout"
+            android:orientation="vertical"
+            android:layout_weight="1">
+        <Button style="@style/TealButton"
+            android:text="LUNAS"
+            android:id="@+id/btn_action_1"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

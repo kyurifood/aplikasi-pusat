@@ -70,7 +70,7 @@ public class HomeScreen extends AppCompatActivity {
     //--Pesanan---
     public void btn_pesanan(View v) {
 
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Pesanan.class);
+        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.MainActivity.class);
         startActivity(panggil_class);
     }
 
