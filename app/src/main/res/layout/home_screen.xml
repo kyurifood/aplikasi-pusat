@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <LinearLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -20,7 +21,9 @@
             android:layout_weight="1"
             android:text="Produk"
             android:textSize="18dp"
-            android:drawableTop="@drawable/my_produk"/>
+            android:drawableTop="@drawable/my_produk"
+            android:background="#FFFFAD"
+            android:layout_margin="8dp"/>
         <Button
             android:id="@+id/btnRegional"
             android:onClick="btn_regional"
@@ -29,8 +32,11 @@
             android:layout_weight="1"
             android:text="Regional"
             android:textSize="18dp"
-            android:drawableTop="@drawable/my_regional"/>
+            android:background="#FFFFAD"
+            android:drawableTop="@drawable/my_regional"
+            android:layout_margin="8dp"/>
     </LinearLayout>
+
     <LinearLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -44,7 +50,9 @@
             android:layout_weight="1"
             android:text="Distributor"
             android:textSize="18dp"
-            android:drawableTop="@drawable/my_distributor" />
+            android:drawableTop="@drawable/my_distributor"
+            android:background="#FFFFAD"
+            android:layout_margin="8dp"/>
         <Button android:id="@+id/btnMarketer"
             android:onClick="btn_marketer"
             android:layout_width="match_parent"
@@ -52,8 +60,11 @@
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="Marketer"
-            android:drawableTop="@drawable/my_marketer"/>
+            android:drawableTop="@drawable/my_marketer"
+            android:background="#FFFFAD"
+            android:layout_margin="8dp"/>
     </LinearLayout>
+
     <LinearLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -68,7 +79,9 @@
             android:layout_weight="1"
             android:text="Pesanan"
             android:textSize="18dp"
-            android:drawableTop="@drawable/my_pesanan"/>
+            android:drawableTop="@drawable/my_pesanan"
+            android:background="#FFFFAD"
+            android:layout_margin="8dp"/>
         <Button android:id="@+id/btnLaporan"
             android:onClick="btn_laporan"
             android:layout_width="match_parent"
@@ -76,6 +89,9 @@
             android:layout_weight="1"
             android:text="Laporan"
             android:textSize="18dp"
-            android:drawableTop="@drawable/my_laporan"/>
+            android:drawableTop="@drawable/my_laporan"
+            android:background="#FFFFAD"
+            android:layout_margin="8dp"/>
     </LinearLayout>
+
   </LinearLayout>
