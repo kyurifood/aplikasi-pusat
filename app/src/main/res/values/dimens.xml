@@ -14,4 +14,6 @@
     <dimen name="stroke">2dp</dimen>
 
     <dimen name="rounding_radius">1dp</dimen>
+
+    <dimen name="line_width">1dp</dimen>
 </resources>

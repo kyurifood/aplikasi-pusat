@@ -1,11 +1,17 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +23,8 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ListBarang;
 public class Laporan extends AppCompatActivity {
 
     ListView lvBarang;
+    Button  btnPrs, btnCancel;
+    EditText nomoResi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +51,7 @@ public class Laporan extends AppCompatActivity {
         listBarang.add(barang1);
         listBarang.add(barang2);
 
-        lvBarang.setAdapter(new ListBarangAdapter(getApplicationContext(), listBarang));
+        lvBarang.setAdapter(new ListBarangAdapter(Laporan.this, listBarang));
     }
 
     @Override
@@ -75,4 +83,53 @@ public class Laporan extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void NotifikasiResi() {
+        //---
+        final Dialog dialog = new Dialog(Laporan.this);
+        dialog.setContentView(R.layout.kirim_order_noresi);
+        dialog.setCancelable(true);
+        dialog.setTitle("Kirim Order");
+
+        nomoResi = (EditText)dialog.findViewById(R.id.nmrResi);
+        btnPrs = (Button)dialog.findViewById(R.id.btnProses);
+        btnCancel = (Button)dialog.findViewById(R.id.btnKembali);
+        dialog.show();
+
+
+        btnPrs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String kode = nomoResi.getText().toString();
+
+                if (!validasiResi(kode)) {
+                    nomoResi.setError("Nomor Resi Tidak Valid");
+                    {
+                        Toast.makeText(Laporan.this, "Kesalahan Pengisian Nomor Resi", Toast.LENGTH_SHORT).show();
+                    }
+                } else cekResi();
+            }
+
+            private void cekResi() {
+
+                Toast.makeText(Laporan.this, "Berhasil Memasukan Nomor Resi", Toast.LENGTH_SHORT).show();
+                dialog.cancel();
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Tombol Batal
+                Toast.makeText(Laporan.this, "Anda Gagal Memasukan Nomor Resi", Toast.LENGTH_LONG).show();
+                dialog.cancel();
+            }
+        });
+
+    }
+
+    public boolean validasiResi(String kode) {
+        return kode.length() > 10;
+    }
+
 }
