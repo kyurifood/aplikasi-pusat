@@ -1,7 +1,6 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +44,7 @@ public class ListItemAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null)
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_item_layout, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_item_layout_pesanan, parent, false);
 
         final Item_Pesanan item = items.get(position);
 
