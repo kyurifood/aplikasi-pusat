@@ -8,6 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
 
 
+<<<<<<< HEAD
+=======
     </style>
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
@@ -30,4 +32,156 @@
         <item name="android:background">@color/primary</item>
     </style>
 
+
+    <style name="OrangeButtonTheme" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorAccentDark</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/white_primary_text</item>
+    </style>
+
+    <style name="OrangeButton">
+        <item name="android:theme">@style/OrangeButtonTheme</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TealButtonTheme" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorPrimaryDark</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/white_primary_text</item>
+    </style>
+
+    <style name="TealButton">
+        <item name="android:theme">@style/TealButtonTheme</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+
+
+    <style name="LayoutMatchParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="LayoutWrapContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+>>>>>>> 6042e54f238be87638aa90087f153ad44db99946
+    </style>
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/hijau</item>
+
+        <item name="android:windowBackground">@color/cream</item>
+
+        <item name="colorControlNormal">@color/oil</item>
+        <item name="colorControlActivated">@color/oil</item>
+        <item name="colorControlHighlight">@color/oil</item>
+        <item name="android:textColorHint">@color/oil</item>
+
+<<<<<<< HEAD
+        <item name="colorButtonNormal">@color/primary_darker</item>
+    </style>
+
+    <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/hijau</item>
+        <item name="android:textColorPrimary">@color/iron</item>
+        <item name="android:background">@color/primary</item>
+=======
+    <style name="LayoutFillParent">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+>>>>>>> 6042e54f238be87638aa90087f153ad44db99946
+    </style>
+
+    <style name="LayoutMatchParent.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="ComponentLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="DefaultLayout" parent="LayoutMatchParent.Vertical">
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:clickable">false</item>
+        <item name="android:descendantFocusability">beforeDescendants</item>
+        <item name="android:padding">@dimen/component_padding_margin</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:background">@color/background</item>
+    </style>
+
+    <style name="Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/panel_bg</item>
+        <item name="android:padding">@dimen/layout_padding_margin</item>
+    </style>
+
+    <style name="Panel.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Panel.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="BlankSpaceSpaceHorizontal">
+        <item name="android:layout_width">@dimen/layout_padding_margin</item>
+        <item name="android:layout_height">@dimen/line</item>
+    </style>
+
+    <style name="BlankSpaceSpaceVertical">
+        <item name="android:layout_width">@dimen/line</item>
+        <item name="android:layout_height">@dimen/layout_padding_margin</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/component_padding_margin</item>
+    </style>
+
+    <style name="Text.Date">
+        <item name="android:textColor">@color/switch_thumb_disabled_material_dark</item>
+        <item name="android:textSize">@dimen/abc_text_size_caption_material</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="Text.Headline">
+        <item name="android:textColor">@color/black_primary_text</item>
+        <item name="android:textSize">@dimen/abc_text_size_headline_material</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+    </style>
+
+    <style name="Text.Label">
+        <item name="android:textColor">@color/black_secondary_text</item>
+        <item name="android:textSize">@dimen/abc_text_size_medium_material</item>
+    </style>
+
+
+    <!--Line-->
+    <style name="HorizontalDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_width</item>
+        <item name="android:background">@drawable/line_horizontal</item>
+    </style>
+
+    <style name="spinnerItemStyle">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="spinnerDropDownItemStyle">
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

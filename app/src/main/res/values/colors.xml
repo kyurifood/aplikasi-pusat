@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+=======
+
+>>>>>>> 6042e54f238be87638aa90087f153ad44db99946
 
     <color name="primary">#D03638</color>
     <color name="primary_dark">#D03638</color>
     <color name="primary_darker">#D03638</color>
+<<<<<<< HEAD
+=======
+    <color name="grey">#8b99a0</color>
+>>>>>>> 6042e54f238be87638aa90087f153ad44db99946
     <color name="accent">#FFFFFF</color>
     <color name="cream">#FFFFAD</color>
     <color name="black">#000000</color>
@@ -19,4 +27,23 @@
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
     <color name="hijau">#6BB45A</color>
+<<<<<<< HEAD
+=======
+
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorAccent">#FFC107</color>
+    <color name="colorAccentDark">#FB8C00</color>
+    <color name="background">#E6E6E6</color>
+
+    <color name="black_primary_text">#BF000000</color>
+    <color name="black_secondary_text">#80000000</color>
+    <color name="black_disabled_hint_text">#4D000000</color>
+    <color name="black_divider">#4D000000</color>
+
+    <color name="white_primary_text">#FFFFFF</color>
+    <color name="white_secondary_text">#B3FFFFFF</color>
+    <color name="white_disabled_hint_text">#80FFFFFF</color>
+    <color name="white_divider">#26FFFFFF</color>
+>>>>>>> 6042e54f238be87638aa90087f153ad44db99946
 </resources>

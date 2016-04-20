@@ -15,8 +15,13 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
 
+<<<<<<< HEAD:app/src/main/java/pusat/android/makananbekuenak/com/aplikasi_pusat/HomeScreen.java
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+=======
+        //Intent intent = new Intent(this, LoginActivity.class);
+        //startActivity(intent);
+>>>>>>> 6042e54f238be87638aa90087f153ad44db99946:app/src/main/java/pusat/android/makananbekuenak/com/aplikasi_pusat/HomeScreen.java
     }
 
     @Override
@@ -71,7 +76,7 @@ public class HomeScreen extends AppCompatActivity {
     //--Pesanan---
     public void btn_pesanan(View v) {
 
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Pesanan.class);
+        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.MainActivity.class);
         startActivity(panggil_class);
     }
 
