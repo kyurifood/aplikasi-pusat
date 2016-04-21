@@ -24,6 +24,8 @@
         <activity android:name=".Regional"/>
         <activity android:name=".Laporan"/>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".DaftarProduk"/>
+
     </application>
 
 </manifest>
