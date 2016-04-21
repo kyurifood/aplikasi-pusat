@@ -57,9 +57,11 @@ public class Produk extends AppCompatActivity {
         Button buttonGallery = (Button) findViewById(R.id.button);
         Button addNewItem = (Button) findViewById(R.id.tambahharga);
         Spinner mSpinner= (Spinner)findViewById(R.id.spinnerregional);
+
+
         lvItem = (ListView) findViewById(R.id.lv_item);
         ViewGroup.LayoutParams listViewParams = (ViewGroup.LayoutParams) lvItem.getLayoutParams();
-        listViewParams.height = 835;
+        listViewParams.height = 380;
         lvItem.requestLayout();
 
         lvItem.setOnTouchListener(new View.OnTouchListener() {
@@ -193,6 +195,7 @@ public class Produk extends AppCompatActivity {
         promptsView = LayoutInflater.from(Produk.this).inflate(R.layout.hargarigional, null);
 
         Spinner mSpinner= (Spinner) promptsView.findViewById(R.id.spinnerregional);
+
 
         txtharga = (EditText) promptsView.findViewById(R.id.harga);
         txtharga.setText(item.getHarga());
