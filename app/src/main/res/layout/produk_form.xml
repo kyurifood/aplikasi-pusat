@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="600dp"
+    android:id="@+id/linearLayout">
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="13dp">
+        <ImageView
+            android:layout_width="158dp"
+            android:layout_height="137dp"
+            android:text="|Produk"
+            android:textSize="20dp"
+            android:id="@+id/foto"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginRight="13dp"
+        android:layout_marginLeft="13dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="unggah"
+            android:id="@+id/button"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:text="Kode"
+        android:id="@+id/textView" />
+
+    <EditText
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/kode" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama"
+        android:id="@+id/textView2" />
+
+    <EditText
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/nama" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Harga Awal"
+        android:id="@+id/textView4" />
+
+    <EditText
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/hargaawal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Harga / Regional"
+        android:id="@+id/textView3"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="54dp"
+        android:layout_height="37dp"
+        android:text="+"
+        android:id="@+id/tambahharga"
+        android:layout_gravity="right" />
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginRight="13dp"
+        android:layout_marginLeft="13dp">
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/lv_item"/>
+
+
+    </LinearLayout>
+</LinearLayout>
+

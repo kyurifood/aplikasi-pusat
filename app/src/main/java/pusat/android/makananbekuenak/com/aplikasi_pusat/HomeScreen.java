@@ -42,7 +42,7 @@ public class HomeScreen extends AppCompatActivity {
     //--Produk---
     public void btn_produk(View v) {
 
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Produk.class);
+        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.DaftarProduk.class);
         startActivity(panggil_class);
     }
 
@@ -73,11 +73,11 @@ public class HomeScreen extends AppCompatActivity {
         Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.MainActivity.class);
         startActivity(panggil_class);
     }
-
     //--Laporan---
     public void btn_laporan(View v) {
 
         Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Laporan.class);
         startActivity(panggil_class);
     }
+
 }
