@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -30,14 +32,6 @@ public class DaftarProduk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daftar_produk);
 
-        tambah = (Button)findViewById(R.id.tambah_produk);
-
-        tambah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DaftarProduk.this, Produk.class));
-            }
-        });
 
         List<ItemProduk> items = new ArrayList<>();
         ItemProduk item1 = new ItemProduk();
@@ -67,13 +61,44 @@ public class DaftarProduk extends AppCompatActivity {
 
         adapter = new ListItemproduk(getApplicationContext(), items);
         lvdaftar.setAdapter(adapter);
+        lvdaftar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(getApplicationContext(),Produk.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.tambah_produk, menu);
         return true;
+    }
+
+    @Override
+
+         public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.aksi_tambah) {
+            panggilclass();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+    public void panggilclass (){
+        Intent panggil = new Intent(getApplicationContext(), Produk.class);
+        startActivity(panggil);
     }
 
 }

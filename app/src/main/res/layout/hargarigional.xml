@@ -3,27 +3,44 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Regional"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="2dp"/>
+
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/pklist"
         android:id="@+id/spinnerregional"
-        android:layout_gravity="center_horizontal" />
+        style="@style/spinnerDropDownItemStyle"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <View style="@style/HorizontalDivider" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Harga"
-        android:id="@+id/textView5" />
-
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
         android:id="@+id/harga"
+        android:hint="Masukan Harga"
         android:layout_gravity="center_horizontal" />
+    </android.support.design.widget.TextInputLayout>
 
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="18dp">
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,4 +52,5 @@
         android:layout_height="wrap_content"
         android:text="kembali"
         android:id="@+id/kembali" />
+    </LinearLayout>
 </LinearLayout>

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import pusat.android.makananbekuenak.com.aplikasi_pusat.Produk;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item;
 
@@ -67,6 +68,14 @@ public class ListItem extends BaseAdapter {
             }
         });
 
+        Button edit = (Button) convertView.findViewById(R.id.edit);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((Produk) context).showEditDialog(position, item);
+            }
+        });
+
         return convertView;
     }
 
@@ -77,6 +86,10 @@ public class ListItem extends BaseAdapter {
 
     public void deleteItem(int position){
         items.remove(position);
+        notifyDataSetChanged();
+    }
+    public void editItem(int position, Item item){
+        items.set(position, item);
         notifyDataSetChanged();
     }
 
