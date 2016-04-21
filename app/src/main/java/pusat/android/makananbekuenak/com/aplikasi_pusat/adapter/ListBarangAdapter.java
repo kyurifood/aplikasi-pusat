@@ -65,7 +65,7 @@ public class ListBarangAdapter extends BaseAdapter {
         CheckBox cbBarangcheck4 = (CheckBox) convertView.findViewById(R.id.item_check4);
 
         Button profil = (Button) convertView.findViewById(R.id.profil);
-        final Button pop = (Button) convertView.findViewById(R.id.btn_pop);
+
 
         final ListBarang barang = getItem(position);
 
@@ -89,34 +89,7 @@ public class ListBarangAdapter extends BaseAdapter {
         });
 
 
-        //opsi menu
-        pop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                PopupMenu popup = new PopupMenu(context, pop);
-                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
 
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.satu:
-                                Toast.makeText(context, item.getTitle(), Toast.LENGTH_SHORT).show();
-                                break;
-                            case R.id.dua:
-                               ((Laporan) context).NotifikasiResi();
-                                break;
-                            default:
-                                Toast.makeText(context, item.getTitle(), Toast.LENGTH_SHORT).show();
-                                break;
-                        }
-                        return true;
-                    }
-                });
-
-                popup.show();
-            }
-        });
-        //batas opsi menu
         return convertView;
     }
 }
