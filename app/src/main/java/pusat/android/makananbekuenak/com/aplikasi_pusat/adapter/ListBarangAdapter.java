@@ -24,6 +24,8 @@ public class ListBarangAdapter extends BaseAdapter {
 
     public Context context;
     private List<ListBarang> barangList;
+
+
     public ListBarangAdapter(Context context, List<ListBarang> barangList){
         this.context = context;
         this.barangList = barangList;
@@ -90,7 +92,7 @@ public class ListBarangAdapter extends BaseAdapter {
         //opsi menu
         pop.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 PopupMenu popup = new PopupMenu(context, pop);
                 popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
 

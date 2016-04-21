@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">aplikasi-pusat</string>
     <string name="action_settings">Settings</string>
+
+    <string name="pk1">Pilih Regional</string>
+    <string name="pk2">Sulawesi</string>
+    <string name="pk3">Kalimanta</string>
+    <string name="pk4">Sumatra</string>
+    <string-array name="pklist">
+        <item>@string/pk1</item>
+        <item>@string/pk2</item>
+        <item>@string/pk3</item>
+        <item>@string/pk4</item>
+    </string-array>
 </resources>
