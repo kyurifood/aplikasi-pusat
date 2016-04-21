@@ -11,9 +11,9 @@ import android.widget.CheckBox;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.List;
 
+import pusat.android.makananbekuenak.com.aplikasi_pusat.Laporan;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ListBarang;
 
@@ -103,7 +103,7 @@ public class ListBarangAdapter extends BaseAdapter {
                                 Toast.makeText(context, item.getTitle(), Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.dua:
-                                Toast.makeText(context, item.getTitle(), Toast.LENGTH_SHORT).show();
+                               ((Laporan) context).NotifikasiResi();
                                 break;
                             default:
                                 Toast.makeText(context, item.getTitle(), Toast.LENGTH_SHORT).show();
@@ -117,7 +117,6 @@ public class ListBarangAdapter extends BaseAdapter {
             }
         });
         //batas opsi menu
-
         return convertView;
     }
 }

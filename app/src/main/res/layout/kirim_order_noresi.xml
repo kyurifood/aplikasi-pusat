@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/p1"
+        android:entries="@array/pList"
+        android:id="@+id/l_pengiriman"
+        style="@style/spinnerDropDownItemStyle">
+    </Spinner>
+
+    <View style="@style/HorizontalDivider" />
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+        <EditText android:id="@+id/nmrResi"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukan Nomor Resi"
+            android:inputType="number"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="18dp">
+
+        <Button
+            android:id="@+id/btnKembali"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:text="Batal"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btnProses"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:text="Kirim"/>
+
+    </LinearLayout>
+</LinearLayout>

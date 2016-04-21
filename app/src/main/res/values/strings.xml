@@ -12,4 +12,12 @@
         <item>@string/pk3</item>
         <item>@string/pk4</item>
     </string-array>
+    <string name="p1">Pilih Pengiriman</string>
+    <string name="p2">JNE</string>
+    <string name="p3">TIKI</string>
+    <string-array name="pList">
+        <item>@string/p1</item>
+        <item>@string/p2</item>
+        <item>@string/p3</item>
+    </string-array>
 </resources>
