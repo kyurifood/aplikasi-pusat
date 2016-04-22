@@ -62,16 +62,6 @@ public class Produk extends AppCompatActivity {
         setContentView(R.layout.produk);
 
 
-        // Retrieve data from MainActivity on listview item click
-        Intent i = getIntent();
-        // Get a single position
-        position = i.getExtras().getInt("position");
-        // Get the list of rank
-        isikode = i.getStringArrayExtra("itemkode");
-        // Get the list of country
-        isinama = i.getStringArrayExtra("itemnama");
-        // Get the list of flag
-        flag = i.getIntArrayExtra("flag");
 
         // Locate the TextViews in singleitemview.xml
 
@@ -83,13 +73,6 @@ public class Produk extends AppCompatActivity {
         // Locate the ImageView in singleitemview.xml
         imgview = (ImageView) findViewById(R.id.foto);
 
-        // Load the text into the TextViews followed by the position
-        txtkode.setText(isikode[position]);
-        txtnama.setText(isinama[position]);
-
-
-        // Load the image into the ImageView followed by the position
-        imgview.setImageResource(flag[position]);
 
 
         Button buttonGallery = (Button) findViewById(R.id.button);
@@ -145,6 +128,27 @@ public class Produk extends AppCompatActivity {
                 }
             }
         });
+
+     /*           // Retrieve data from MainActivity on listview item click
+        Intent i = getIntent();
+        // Get a single position
+        position = i.getExtras().getInt("position");
+        // Get the list of rank
+        isikode = i.getStringArrayExtra("itemkode");
+        // Get the list of country
+        isinama = i.getStringArrayExtra("itemnama");
+        // Get the list of flag
+        flag = i.getIntArrayExtra("flag");
+
+        // Load the text into the TextViews followed by the position
+        txtkode.setText(isikode[position]);
+        txtnama.setText(isinama[position]);
+
+
+        // Load the image into the ImageView followed by the position
+        imgview.setImageResource(flag[position]);
+*/
+
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -389,6 +393,8 @@ public class Produk extends AppCompatActivity {
         Intent panggil = new Intent(getApplicationContext(), DaftarProduk.class);
         startActivity(panggil);
     }
+
+
 
 
 

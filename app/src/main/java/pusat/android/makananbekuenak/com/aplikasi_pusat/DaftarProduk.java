@@ -26,6 +26,9 @@ public class DaftarProduk extends AppCompatActivity {
     String[] itemnama;
     int[] flag;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,12 +75,13 @@ public class DaftarProduk extends AppCompatActivity {
         lvdaftar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(),Produk.class);
+                Intent i = new Intent(getApplicationContext(), Produk.class);
 
                 // Pass all data rank
                 i.putExtra("itemkode", itemkode);
                 // Pass all data country
                 i.putExtra("itemnama", itemnama);
+
                 // Pass all data flag
                 i.putExtra("flag", flag);
                 // Pass a single position
@@ -87,7 +91,6 @@ public class DaftarProduk extends AppCompatActivity {
         });
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.tambah_produk, menu);
@@ -96,7 +99,7 @@ public class DaftarProduk extends AppCompatActivity {
 
     @Override
 
-         public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -117,5 +120,6 @@ public class DaftarProduk extends AppCompatActivity {
         Intent panggil = new Intent(getApplicationContext(), Produk.class);
         startActivity(panggil);
     }
+
 
 }
