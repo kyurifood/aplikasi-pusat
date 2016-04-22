@@ -44,6 +44,20 @@ public class Produk extends AppCompatActivity {
     List<Item> items = new ArrayList<>();
 
     EditText txtkode, txtnama, txtharga,txthargaawal;
+
+
+    private Button uploadButton;
+    private Button cancelButton;
+
+    private ImageView uploadedImage;
+
+    //photo result code...
+    private static final int GALLERY_PHOTO_CODE = 1;
+
+    private static final String TAG = MainActivity.class.getSimpleName();
+
+    //usused
+    Bitmap bitmap = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,6 +138,7 @@ public class Produk extends AppCompatActivity {
                 imgview.setImageBitmap(photo);
 
             }
+
         }
 
 
