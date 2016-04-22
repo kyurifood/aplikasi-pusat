@@ -8,23 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
 
 
-<<<<<<< HEAD
-=======
     </style>
-    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/hijau</item>
 
-        <item name="android:windowBackground">@color/cream</item>
-
-        <item name="colorControlNormal">@color/oil</item>
-        <item name="colorControlActivated">@color/oil</item>
-        <item name="colorControlHighlight">@color/oil</item>
-        <item name="android:textColorHint">@color/oil</item>
-
-        <item name="colorButtonNormal">@color/primary_darker</item>
-    </style>
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@color/hijau</item>
@@ -68,7 +53,6 @@
     <style name="LayoutWrapContent">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
     </style>
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
@@ -82,20 +66,10 @@
         <item name="colorControlHighlight">@color/oil</item>
         <item name="android:textColorHint">@color/oil</item>
 
-<<<<<<< HEAD
         <item name="colorButtonNormal">@color/primary_darker</item>
     </style>
 
-    <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
-        <item name="colorAccent">@color/hijau</item>
-        <item name="android:textColorPrimary">@color/iron</item>
-        <item name="android:background">@color/primary</item>
-=======
-    <style name="LayoutFillParent">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">fill_parent</item>
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
-    </style>
+
 
     <style name="LayoutMatchParent.Vertical">
         <item name="android:orientation">vertical</item>
@@ -153,11 +127,7 @@
         <item name="android:gravity">right</item>
     </style>
 
-    <style name="Text.Headline">
-        <item name="android:textColor">@color/black_primary_text</item>
-        <item name="android:textSize">@dimen/abc_text_size_headline_material</item>
-        <item name="android:fontFamily">sans-serif-black</item>
-    </style>
+
 
     <style name="Text.Label">
         <item name="android:textColor">@color/black_secondary_text</item>
@@ -166,11 +136,7 @@
 
 
     <!--Line-->
-    <style name="HorizontalDivider">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/line_width</item>
-        <item name="android:background">@drawable/line_horizontal</item>
-    </style>
+
 
     <style name="spinnerItemStyle">
         <item name="android:padding">10dp</item>

@@ -23,10 +23,7 @@
         <activity android:name=".Pesanan"/>
         <activity android:name=".Regional"/>
         <activity android:name=".Laporan"/>
-<<<<<<< HEAD
-=======
         <activity android:name=".MainActivity"/>
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
     </application>
 
 </manifest>

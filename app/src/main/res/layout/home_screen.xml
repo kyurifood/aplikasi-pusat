@@ -21,13 +21,10 @@
             android:layout_weight="1"
             android:text="Produk"
             android:textSize="18dp"
-<<<<<<< HEAD
             android:drawableTop="@drawable/my_produk"/>
-=======
             android:drawableTop="@drawable/my_produk"
             android:background="#FFFFAD"
             android:layout_margin="8dp"/>
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
         <Button
             android:id="@+id/btnRegional"
             android:onClick="btn_regional"
@@ -36,13 +33,10 @@
             android:layout_weight="1"
             android:text="Regional"
             android:textSize="18dp"
-<<<<<<< HEAD
             android:drawableTop="@drawable/my_regional"/>
-=======
             android:background="#FFFFAD"
             android:drawableTop="@drawable/my_regional"
             android:layout_margin="8dp"/>
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
     </LinearLayout>
 
     <LinearLayout android:layout_height="match_parent"
@@ -58,13 +52,10 @@
             android:layout_weight="1"
             android:text="Distributor"
             android:textSize="18dp"
-<<<<<<< HEAD
             android:drawableTop="@drawable/my_distributor" />
-=======
             android:drawableTop="@drawable/my_distributor"
             android:background="#FFFFAD"
             android:layout_margin="8dp"/>
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
         <Button android:id="@+id/btnMarketer"
             android:onClick="btn_marketer"
             android:layout_width="match_parent"
@@ -72,13 +63,10 @@
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="Marketer"
-<<<<<<< HEAD
             android:drawableTop="@drawable/my_marketer"/>
-=======
             android:drawableTop="@drawable/my_marketer"
             android:background="#FFFFAD"
             android:layout_margin="8dp"/>
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
     </LinearLayout>
 
     <LinearLayout android:layout_height="match_parent"
@@ -95,13 +83,10 @@
             android:layout_weight="1"
             android:text="Pesanan"
             android:textSize="18dp"
-<<<<<<< HEAD
             android:drawableTop="@drawable/my_pesanan"/>
-=======
             android:drawableTop="@drawable/my_pesanan"
             android:background="#FFFFAD"
             android:layout_margin="8dp"/>
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
         <Button android:id="@+id/btnLaporan"
             android:onClick="btn_laporan"
             android:layout_width="match_parent"
@@ -109,12 +94,9 @@
             android:layout_weight="1"
             android:text="Laporan"
             android:textSize="18dp"
-<<<<<<< HEAD
             android:drawableTop="@drawable/my_laporan"/>
-=======
             android:drawableTop="@drawable/my_laporan"
             android:background="#FFFFAD"
             android:layout_margin="8dp"/>
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
     </LinearLayout>
   </LinearLayout>

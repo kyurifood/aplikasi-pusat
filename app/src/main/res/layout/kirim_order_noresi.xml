@@ -13,7 +13,8 @@
         style="@style/spinnerDropDownItemStyle">
     </Spinner>
 
-    <View style="@style/HorizontalDivider" />
+
+
 
 
     <android.support.design.widget.TextInputLayout

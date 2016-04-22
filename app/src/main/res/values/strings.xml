@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">aplikasi-pusat</string>
     <string name="action_settings">Settings</string>
-<<<<<<< HEAD
-=======
+
 
     <string name="p1">Pilih Pengiriman</string>
     <string name="p2">JNE</string>
@@ -12,5 +11,4 @@
         <item>@string/p2</item>
         <item>@string/p3</item>
     </string-array>
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
 </resources>

@@ -2,29 +2,23 @@ package pusat.android.makananbekuenak.com.aplikasi_pusat.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-<<<<<<< HEAD
-=======
 import android.view.MenuItem;
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-<<<<<<< HEAD
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-=======
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
 
 import pusat.android.makananbekuenak.com.aplikasi_pusat.Laporan;
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
 import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ListBarang;
 
@@ -33,11 +27,10 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ListBarang;
  */
 public class ListBarangAdapter extends BaseAdapter {
 
-<<<<<<< HEAD
-    private Context context;
-=======
+
+
     public Context context;
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
+
     private List<ListBarang> barangList;
     public ListBarangAdapter(Context context, List<ListBarang> barangList){
         this.context = context;
@@ -78,10 +71,7 @@ public class ListBarangAdapter extends BaseAdapter {
         CheckBox cbBarangcheck4 = (CheckBox) convertView.findViewById(R.id.item_check4);
 
         Button profil = (Button) convertView.findViewById(R.id.profil);
-<<<<<<< HEAD
-=======
         final Button pop = (Button) convertView.findViewById(R.id.btn_pop);
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
 
         final ListBarang barang = getItem(position);
 
@@ -104,8 +94,6 @@ public class ListBarangAdapter extends BaseAdapter {
 
         });
 
-<<<<<<< HEAD
-=======
 
         //opsi menu
         pop.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +109,7 @@ public class ListBarangAdapter extends BaseAdapter {
                                 Toast.makeText(context, item.getTitle(), Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.dua:
-                               ((Laporan) context).NotifikasiResi();
+
                                 break;
                             default:
                                 Toast.makeText(context, item.getTitle(), Toast.LENGTH_SHORT).show();
@@ -135,7 +123,6 @@ public class ListBarangAdapter extends BaseAdapter {
             }
         });
         //batas opsi menu
->>>>>>> 6042e54f238be87638aa90087f153ad44db99946
         return convertView;
     }
 }
