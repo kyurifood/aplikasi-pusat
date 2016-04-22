@@ -46,28 +46,52 @@ public class Produk extends AppCompatActivity {
     EditText txtkode, txtnama, txtharga,txthargaawal;
 
 
-    private Button uploadButton;
-    private Button cancelButton;
 
-    private ImageView uploadedImage;
 
-    //photo result code...
-    private static final int GALLERY_PHOTO_CODE = 1;
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    String[] isikode;
+    String[] isinama;
 
-    //usused
-    Bitmap bitmap = null;
+    int[] flag;
+    int position;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk);
 
+
+        // Retrieve data from MainActivity on listview item click
+        Intent i = getIntent();
+        // Get a single position
+        position = i.getExtras().getInt("position");
+        // Get the list of rank
+        isikode = i.getStringArrayExtra("itemkode");
+        // Get the list of country
+        isinama = i.getStringArrayExtra("itemnama");
+        // Get the list of flag
+        flag = i.getIntArrayExtra("flag");
+
+        // Locate the TextViews in singleitemview.xml
+
+
         txtkode = (EditText) findViewById(R.id.kode);
         txtnama = (EditText) findViewById(R.id.nama);
         txthargaawal = (EditText) findViewById(R.id.hargaawal);
 
+        // Locate the ImageView in singleitemview.xml
         imgview = (ImageView) findViewById(R.id.foto);
+
+        // Load the text into the TextViews followed by the position
+        txtkode.setText(isikode[position]);
+        txtnama.setText(isinama[position]);
+
+
+        // Load the image into the ImageView followed by the position
+        imgview.setImageResource(flag[position]);
+
+
         Button buttonGallery = (Button) findViewById(R.id.button);
         Button addNewItem = (Button) findViewById(R.id.tambahharga);
         Spinner mSpinner= (Spinner)findViewById(R.id.spinnerregional);
@@ -263,6 +287,7 @@ public class Produk extends AppCompatActivity {
         // Submit your form here. your form is valid
         Toast.makeText(Produk.this, "Data Disimpan", Toast.LENGTH_SHORT).show();
 
+        panggilclass();
     }
 
 
@@ -323,10 +348,14 @@ public class Produk extends AppCompatActivity {
         if (id == R.id.simpan) {
 
 
+
+
+
             //String cpass = txtcpas.getText().toString();
             String kode = txtkode.getText().toString();
             String nama = txtnama.getText().toString();
             String hargawal = txthargaawal.getText().toString();
+
 
 
             if (!validateKode(kode)) {
@@ -346,12 +375,21 @@ public class Produk extends AppCompatActivity {
                     Toast.makeText(Produk.this, "Kesalahan dalam Harga Awal", Toast.LENGTH_SHORT).show();
                 }
 
-            } else submitForm();
+
+            }
+            else submitForm();
+
             return true;
+
         }
 
         return super.onOptionsItemSelected(item);
     }
+    public void panggilclass (){
+        Intent panggil = new Intent(getApplicationContext(), DaftarProduk.class);
+        startActivity(panggil);
+    }
+
 
 
 }

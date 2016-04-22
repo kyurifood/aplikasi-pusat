@@ -7,14 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemproduk;
-import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk;
 
 
 /**
@@ -25,14 +20,18 @@ public class DaftarProduk extends AppCompatActivity {
 
     ListView lvdaftar;
     ListItemproduk adapter;
-    Button tambah;
+
+
+    String[] itemkode;
+    String[] itemnama;
+    int[] flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daftar_produk);
 
-
+/*
         List<ItemProduk> items = new ArrayList<>();
         ItemProduk item1 = new ItemProduk();
         item1.setKode("001");
@@ -46,7 +45,7 @@ public class DaftarProduk extends AppCompatActivity {
         item3.setKode("003");
         item3.setNama("okonomiyahi");
 
-        ItemProduk item4 = new ItemProduk();
+        final ItemProduk item4 = new ItemProduk();
         item4.setKode("004");
         item4.setNama("biyapong");
 
@@ -54,17 +53,35 @@ public class DaftarProduk extends AppCompatActivity {
         items.add(item2);
         items.add(item3);
         items.add(item4);
+*/
 
+
+        // Generate sample data into string arrays
+        itemkode = new String[] { "001", "002", "003", "004" };
+
+        itemnama = new String[] { "karapao", "takoyaki", "ramen", "biyapong" };
+        flag = new int[] { R.drawable.produk, R.drawable.produk,
+                R.drawable.produk, R.drawable.produk};
 
 
         lvdaftar = (ListView) findViewById(R.id.lv_daftar);
 
-        adapter = new ListItemproduk(getApplicationContext(), items);
+        adapter = new ListItemproduk(this, itemkode, itemnama, flag);
+       // adapter = new ListItemproduk(getApplicationContext(), items);
         lvdaftar.setAdapter(adapter);
         lvdaftar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(getApplicationContext(),Produk.class);
+
+                // Pass all data rank
+                i.putExtra("itemkode", itemkode);
+                // Pass all data country
+                i.putExtra("itemnama", itemnama);
+                // Pass all data flag
+                i.putExtra("flag", flag);
+                // Pass a single position
+                i.putExtra("position", position);
                 startActivity(i);
             }
         });
