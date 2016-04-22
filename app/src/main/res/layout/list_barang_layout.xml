@@ -111,16 +111,4 @@
             android:enabled="false"
             android:id="@+id/item_check4" />
     </LinearLayout>
-    <LinearLayout
-        android:paddingTop="27dp"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_pop"
-            android:text="Opsi"/>
-        </LinearLayout>
 </LinearLayout>

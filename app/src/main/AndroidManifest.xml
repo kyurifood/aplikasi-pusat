@@ -20,7 +20,12 @@
         <activity android:name=".Distributor" />
         <activity android:name=".Marketer" />
         <activity android:name=".Produk"/>
-        <activity android:name=".Pesanan"/>
+        <activity
+            android:name=".Pesanan"
+            android:label="Pesanan"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustPan|adjustResize">
+        </activity>
         <activity android:name=".Regional"/>
         <activity android:name=".Laporan"/>
         <activity android:name=".MainActivity"/>
