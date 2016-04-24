@@ -2,7 +2,6 @@ package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -23,8 +22,6 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ListBarang;
 public class Laporan extends AppCompatActivity {
 
     ListView lvBarang;
-    Button  btnPrs, btnCancel;
-    EditText nomoResi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

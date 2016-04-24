@@ -24,6 +24,8 @@ public class ListBarangAdapter extends BaseAdapter {
 
     public Context context;
     private List<ListBarang> barangList;
+
+
     public ListBarangAdapter(Context context, List<ListBarang> barangList){
         this.context = context;
         this.barangList = barangList;
@@ -84,7 +86,6 @@ public class ListBarangAdapter extends BaseAdapter {
 
 
         });
-
         return convertView;
     }
 }

@@ -111,7 +111,6 @@
         </LinearLayout>
     </LinearLayout>
 
-
     <LinearLayout style="@style/ComponentLayout"
         android:orientation="horizontal"
         android:layout_weight="1">
