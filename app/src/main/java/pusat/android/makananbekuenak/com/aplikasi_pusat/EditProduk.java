@@ -1,6 +1,5 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -31,8 +30,7 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item;
  * Created by fikran on 23/04/16.
  */
 public class EditProduk extends AppCompatActivity {
-    private static final int PICK_FROM_CAMERA = 1;
-    private static final int PICK_FROM_GALLERY = 2;
+    private static final int SELECT_PHOTO = 100;
     ImageView imgview;
     ListView lvItem;
     ListItem adapter;
@@ -77,7 +75,6 @@ public class EditProduk extends AppCompatActivity {
 
 
 
-        Button buttonGallery = (Button) findViewById(R.id.button);
         Button addNewItem = (Button) findViewById(R.id.tambahharga);
         Spinner mSpinner= (Spinner)findViewById(R.id.spinnerregional);
 
@@ -103,31 +100,12 @@ public class EditProduk extends AppCompatActivity {
             }
         });
 
-        buttonGallery.setOnClickListener(new View.OnClickListener() {
-
+        imgview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent();
-// call android default gallery
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-// ******** code for crop image
-                intent.putExtra("crop", "true");
-                intent.putExtra("aspectX", 0);
-                intent.putExtra("aspectY", 0);
-                intent.putExtra("outputX", 200);
-                intent.putExtra("outputY", 150);
-
-                try {
-
-                    intent.putExtra("return-data", true);
-                    startActivityForResult(Intent.createChooser(intent,
-                            "Complete action using"), PICK_FROM_GALLERY);
-
-                } catch (ActivityNotFoundException e) {
-// Do nothing for now
-                }
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, SELECT_PHOTO);
             }
         });
 
@@ -152,31 +130,24 @@ public class EditProduk extends AppCompatActivity {
 
 
     }
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == PICK_FROM_CAMERA) {
-            Bundle extras = data.getExtras();
-            if (extras != null) {
-                Bitmap photo = extras.getParcelable("data");
-                imgview.setImageBitmap(photo);
-
-            }
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case SELECT_PHOTO:
+                if(resultCode == RESULT_OK){
+                    android.net.Uri selectedImage = data.getData();
+                    java.io.InputStream imageStream = null;
+                    try {
+                        imageStream = getContentResolver().openInputStream(selectedImage);
+                    } catch (java.io.FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    Bitmap yourSelectedImage = android.graphics.BitmapFactory.decodeStream(imageStream);
+                    imgview.setImageBitmap(yourSelectedImage);
+                }
         }
-
-        if (requestCode == PICK_FROM_GALLERY) {
-            Bundle extras2 = data.getExtras();
-            if (extras2 != null) {
-                Bitmap photo = extras2.getParcelable("data");
-                imgview.setImageBitmap(photo);
-
-            }
-
-        }
-
-
-
     }
-
 
     public void showAddDialog() {
 
