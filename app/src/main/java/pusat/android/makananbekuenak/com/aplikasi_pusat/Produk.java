@@ -67,9 +67,6 @@ public class Produk extends AppCompatActivity {
         // Locate the ImageView in singleitemview.xml
         imgview = (ImageView) findViewById(R.id.foto);
 
-
-
-
         Button addNewItem = (Button) findViewById(R.id.tambahharga);
         Spinner mSpinner= (Spinner)findViewById(R.id.spinnerregional);
 
