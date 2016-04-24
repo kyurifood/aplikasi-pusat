@@ -109,10 +109,7 @@
                 android:enabled="false"
                 android:id="@+id/item_check4" />
         </LinearLayout>
-
-
     </LinearLayout>
-
 
     <LinearLayout style="@style/ComponentLayout"
         android:orientation="horizontal"

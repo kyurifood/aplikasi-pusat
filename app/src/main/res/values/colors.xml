@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
 
     <color name="primary">#D03638</color>
     <color name="primary_dark">#D03638</color>
@@ -18,10 +21,13 @@
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
     <color name="hijau">#6BB45A</color>
+<<<<<<< HEAD
     <color name="merahkyuri">#D03638</color>
     <color name="colorPrimary">#009688</color>
     <color name="colorPrimaryDark">#00796B</color>
     <color name="colorAccent">#FFC107</color>
+=======
+>>>>>>> bbf0b270260caaddc4ab54765e6e012af9535960
     <color name="colorAccentDark">#FB8C00</color>
     <color name="background">#E6E6E6</color>
 

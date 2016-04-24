@@ -61,7 +61,6 @@ public class ListItemAdapter extends BaseAdapter {
         Button btnAction1 = (Button) convertView.findViewById(R.id.btn_action_1);
         Button btnAction2 = (Button) convertView.findViewById(R.id.btn_action_2);
 
-
         no_order.setText(item.getNo_order());
         tanggal_pesan.setText(item.getTanggal_pesan());
         nama.setText(item.getNama());
@@ -75,9 +74,6 @@ public class ListItemAdapter extends BaseAdapter {
                 Toast.makeText(context, item.getNo_order(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
 
         return convertView;
     }

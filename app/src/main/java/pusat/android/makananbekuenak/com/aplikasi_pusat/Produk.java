@@ -1,16 +1,15 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
-
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +43,6 @@ public class Produk extends AppCompatActivity {
     List<Item> items = new ArrayList<>();
 
     EditText txtkode, txtnama, txtharga,txthargaawal;
-
-
-
-
 
     String[] isikode;
     String[] isinama;
@@ -168,13 +163,8 @@ public class Produk extends AppCompatActivity {
                 imgview.setImageBitmap(photo);
 
             }
-
         }
-
-
-
     }
-
 
     public void showAddDialog() {
 
@@ -282,21 +272,12 @@ public class Produk extends AppCompatActivity {
         addNewItemDialog.show();
     }
 
-
-
-
-
-
     private void submitForm() {
         // Submit your form here. your form is valid
         Toast.makeText(Produk.this, "Data Disimpan", Toast.LENGTH_SHORT).show();
 
         panggilclass();
     }
-
-
-
-
     //    public boolean validasiCPass(String cpass) {
 //        return cpass.length() > 0;
 //    }
@@ -351,16 +332,10 @@ public class Produk extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.simpan) {
 
-
-
-
-
             //String cpass = txtcpas.getText().toString();
             String kode = txtkode.getText().toString();
             String nama = txtnama.getText().toString();
             String hargawal = txthargaawal.getText().toString();
-
-
 
             if (!validateKode(kode)) {
                 txtkode.setError("silahkan masukan kode");
@@ -378,24 +353,18 @@ public class Produk extends AppCompatActivity {
                 {
                     Toast.makeText(Produk.this, "Kesalahan dalam Harga Awal", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
             else submitForm();
 
             return true;
-
         }
 
         return super.onOptionsItemSelected(item);
     }
+
     public void panggilclass (){
         Intent panggil = new Intent(getApplicationContext(), DaftarProduk.class);
         startActivity(panggil);
     }
-
-
-
-
 
 }

@@ -31,7 +31,14 @@
             android:layout_weight="1"
             android:text="Produk"
             android:textSize="18dp"
+<<<<<<< HEAD
             android:drawableTop="@drawable/my_produk" />
+=======
+            android:drawableTop="@drawable/my_produk"/>
+            android:drawableTop="@drawable/my_produk"
+            android:background="#FFFFAD"
+            android:layout_margin="8dp"/>
+>>>>>>> bbf0b270260caaddc4ab54765e6e012af9535960
         <Button
             style="@style/Hijau"
             android:id="@+id/btnRegional"
@@ -41,6 +48,11 @@
             android:layout_weight="1"
             android:text="Regional"
             android:textSize="18dp"
+<<<<<<< HEAD
+=======
+            android:drawableTop="@drawable/my_regional"/>
+            android:background="#FFFFAD"
+>>>>>>> bbf0b270260caaddc4ab54765e6e012af9535960
             android:drawableTop="@drawable/my_regional"
             />
     </LinearLayout>
@@ -61,16 +73,30 @@
             android:text="Distributor"
             android:textSize="18dp"
             android:drawableTop="@drawable/my_distributor" />
+<<<<<<< HEAD
         <Button
             android:id="@+id/btnMarketer"
+=======
+            android:drawableTop="@drawable/my_distributor"
+            android:background="#FFFFAD"
+            android:layout_margin="8dp"/>
+        <Button android:id="@+id/btnMarketer"
+>>>>>>> bbf0b270260caaddc4ab54765e6e012af9535960
             android:onClick="btn_marketer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="Marketer"
+<<<<<<< HEAD
             style="@style/Hijau"
             android:drawableTop="@drawable/my_marketer" />
+=======
+            android:drawableTop="@drawable/my_marketer"/>
+            android:drawableTop="@drawable/my_marketer"
+            android:background="#FFFFAD"
+            android:layout_margin="8dp"/>
+>>>>>>> bbf0b270260caaddc4ab54765e6e012af9535960
     </LinearLayout>
 
     <LinearLayout android:layout_height="match_parent"
@@ -86,7 +112,14 @@
             android:layout_weight="1"
             android:text="Pesanan"
             android:textSize="18dp"
+<<<<<<< HEAD
             android:drawableTop="@drawable/my_pesanan" />
+=======
+            android:drawableTop="@drawable/my_pesanan"/>
+            android:drawableTop="@drawable/my_pesanan"
+            android:background="#FFFFAD"
+            android:layout_margin="8dp"/>
+>>>>>>> bbf0b270260caaddc4ab54765e6e012af9535960
         <Button android:id="@+id/btnLaporan"
             android:onClick="btn_laporan"
             android:layout_width="match_parent"
@@ -94,8 +127,8 @@
             android:layout_weight="1"
             android:text="Laporan"
             android:textSize="18dp"
+            android:drawableTop="@drawable/my_laporan"/>
             android:drawableTop="@drawable/my_laporan"
             style="@style/Hijau"/>
     </LinearLayout>
-
   </LinearLayout>

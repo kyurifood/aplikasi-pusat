@@ -9,20 +9,7 @@
 
 
     </style>
-    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/hijau</item>
 
-        <item name="android:windowBackground">@color/cream</item>
-
-        <item name="colorControlNormal">@color/oil</item>
-        <item name="colorControlActivated">@color/oil</item>
-        <item name="colorControlHighlight">@color/oil</item>
-        <item name="android:textColorHint">@color/oil</item>
-
-        <item name="colorButtonNormal">@color/primary_darker</item>
-    </style>
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@color/hijau</item>
@@ -67,11 +54,22 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/hijau</item>
 
-    <style name="LayoutFillParent">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">fill_parent</item>
+        <item name="android:windowBackground">@color/cream</item>
+
+        <item name="colorControlNormal">@color/oil</item>
+        <item name="colorControlActivated">@color/oil</item>
+        <item name="colorControlHighlight">@color/oil</item>
+        <item name="android:textColorHint">@color/oil</item>
+
+        <item name="colorButtonNormal">@color/primary_darker</item>
     </style>
+
+
 
     <style name="LayoutMatchParent.Vertical">
         <item name="android:orientation">vertical</item>
@@ -129,11 +127,7 @@
         <item name="android:gravity">right</item>
     </style>
 
-    <style name="Text.Headline">
-        <item name="android:textColor">@color/black_primary_text</item>
-        <item name="android:textSize">@dimen/abc_text_size_headline_material</item>
-        <item name="android:fontFamily">sans-serif-black</item>
-    </style>
+
 
     <style name="Text.Label">
         <item name="android:textColor">@color/black_secondary_text</item>
@@ -142,10 +136,18 @@
 
 
     <!--Line-->
-    <style name="HorizontalDivider">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/line_width</item>
-        <item name="android:background">@drawable/line_horizontal</item>
+
+    <style name="HijauKyurifood" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/cream</item>
+        <item name="colorButtonNormal">@color/hijau</item>
+        <item name="android:textColorPrimary">@color/white_primary_text</item>
+        <item name="android:textColorSecondaryInverseNoDisable">@color/hijau</item>
+    </style>
+
+    <style name="Hijau">
+        <item name="android:theme">@style/HijauKyurifood</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="spinnerItemStyle">
