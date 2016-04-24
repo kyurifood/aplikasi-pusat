@@ -2,9 +2,6 @@
     <string name="app_name">aplikasi-pusat</string>
     <string name="action_settings">Settings</string>
 
-<<<<<<< HEAD
-
-=======
     <string name="pk1">Pilih Regional</string>
     <string name="pk2">Sulawesi</string>
     <string name="pk3">Kalimanta</string>
@@ -15,7 +12,6 @@
         <item>@string/pk3</item>
         <item>@string/pk4</item>
     </string-array>
->>>>>>> a693e9fa6c97a6f2c2c835869956b8435c9e4398
     <string name="p1">Pilih Pengiriman</string>
     <string name="p2">JNE</string>
     <string name="p3">TIKI</string>

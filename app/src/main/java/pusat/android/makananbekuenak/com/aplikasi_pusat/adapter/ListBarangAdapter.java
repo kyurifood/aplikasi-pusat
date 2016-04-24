@@ -97,8 +97,8 @@ public class ListBarangAdapter extends BaseAdapter {
         });
 
 
-<<<<<<< HEAD
         //opsi menu
+
         pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,9 +126,6 @@ public class ListBarangAdapter extends BaseAdapter {
             }
         });
         //batas opsi menu
-=======
-
->>>>>>> a693e9fa6c97a6f2c2c835869956b8435c9e4398
         return convertView;
     }
 }
