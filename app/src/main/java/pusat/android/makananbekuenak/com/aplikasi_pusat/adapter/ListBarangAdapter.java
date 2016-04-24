@@ -32,6 +32,8 @@ public class ListBarangAdapter extends BaseAdapter {
     public Context context;
 
     private List<ListBarang> barangList;
+
+
     public ListBarangAdapter(Context context, List<ListBarang> barangList){
         this.context = context;
         this.barangList = barangList;
@@ -71,7 +73,7 @@ public class ListBarangAdapter extends BaseAdapter {
         CheckBox cbBarangcheck4 = (CheckBox) convertView.findViewById(R.id.item_check4);
 
         Button profil = (Button) convertView.findViewById(R.id.profil);
-        final Button pop = (Button) convertView.findViewById(R.id.btn_pop);
+
 
         final ListBarang barang = getItem(position);
 
@@ -95,6 +97,7 @@ public class ListBarangAdapter extends BaseAdapter {
         });
 
 
+<<<<<<< HEAD
         //opsi menu
         pop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +126,9 @@ public class ListBarangAdapter extends BaseAdapter {
             }
         });
         //batas opsi menu
+=======
+
+>>>>>>> a693e9fa6c97a6f2c2c835869956b8435c9e4398
         return convertView;
     }
 }

@@ -24,6 +24,10 @@
         <activity android:name=".Regional"/>
         <activity android:name=".Laporan"/>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".DaftarProduk"/>
+
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     </application>
 
 </manifest>
