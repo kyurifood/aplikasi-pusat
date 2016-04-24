@@ -17,7 +17,7 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
 
-<<<<<<< HEAD
+
 
 
         btn_produk = (Button) findViewById(R.id.btnProduk);
@@ -80,10 +80,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-=======
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
->>>>>>> bbf0b270260caaddc4ab54765e6e012af9535960
+
         //Intent intent = new Intent(this, LoginActivity.class);
         //startActivity(intent);
     }

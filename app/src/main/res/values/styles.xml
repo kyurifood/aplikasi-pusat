@@ -137,18 +137,7 @@
 
     <!--Line-->
 
-    <style name="HijauKyurifood" parent="Theme.AppCompat.Light">
-        <item name="colorControlHighlight">@color/cream</item>
-        <item name="colorButtonNormal">@color/hijau</item>
-        <item name="android:textColorPrimary">@color/white_primary_text</item>
-        <item name="android:textColorSecondaryInverseNoDisable">@color/hijau</item>
-    </style>
 
-    <style name="Hijau">
-        <item name="android:theme">@style/HijauKyurifood</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
 
     <style name="spinnerItemStyle">
         <item name="android:padding">10dp</item>
