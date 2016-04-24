@@ -32,6 +32,7 @@ public class ListBarangAdapter extends BaseAdapter {
     public Context context;
 
     private List<ListBarang> barangList;
+    private android.view.View pop;
 
 
     public ListBarangAdapter(Context context, List<ListBarang> barangList){
