@@ -75,7 +75,7 @@ public class DaftarProduk extends AppCompatActivity {
         lvdaftar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(), Produk.class);
+                Intent i = new Intent(getApplicationContext(), EditProduk.class);
 
                 // Pass all data rank
                 i.putExtra("itemkode", itemkode);
