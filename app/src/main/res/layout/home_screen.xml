@@ -21,6 +21,7 @@
             android:layout_weight="1"
             android:text="Produk"
             android:textSize="18dp"
+            android:drawableTop="@drawable/my_produk"/>
             android:drawableTop="@drawable/my_produk"
             android:background="#FFFFAD"
             android:layout_margin="8dp"/>
@@ -32,6 +33,7 @@
             android:layout_weight="1"
             android:text="Regional"
             android:textSize="18dp"
+            android:drawableTop="@drawable/my_regional"/>
             android:background="#FFFFAD"
             android:drawableTop="@drawable/my_regional"
             android:layout_margin="8dp"/>
@@ -50,6 +52,7 @@
             android:layout_weight="1"
             android:text="Distributor"
             android:textSize="18dp"
+            android:drawableTop="@drawable/my_distributor" />
             android:drawableTop="@drawable/my_distributor"
             android:background="#FFFFAD"
             android:layout_margin="8dp"/>
@@ -60,6 +63,7 @@
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="Marketer"
+            android:drawableTop="@drawable/my_marketer"/>
             android:drawableTop="@drawable/my_marketer"
             android:background="#FFFFAD"
             android:layout_margin="8dp"/>
@@ -79,6 +83,7 @@
             android:layout_weight="1"
             android:text="Pesanan"
             android:textSize="18dp"
+            android:drawableTop="@drawable/my_pesanan"/>
             android:drawableTop="@drawable/my_pesanan"
             android:background="#FFFFAD"
             android:layout_margin="8dp"/>
@@ -89,9 +94,9 @@
             android:layout_weight="1"
             android:text="Laporan"
             android:textSize="18dp"
+            android:drawableTop="@drawable/my_laporan"/>
             android:drawableTop="@drawable/my_laporan"
             android:background="#FFFFAD"
             android:layout_margin="8dp"/>
     </LinearLayout>
-
   </LinearLayout>

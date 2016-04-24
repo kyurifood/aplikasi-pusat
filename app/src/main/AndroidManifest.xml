@@ -26,6 +26,8 @@
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustPan|adjustResize">
         </activity>
+
+        <activity android:name=".EditProduk"/>
         <activity android:name=".Regional"/>
         <activity android:name=".Laporan"/>
         <activity android:name=".MainActivity"/>

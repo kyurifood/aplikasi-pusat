@@ -17,7 +17,6 @@
         android:id="@+id/spinnerregional"
         style="@style/spinnerDropDownItemStyle"/>
 
-    <View style="@style/HorizontalDivider" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"

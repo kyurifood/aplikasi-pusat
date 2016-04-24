@@ -8,6 +8,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
+
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,8 +27,12 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ListBarang;
  */
 public class ListBarangAdapter extends BaseAdapter {
 
+
+
     public Context context;
+
     private List<ListBarang> barangList;
+    private android.view.View pop;
 
 
     public ListBarangAdapter(Context context, List<ListBarang> barangList){
@@ -86,6 +95,7 @@ public class ListBarangAdapter extends BaseAdapter {
 
 
         });
+
         return convertView;
     }
 }

@@ -33,7 +33,6 @@
         </LinearLayout>
 
     <LinearLayout
-        android:paddingTop="27dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -77,7 +76,6 @@
             android:id="@+id/item_diterima"/>
     </LinearLayout>
     <LinearLayout
-        android:paddingTop="27dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"

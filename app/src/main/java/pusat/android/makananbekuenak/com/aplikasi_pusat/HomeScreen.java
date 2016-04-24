@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class HomeScreen extends AppCompatActivity {
 
@@ -14,6 +15,8 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
 
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
         //Intent intent = new Intent(this, LoginActivity.class);
         //startActivity(intent);
     }
@@ -78,6 +81,16 @@ public class HomeScreen extends AppCompatActivity {
 
         Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Laporan.class);
         startActivity(panggil_class);
+
+        Button pengaturan = (Button) findViewById(R.id.btnPesanan);
+
+        pengaturan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Laporan.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 }
