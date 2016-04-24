@@ -1,6 +1,5 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
-
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -28,7 +27,10 @@ import java.util.List;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItem;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item;
 
-public class Produk extends AppCompatActivity {
+/**
+ * Created by fikran on 23/04/16.
+ */
+public class EditProduk extends AppCompatActivity {
     private static final int PICK_FROM_CAMERA = 1;
     private static final int PICK_FROM_GALLERY = 2;
     ImageView imgview;
@@ -129,7 +131,7 @@ public class Produk extends AppCompatActivity {
             }
         });
 
-        /*        // Retrieve data from MainActivity on listview item click
+             // Retrieve data from MainActivity on listview item click
        Intent i = getIntent();
         // Get a single position
         position = i.getExtras().getInt("position");
@@ -147,7 +149,7 @@ public class Produk extends AppCompatActivity {
 
         // Load the image into the ImageView followed by the position
         imgview.setImageResource(flag[position]);
-*/
+
 
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -179,10 +181,10 @@ public class Produk extends AppCompatActivity {
     public void showAddDialog() {
 
         if (addNewItemDialogBuilder == null) {
-            addNewItemDialogBuilder = new AlertDialog.Builder(Produk.this);
+            addNewItemDialogBuilder = new AlertDialog.Builder(EditProduk.this);
         }
 
-        promptsView = LayoutInflater.from(Produk.this).inflate(R.layout.hargarigional, null);
+        promptsView = LayoutInflater.from(EditProduk.this).inflate(R.layout.hargarigional, null);
 
         final Spinner mSpinner= (Spinner) promptsView.findViewById(R.id.spinnerregional);
         txtharga = (EditText) promptsView.findViewById(R.id.harga);
@@ -206,7 +208,7 @@ public class Produk extends AppCompatActivity {
 
                     if (adapter == null) {
                         items.add(item);
-                        adapter = new ListItem(Produk.this, items);
+                        adapter = new ListItem(EditProduk.this, items);
                         lvItem.setAdapter(adapter);
                     } else {
                         adapter.addItem(item);
@@ -232,10 +234,10 @@ public class Produk extends AppCompatActivity {
 
     public void showEditDialog(final int position, Item item) {
         if (addNewItemDialogBuilder == null) {
-            addNewItemDialogBuilder = new AlertDialog.Builder(Produk.this);
+            addNewItemDialogBuilder = new AlertDialog.Builder(EditProduk.this);
         }
 
-        promptsView = LayoutInflater.from(Produk.this).inflate(R.layout.hargarigional, null);
+        promptsView = LayoutInflater.from(EditProduk.this).inflate(R.layout.hargarigional, null);
 
         Spinner mSpinner= (Spinner) promptsView.findViewById(R.id.spinnerregional);
 
@@ -289,7 +291,7 @@ public class Produk extends AppCompatActivity {
 
     private void submitForm() {
         // Submit your form here. your form is valid
-        Toast.makeText(Produk.this, "Data Disimpan", Toast.LENGTH_SHORT).show();
+        Toast.makeText(EditProduk.this, "Data Diedit", Toast.LENGTH_SHORT).show();
 
         panggilclass();
     }
@@ -366,17 +368,17 @@ public class Produk extends AppCompatActivity {
                 txtkode.setError("silahkan masukan kode");
                 {
 
-                    Toast.makeText(Produk.this, "Kesalahan dalam pengisian kode", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProduk.this, "Kesalahan dalam pengisian kode", Toast.LENGTH_SHORT).show();
                 }
             } else if (!validateNama(nama)) {
                 txtnama.setError("silahkan masukan nama anda");
                 {
-                    Toast.makeText(Produk.this, "Kesalahan dalam pengisian nama", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProduk.this, "Kesalahan dalam pengisian nama", Toast.LENGTH_SHORT).show();
                 }
             } else if (!validatehargaawal(hargawal)) {
                 txthargaawal.setError("silahkan masukan Harga awal");
                 {
-                    Toast.makeText(Produk.this, "Kesalahan dalam Harga Awal", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProduk.this, "Kesalahan dalam Harga Awal", Toast.LENGTH_SHORT).show();
                 }
 
 
