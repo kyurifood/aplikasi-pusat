@@ -1,7 +1,6 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,7 +47,7 @@ public class ListItemAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null)
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_item_layout, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_item_layout_pesanan, parent, false);
 
         final Item_Pesanan item = items.get(position);
 
@@ -61,7 +60,7 @@ public class ListItemAdapter extends BaseAdapter {
 
         Button btnAction1 = (Button) convertView.findViewById(R.id.btn_action_1);
         Button btnAction2 = (Button) convertView.findViewById(R.id.btn_action_2);
-        final Button pop = (Button) convertView.findViewById(R.id.btn_pop);
+
 
         no_order.setText(item.getNo_order());
         tanggal_pesan.setText(item.getTanggal_pesan());
@@ -77,34 +76,7 @@ public class ListItemAdapter extends BaseAdapter {
             }
         });
 
-        //opsi menu
-        pop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popup = new PopupMenu(context, pop);
-                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
 
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.satu:
-                                ((MainActivity) context).NotifikasiResi();
-                                break;
-                            case R.id.dua:
-                                Toast.makeText(context, item.getTitle(), Toast.LENGTH_SHORT).show();
-                                break;
-                            default:
-                                Toast.makeText(context, item.getTitle(), Toast.LENGTH_SHORT).show();
-                                break;
-                        }
-                        return true;
-                    }
-                });
-
-                popup.show();
-            }
-        });
-        //batas opsi menu
 
 
         return convertView;
