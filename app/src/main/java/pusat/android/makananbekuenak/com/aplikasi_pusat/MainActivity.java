@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle("PESANAN");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_action_add_shopping_cart);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         List<Item_Pesanan> items = new ArrayList<>();
         Item_Pesanan item1 = new Item_Pesanan();
         item1.setNo_order("001");

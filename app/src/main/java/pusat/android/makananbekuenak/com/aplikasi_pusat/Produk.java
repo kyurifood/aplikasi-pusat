@@ -55,6 +55,7 @@ public class Produk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk);
 
+        getSupportActionBar().setTitle("TAMBAH PRODUK");
 
 
         // Locate the TextViews in singleitemview.xml

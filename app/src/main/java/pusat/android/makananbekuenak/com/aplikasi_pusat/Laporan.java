@@ -15,6 +15,12 @@ public class Laporan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.laporan);
+
+        getSupportActionBar().setTitle("LAPORAN");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_av_my_library_books);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         btn_prdk = (Button) findViewById(R.id.btn_produk);
 
         btn_prdk.setOnClickListener(new View.OnClickListener() {

@@ -61,6 +61,8 @@ public class EditProduk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk);
 
+        getSupportActionBar().setTitle("EDIT PRODUK");
+
 
 
         // Locate the TextViews in singleitemview.xml
