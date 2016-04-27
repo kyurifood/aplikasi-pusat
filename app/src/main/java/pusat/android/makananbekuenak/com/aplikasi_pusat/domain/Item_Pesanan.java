@@ -13,6 +13,16 @@ public class Item_Pesanan {
     private boolean button;
     private boolean button2;
 
+    public boolean isLunas() {
+        return lunas;
+    }
+
+    public void setLunas(boolean lunas) {
+        this.lunas = lunas;
+    }
+
+    private boolean lunas;
+
     public boolean isButton2() {
         return button2;
     }

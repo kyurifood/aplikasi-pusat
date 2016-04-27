@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Checkable;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -103,8 +105,11 @@ public class MainActivity extends AppCompatActivity {
                             if(x.isSelected()){
                                 sb.append(x.getNo_order());
                                 sb.append(", ");
+                                x.setLunas(true);
                             }
+
                         }
+
                         String text = sb.toString();
                         text = text.substring(0, text.length() - 2);
                         Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
