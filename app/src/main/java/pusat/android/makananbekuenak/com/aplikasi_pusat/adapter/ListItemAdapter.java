@@ -80,13 +80,13 @@ public class ListItemAdapter extends BaseAdapter {
         btnAction1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
+
 
                 Toast.makeText(context, item.getNo_order(), Toast.LENGTH_SHORT).show();
-=======
+
                 lunas.setChecked(true);
                 Toast.makeText(context, item.getNo_order() + ", Lunas", Toast.LENGTH_SHORT).show();
->>>>>>> 6787e3b41ac6c6b60a1b3700d27423f4b9200592
+
             }
         });
 
