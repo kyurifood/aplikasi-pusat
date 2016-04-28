@@ -2,6 +2,7 @@ package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ActionMode;
@@ -30,11 +31,14 @@ public class MainActivity extends AppCompatActivity {
 
     ListView lvItem;
     ListItemAdapter adapter;
-
+    Button btnAction2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         List<Item_Pesanan> items = new ArrayList<>();
         Item_Pesanan item1 = new Item_Pesanan();
@@ -118,6 +122,11 @@ public class MainActivity extends AppCompatActivity {
                 adapter.unselectAllItems();
             }
         });
+    }
+
+    public void lihatdetails (){
+        Intent yerin = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Lihatdetail.class);
+        startActivity(yerin);
     }
 
 }

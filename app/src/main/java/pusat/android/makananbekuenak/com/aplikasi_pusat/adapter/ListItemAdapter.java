@@ -1,6 +1,7 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import pusat.android.makananbekuenak.com.aplikasi_pusat.Laporan;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.Lihatdetail;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.LoginActivity;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.MainActivity;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item_Pesanan;
@@ -67,18 +71,26 @@ public class ListItemAdapter extends BaseAdapter {
         bank.setText(item.getBank());
         nominal.setText(item.getNominal());
 
+        //btnAction2.setClickable(item.isButton2());
 
         btnAction1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(context, item.getNo_order(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnAction2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ((MainActivity) context).lihatdetails();
             }
         });
 
         return convertView;
     }
-
-
 
     public void unselectAllItems(){
         for (int i = 0; i < items.size(); i++){
@@ -86,4 +98,6 @@ public class ListItemAdapter extends BaseAdapter {
             item.setSelected(false);
         }
     }
+
+
 }

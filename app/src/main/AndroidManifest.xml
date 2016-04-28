@@ -32,6 +32,7 @@
         <activity android:name=".Laporan"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".DaftarProduk"/>
+        <activity android:name=".Lihatdetail"/>
 
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
