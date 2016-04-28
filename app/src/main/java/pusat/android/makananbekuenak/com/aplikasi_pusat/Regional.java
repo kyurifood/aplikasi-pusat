@@ -9,5 +9,10 @@ public class Regional extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regional);
+
+        getSupportActionBar().setTitle("REGIONAL");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_maps_pin_drop);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
 }

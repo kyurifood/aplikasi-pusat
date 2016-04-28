@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,7 +65,10 @@ public class ListItemAdapter extends BaseAdapter {
 
         Button btnAction1 = (Button) convertView.findViewById(R.id.btn_action_1);
         Button btnAction2 = (Button) convertView.findViewById(R.id.btn_action_2);
+        CheckBox baru = (CheckBox) convertView.findViewById(R.id.cb_baru);
+        final CheckBox lunas = (CheckBox) convertView.findViewById(R.id.cb_lunas);
 
+        lunas.setChecked(item.isLunas()== true);
         no_order.setText(item.getNo_order());
         tanggal_pesan.setText(item.getTanggal_pesan());
         nama.setText(item.getNama());
@@ -76,8 +80,13 @@ public class ListItemAdapter extends BaseAdapter {
         btnAction1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
 
                 Toast.makeText(context, item.getNo_order(), Toast.LENGTH_SHORT).show();
+=======
+                lunas.setChecked(true);
+                Toast.makeText(context, item.getNo_order() + ", Lunas", Toast.LENGTH_SHORT).show();
+>>>>>>> 6787e3b41ac6c6b60a1b3700d27423f4b9200592
             }
         });
 
@@ -91,6 +100,8 @@ public class ListItemAdapter extends BaseAdapter {
 
         return convertView;
     }
+
+
 
     public void unselectAllItems(){
         for (int i = 0; i < items.size(); i++){

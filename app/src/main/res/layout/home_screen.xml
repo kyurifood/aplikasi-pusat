@@ -4,16 +4,26 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.1"
+        android:src="@drawable/poot"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
 
     <LinearLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="1"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="8dp">
+        android:layout_weight="1">
         <Button
+            style="@style/Hijau"
             android:id="@+id/btnProduk"
             android:onClick="btn_produk"
             android:layout_width="match_parent"
@@ -21,11 +31,10 @@
             android:layout_weight="1"
             android:text="Produk"
             android:textSize="18dp"
-            android:drawableTop="@drawable/my_produk"/>
-            android:drawableTop="@drawable/my_produk"
-            android:background="#FFFFAD"
-            android:layout_margin="8dp"/>
+
+            android:drawableTop="@drawable/my_produk" />
         <Button
+            style="@style/Hijau"
             android:id="@+id/btnRegional"
             android:onClick="btn_regional"
             android:layout_width="match_parent"
@@ -33,19 +42,21 @@
             android:layout_weight="1"
             android:text="Regional"
             android:textSize="18dp"
+
             android:drawableTop="@drawable/my_regional"/>
-            android:background="#FFFFAD"
-            android:drawableTop="@drawable/my_regional"
-            android:layout_margin="8dp"/>
+
+
+            />
     </LinearLayout>
 
     <LinearLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="1"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp">
-        <Button android:id="@+id/btnDistributor"
+        android:layout_weight="1">
+
+        <Button
+            style="@style/Hijau"
+            android:id="@+id/btnDistributor"
             android:onClick="btn_distributor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -53,40 +64,39 @@
             android:text="Distributor"
             android:textSize="18dp"
             android:drawableTop="@drawable/my_distributor" />
-            android:drawableTop="@drawable/my_distributor"
-            android:background="#FFFFAD"
-            android:layout_margin="8dp"/>
+
+
         <Button android:id="@+id/btnMarketer"
+
             android:onClick="btn_marketer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="Marketer"
-            android:drawableTop="@drawable/my_marketer"/>
-            android:drawableTop="@drawable/my_marketer"
-            android:background="#FFFFAD"
-            android:layout_margin="8dp"/>
+
+            style="@style/Hijau"
+            android:drawableTop="@drawable/my_marketer" />
+
+
     </LinearLayout>
 
     <LinearLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="1"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="8dp">
-        <Button android:id="@+id/btnPesanan"
+        android:layout_weight="1">
+        <Button
+            style="@style/Hijau"
+            android:id="@+id/btnPesanan"
             android:onClick="btn_pesanan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Pesanan"
             android:textSize="18dp"
-            android:drawableTop="@drawable/my_pesanan"/>
-            android:drawableTop="@drawable/my_pesanan"
-            android:background="#FFFFAD"
-            android:layout_margin="8dp"/>
+
+            android:drawableTop="@drawable/my_pesanan" />
+
         <Button android:id="@+id/btnLaporan"
             android:onClick="btn_laporan"
             android:layout_width="match_parent"
@@ -94,9 +104,7 @@
             android:layout_weight="1"
             android:text="Laporan"
             android:textSize="18dp"
-            android:drawableTop="@drawable/my_laporan"/>
             android:drawableTop="@drawable/my_laporan"
-            android:background="#FFFFAD"
-            android:layout_margin="8dp"/>
+            style="@style/Hijau"/>
     </LinearLayout>
   </LinearLayout>

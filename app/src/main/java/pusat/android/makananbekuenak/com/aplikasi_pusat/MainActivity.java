@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Checkable;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -37,8 +39,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
 
 
+=======
+        getSupportActionBar().setTitle("PESANAN");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_action_add_shopping_cart);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+>>>>>>> 6787e3b41ac6c6b60a1b3700d27423f4b9200592
 
         List<Item_Pesanan> items = new ArrayList<>();
         Item_Pesanan item1 = new Item_Pesanan();
@@ -102,8 +111,11 @@ public class MainActivity extends AppCompatActivity {
                             if(x.isSelected()){
                                 sb.append(x.getNo_order());
                                 sb.append(", ");
+                                x.setLunas(true);
                             }
+
                         }
+
                         String text = sb.toString();
                         text = text.substring(0, text.length() - 2);
                         Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();

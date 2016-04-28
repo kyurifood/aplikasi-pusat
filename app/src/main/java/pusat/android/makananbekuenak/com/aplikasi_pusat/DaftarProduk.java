@@ -34,6 +34,11 @@ public class DaftarProduk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daftar_produk);
 
+        getSupportActionBar().setTitle("PRODUK");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_action_wallet_travel);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 /*
         List<ItemProduk> items = new ArrayList<>();
         ItemProduk item1 = new ItemProduk();
