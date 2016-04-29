@@ -1,5 +1,7 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +11,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemproduk;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk;
 
 
 /**
@@ -34,8 +40,8 @@ public class DaftarProduk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daftar_produk);
 
-/*
-        List<ItemProduk> items = new ArrayList<>();
+
+        final List<ItemProduk> items = new ArrayList<>();
         ItemProduk item1 = new ItemProduk();
         item1.setKode("001");
         item1.setNama("karapao");
@@ -56,39 +62,62 @@ public class DaftarProduk extends AppCompatActivity {
         items.add(item2);
         items.add(item3);
         items.add(item4);
-*/
 
-
-        // Generate sample data into string arrays
-        itemkode = new String[] { "001", "002", "003", "004" };
-
-        itemnama = new String[] { "karapao", "takoyaki", "ramen", "biyapong" };
-        flag = new int[] { R.drawable.produk, R.drawable.produk,
-                R.drawable.produk, R.drawable.produk};
-
+//        itemkode = new String[] { "001", "002", "003", "004" };
+//
+//        itemnama = new String[] { "karapao", "takoyaki", "ramen", "biyapong" };
+//        flag = new int[] { R.drawable.produk, R.drawable.produk,
+//                R.drawable.produk, R.drawable.produk};
+//
 
         lvdaftar = (ListView) findViewById(R.id.lv_daftar);
 
-        adapter = new ListItemproduk(this, itemkode, itemnama, flag);
-       // adapter = new ListItemproduk(getApplicationContext(), items);
+        lvdaftar = (ListView) findViewById(R.id.lv_daftar);
+
+
+      adapter = new ListItemproduk(getApplicationContext(), items);
         lvdaftar.setAdapter(adapter);
-        lvdaftar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvdaftar.setChoiceMode(ListView.CHOICE_MODE_NONE);
+        lvdaftar.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(), EditProduk.class);
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-                // Pass all data rank
-                i.putExtra("itemkode", itemkode);
-                // Pass all data country
-                i.putExtra("itemnama", itemnama);
+//                final String selection = items [position];
+                final CharSequence[] dialogitem = {"View", "Edit"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(DaftarProduk.this);
+                builder.setTitle("Pilih Menu");
+                builder.setItems(dialogitem, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        switch (item) {
+                            case 0:
+                                Intent i = new Intent(getApplicationContext(), Produk.class);
 
-                // Pass all data flag
-                i.putExtra("flag", flag);
-                // Pass a single position
-                i.putExtra("position", position);
-                startActivity(i);
+
+                                startActivity(i);
+                                break;
+                            case 1:
+                                Intent in = new Intent(getApplicationContext(), EditProduk.class);
+
+
+                                in.putExtra("itemkode", itemkode);
+                                // Pass all data country
+                                in.putExtra("itemnama", itemnama);
+
+                                // Pass all data flag
+                                in.putExtra("flag", flag);
+                                // Pass a single position
+//                                in.putExtra("position", selection);
+                                startActivity(in);
+                                break;
+
+                        }
+                    }
+                });
+                builder.create().show();
+                return true;
             }
         });
+
 
     }
     @Override

@@ -31,13 +31,17 @@ public class Produk extends AppCompatActivity {
     private static final int SELECT_PHOTO = 100;
     ImageView imgview;
     ListView lvItem;
+    ListView lvtem;
     ListItem adapter;
+    pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemproduk list;
 
     private Spinner spinnerregional;
 
     AlertDialog.Builder addNewItemDialogBuilder = null;
     AlertDialog addNewItemDialog = null;
     View promptsView;
+
+
 
     List<Item> items = new ArrayList<>();
 
@@ -55,7 +59,7 @@ public class Produk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk);
 
-
+        getSupportActionBar().setTitle("TAMBAH PRODUK");
 
         // Locate the TextViews in singleitemview.xml
 
@@ -72,6 +76,7 @@ public class Produk extends AppCompatActivity {
 
 
         lvItem = (ListView) findViewById(R.id.lv_item);
+        lvtem = (ListView) findViewById(R.id.lv_daftar);
         ViewGroup.LayoutParams listViewParams = (ViewGroup.LayoutParams) lvItem.getLayoutParams();
         listViewParams.height = 380;
         lvItem.requestLayout();
@@ -110,12 +115,9 @@ public class Produk extends AppCompatActivity {
         isinama = i.getStringArrayExtra("itemnama");
         // Get the list of flag
         flag = i.getIntArrayExtra("flag");
-
         // Load the text into the TextViews followed by the position
         txtkode.setText(isikode[position]);
         txtnama.setText(isinama[position]);
-
-
         // Load the image into the ImageView followed by the position
         imgview.setImageResource(flag[position]);
 */
@@ -251,6 +253,21 @@ public class Produk extends AppCompatActivity {
         Toast.makeText(Produk.this, "Data Disimpan", Toast.LENGTH_SHORT).show();
 
         panggilclass();
+//                    pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk item = new pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk();
+//
+//                    item.setKode(txtkode.getText().toString());
+//
+//
+//                    if (list == null) {
+//                        items.add(item);
+//                        list = new pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemproduk(DaftarProduk.this, items);
+//                        lvtem.setAdapter(list);
+//                    } else {
+//                        list.tambahItem(item);
+//                    }
+
+
+
     }
     //    public boolean validasiCPass(String cpass) {
 //        return cpass.length() > 0;

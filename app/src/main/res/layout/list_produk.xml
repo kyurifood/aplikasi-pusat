@@ -12,8 +12,9 @@
         <ImageView
 
             android:id="@+id/flag"
-            android:layout_width="94dp"
-            android:layout_height="67dp"
+            android:layout_width="124dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/produk"
             />
     </LinearLayout>
 

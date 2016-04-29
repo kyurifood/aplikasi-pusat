@@ -8,6 +8,16 @@ public class ItemProduk {
     private String kode;
     private String nama;
 
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+
+    private boolean selected;
+
 
     public String getKode() {
         return kode;

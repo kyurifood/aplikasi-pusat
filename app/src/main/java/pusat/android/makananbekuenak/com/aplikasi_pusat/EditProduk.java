@@ -55,7 +55,6 @@ public class EditProduk extends AppCompatActivity {
     int[] flag;
     int position;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,11 +62,15 @@ public class EditProduk extends AppCompatActivity {
 
 
 
-        // Locate the TextViews in singleitemview.xml
-
 
         txtkode = (EditText) findViewById(R.id.kode);
         txtnama = (EditText) findViewById(R.id.nama);
+
+
+        // Locate the TextViews in singleitemview.xml
+
+
+
         txthargaawal = (EditText) findViewById(R.id.hargaawal);
 
         // Locate the ImageView in singleitemview.xml
