@@ -46,7 +46,15 @@
         <activity android:name=".Laporan"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".DaftarProduk"/>
-        <activity android:name=".Lihatdetail"/>
+        <activity android:name=".Lihatdetail"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustPan|adjustResize" >
+            <!--Coding Kembali Ke Menu Utama-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pusat.android.makananbekuenak.com.aplikasi_pusat.MainActivity" />
+            <!-- END Coding Kembali Ke Menu Utama-->
+        </activity>
 
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 

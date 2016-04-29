@@ -11,15 +11,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemAdapter;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemDaftarBelanja;
-import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item_Pesanan;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item_lihat_detail;
 
 /**
  * Created by rinaldy on 25/04/16.
  */
+
 public class Lihatdetail extends AppCompatActivity {
+
+    String get_nama, get_bank, get_kode, get_tanggal;
 
     private List<Item_lihat_detail> lihat_details;
     ListView lvItem;
@@ -29,6 +30,25 @@ public class Lihatdetail extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lihat_detail_tmpl);
+
+        getSupportActionBar().setTitle("Details Order");
+
+        TextView nama = (TextView) findViewById(R.id.nama_penerima);
+        TextView bank = (TextView) findViewById(R.id.bank);
+        TextView kode = (TextView) findViewById(R.id.no_order);
+        TextView tanggal = (TextView) findViewById(R.id.tanggal_pesan);
+
+
+        Bundle b = getIntent().getExtras();
+        get_nama = b.getString("panggil_nama");
+        get_bank = b.getString("panggil_bank");
+        get_kode = b.getString("panggil_kode");
+        get_tanggal = b.getString("panggil_tanggal");
+        nama.setText("" + get_nama);
+        bank.setText("" + get_bank);
+        kode.setText("" + get_kode);
+        tanggal.setText("" + get_tanggal);
+
 
 
         List<Item_lihat_detail> items = new ArrayList<>();
@@ -59,7 +79,7 @@ public class Lihatdetail extends AppCompatActivity {
 
         ViewGroup.LayoutParams listViewParams = (ViewGroup.LayoutParams)
 
-        lvItem.getLayoutParams();
+                lvItem.getLayoutParams();
         listViewParams.height = 360;
         listViewParams.width = 630;
         lvItem.setOnTouchListener(new View.OnTouchListener() {
@@ -70,10 +90,10 @@ public class Lihatdetail extends AppCompatActivity {
             }
         });
 
-       lvItem.requestLayout();
+        lvItem.requestLayout();
 
         adapter = new ListItemDaftarBelanja(Lihatdetail.this, items);
         lvItem.setAdapter(adapter);
-
     }
+
 }
