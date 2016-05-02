@@ -5,8 +5,20 @@ package pusat.android.makananbekuenak.com.aplikasi_pusat.domain;
  */
 public class ItemProduk {
 
+    private int id;
     private String kode;
     private String nama;
+    private String image;
+
+    public ItemProduk(){
+
+    }
+
+    public ItemProduk (String kode, String nama, String image){
+        this.kode = kode;
+        this.nama = nama;
+        this.image = image;
+    }
 
     public boolean isSelected() {
         return selected;
@@ -35,5 +47,19 @@ public class ItemProduk {
         this.nama = nama;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

@@ -1,10 +1,12 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat.adapter;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -17,25 +19,24 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk;
  */
 public class ListItemproduk extends BaseAdapter {
 
-    private Context context;
     private List<ItemProduk> items;
+    private Context context;
+    private LayoutInflater inflater;
 
+    public ListItemproduk(Context _context, List<ItemProduk> _items){
+        inflater = LayoutInflater.from(_context);
+        this.items = _items;
+        this.context = _context;
 
-
-    public ListItemproduk(Context context, List<ItemProduk> items) {
-
-        this.context = context;
-        this.items = items;
     }
-
     @Override
     public int getCount() {
         return items.size();
     }
 
     @Override
-    public ItemProduk getItem(int position) {
-        return items.get(position);
+    public Object getItem(int position) {
+        return position;
     }
 
     @Override
@@ -45,85 +46,23 @@ public class ListItemproduk extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null)
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_produk, parent, false);
+        ItemProduk produk = items.get(position);
 
-        final ItemProduk item = items.get(position);
+        View view = convertView;
 
-        TextView itemkode = (TextView) convertView.findViewById(R.id.item_kode);
-        TextView itemnama = (TextView) convertView.findViewById(R.id.item_nama);
-
+        if(view == null)
+            view = inflater.inflate(R.layout.list_produk, null);
 
 
-        itemkode.setText(item.getKode());
-        itemnama.setText(item.getNama());
+        TextView kode = (TextView) view.findViewById(R.id.item_kode);
+        TextView nama = (TextView) view.findViewById(R.id.item_nama);
+        ImageView flag = (ImageView) view.findViewById(R.id.flag);
+
+        kode.setText(produk.getKode());
+        nama.setText(produk.getNama());
+        flag.setImageBitmap(BitmapFactory.decodeFile(produk.getImage()));
 
 
-
-
-
-        return convertView;
+        return view;
     }
-
-
-//
-//
-//    Context context;
-//    String[] itemkode;
-//    String[] itemnama;
-//    int[] flag;
-//    LayoutInflater inflater;
-//
-//    public ListItemproduk(Context context, String[] itemkode, String[] itemnama, int[] flag) {
-//        this.context = context;
-//        this.itemkode = itemkode;
-//        this.itemnama = itemnama;
-//        this.flag = flag;
-//
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return itemkode.length;
-//    }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return null;
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return 0;
-//    }
-//
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//
-//        // Declare Variables
-//        TextView txtkode;
-//        TextView txtnama;
-//        ImageView imgflag;
-//
-//
-//        inflater = (LayoutInflater) context
-//                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//
-//        View itemView = inflater.inflate(R.layout.list_produk, parent, false);
-//
-//        // Locate the TextViews in listview_item.xml
-//        txtkode = (TextView) itemView.findViewById(R.id.item_kode);
-//        txtnama= (TextView) itemView.findViewById(R.id.item_nama);
-//        imgflag = (ImageView) itemView.findViewById(R.id.flag);
-//
-//
-//        // Capture position and set to the TextViews
-//        txtkode.setText(itemkode[position]);
-//        txtnama.setText(itemnama[position]);
-//        // Capture position and set to the ImageView
-//        imgflag.setImageResource(flag[position]);
-//
-//        return itemView;
-//    }
-
-
-}
+    }

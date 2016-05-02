@@ -1,26 +1,16 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemAdapter;
@@ -36,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle("PESANAN");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_action_add_shopping_cart);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         List<Item_Pesanan> items = new ArrayList<>();
         Item_Pesanan item1 = new Item_Pesanan();
         item1.setNo_order("001");
@@ -43,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         item1.setNama("Reksin Lewo");
         item1.setBank("Mandiri");
         item1.setNominal("20000");
-
 
         Item_Pesanan item2 = new Item_Pesanan();
         item2.setNo_order("002");
@@ -68,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ListItemAdapter(MainActivity.this, items);
 
         lvItem.setAdapter(adapter);
+
         lvItem.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
             @Override
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
@@ -93,13 +88,16 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_submit:
                         StringBuilder sb = new StringBuilder();
-                        for(int i = 0; i < lvItem.getAdapter().getCount(); i++){
+                        for (int i = 0; i < lvItem.getAdapter().getCount(); i++) {
                             Item_Pesanan x = (Item_Pesanan) lvItem.getAdapter().getItem(i);
-                            if(x.isSelected()){
+                            if (x.isSelected()) {
                                 sb.append(x.getNo_order());
                                 sb.append(", ");
+                                x.setLunas(true);
                             }
+
                         }
+
                         String text = sb.toString();
                         text = text.substring(0, text.length() - 2);
                         Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();

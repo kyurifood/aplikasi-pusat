@@ -60,6 +60,8 @@ public class EditProduk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk);
 
+        getSupportActionBar().setTitle("EDIT PRODUK");
+
 
 
 
@@ -112,7 +114,7 @@ public class EditProduk extends AppCompatActivity {
             }
         });
 
-             // Retrieve data from MainActivity on listview item click
+//             // Retrieve data from MainActivity on listview item click
        Intent i = getIntent();
         // Get a single position
         position = i.getExtras().getInt("position");
