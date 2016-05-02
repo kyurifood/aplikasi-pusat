@@ -25,28 +25,22 @@
         <Button
             style="@style/Hijau"
             android:id="@+id/btnProduk"
-            android:onClick="btn_produk"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Produk"
             android:textSize="18dp"
-
             android:drawableTop="@drawable/my_produk" />
+
         <Button
             style="@style/Hijau"
             android:id="@+id/btnRegional"
-            android:onClick="btn_regional"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Regional"
             android:textSize="18dp"
-
             android:drawableTop="@drawable/my_regional"/>
-
-
-            />
     </LinearLayout>
 
     <LinearLayout android:layout_height="match_parent"
@@ -65,20 +59,14 @@
             android:textSize="18dp"
             android:drawableTop="@drawable/my_distributor" />
 
-
         <Button android:id="@+id/btnMarketer"
-
-            android:onClick="btn_marketer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="Marketer"
-
             style="@style/Hijau"
             android:drawableTop="@drawable/my_marketer" />
-
-
     </LinearLayout>
 
     <LinearLayout android:layout_height="match_parent"
@@ -88,17 +76,14 @@
         <Button
             style="@style/Hijau"
             android:id="@+id/btnPesanan"
-            android:onClick="btn_pesanan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Pesanan"
             android:textSize="18dp"
-
             android:drawableTop="@drawable/my_pesanan" />
 
         <Button android:id="@+id/btnLaporan"
-            android:onClick="btn_laporan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
