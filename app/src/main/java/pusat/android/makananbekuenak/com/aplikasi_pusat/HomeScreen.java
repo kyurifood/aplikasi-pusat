@@ -10,15 +10,15 @@ import android.widget.Button;
 
 public class HomeScreen extends AppCompatActivity {
 
-    Button btn_produk , btn_regional , btn_distributor , btn_marketer , btn_pesanan , btn_laporan ;
+    Button btn_produk, btn_regional, btn_distributor, btn_marketer, btn_pesanan, btn_laporan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
 
-
-
+        getSupportActionBar().setTitle("Kyurifood");
+        getSupportActionBar().setSubtitle("Aplikasi Pusat");
 
         btn_produk = (Button) findViewById(R.id.btnProduk);
         btn_produk.setOnClickListener(new View.OnClickListener() {
@@ -81,8 +81,8 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
-        //Intent intent = new Intent(this, LoginActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -105,51 +105,6 @@ public class HomeScreen extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-
-    //--Regional---
-    public void btn_regional(View v) {
-
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Regional.class);
-        startActivity(panggil_class);
-    }
-
-    //--Distibutor---
-    public void btn_distributor(View v) {
-
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Distributor.class);
-        startActivity(panggil_class);
-    }
-
-    //--Marketer---
-    public void btn_marketer(View v) {
-
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Marketer.class);
-        startActivity(panggil_class);
-    }
-
-    //--Pesanan---
-    public void btn_pesanan(View v) {
-
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.MainActivity.class);
-        startActivity(panggil_class);
-    }
-    //--Laporan---
-    public void btn_laporan(View v) {
-
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Laporan.class);
-        startActivity(panggil_class);
-
-        Button pengaturan = (Button) findViewById(R.id.btnPesanan);
-
-        pengaturan.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Laporan.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
 }

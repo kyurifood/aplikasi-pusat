@@ -100,15 +100,7 @@ public class Produk extends AppCompatActivity {
                 showAddDialog();
             }
         });
-//
-//        imgview.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-//                photoPickerIntent.setType("image/*");
-//                startActivityForResult(photoPickerIntent, SELECT_PHOTO);
-//            }
-//        });
+
 
         ImageView iv_user_photo = (ImageView) findViewById(R.id.foto);
         iv_user_photo.setOnClickListener(new View.OnClickListener() {
