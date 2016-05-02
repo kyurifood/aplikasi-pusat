@@ -17,6 +17,8 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
 
+        getSupportActionBar().setTitle("Kyurifood");
+        getSupportActionBar().setSubtitle("Aplikasi Pusat");
 
         btn_produk = (Button) findViewById(R.id.btnProduk);
         btn_produk.setOnClickListener(new View.OnClickListener() {
@@ -79,8 +81,8 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
-        //Intent intent = new Intent(this, LoginActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     @Override
