@@ -9,5 +9,10 @@ public class Distributor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.distributor);
+
+        getSupportActionBar().setTitle("DISTRIBUTOR");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_maps_local_shipping);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
 }

@@ -37,29 +37,10 @@ public class DaftarProduk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daftar_produk);
 
-/*
-        List<ItemProduk> items = new ArrayList<>();
-        ItemProduk item1 = new ItemProduk();
-        item1.setKode("001");
-        item1.setNama("karapao");
-
-        ItemProduk item2 = new ItemProduk();
-        item2.setKode("002");
-        item2.setNama("takoyaki");
-
-        ItemProduk item3 = new ItemProduk();
-        item3.setKode("003");
-        item3.setNama("okonomiyahi");
-
-        final ItemProduk item4 = new ItemProduk();
-        item4.setKode("004");
-        item4.setNama("biyapong");
-
-        items.add(item1);
-        items.add(item2);
-        items.add(item3);
-        items.add(item4);
-*/
+        getSupportActionBar().setTitle("PRODUK");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_action_wallet_travel);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
         // Generate sample data into string arrays
@@ -78,8 +59,11 @@ public class DaftarProduk extends AppCompatActivity {
         lvdaftar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(), Produk.class);
-                startActivity(i);
+
+
+                Intent i= new Intent(getApplicationContext(), EditProduk.class);
+
+                // Pass all data rank
                 i.putExtra("itemkode", itemkode);
                 // Pass all data country
                 i.putExtra("itemnama", itemnama);
@@ -116,8 +100,6 @@ public class DaftarProduk extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 
     public void panggilclass (){
         Intent panggil = new Intent(getApplicationContext(), Produk.class);

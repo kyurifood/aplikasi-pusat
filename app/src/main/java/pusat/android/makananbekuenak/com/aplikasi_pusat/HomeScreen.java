@@ -6,13 +6,80 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class HomeScreen extends AppCompatActivity {
+
+    Button btn_produk , btn_regional , btn_distributor , btn_marketer , btn_pesanan , btn_laporan ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
+
+
+
+
+        btn_produk = (Button) findViewById(R.id.btnProduk);
+        btn_produk.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent myIntent = new Intent(HomeScreen.this,
+                        DaftarProduk.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btn_regional = (Button) findViewById(R.id.btnRegional);
+        btn_regional.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent myIntent = new Intent(HomeScreen.this,
+                        Regional.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btn_distributor = (Button) findViewById(R.id.btnDistributor);
+        btn_distributor.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent myIntent = new Intent(HomeScreen.this,
+                        Distributor.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btn_marketer = (Button) findViewById(R.id.btnMarketer);
+        btn_marketer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent myIntent = new Intent(HomeScreen.this,
+                        Marketer.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btn_pesanan = (Button) findViewById(R.id.btnPesanan);
+        btn_pesanan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent myIntent = new Intent(HomeScreen.this,
+                        MainActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btn_laporan = (Button) findViewById(R.id.btnLaporan);
+        btn_laporan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent myIntent = new Intent(HomeScreen.this,
+                        Laporan.class);
+                startActivity(myIntent);
+            }
+        });
+
 
         //Intent intent = new Intent(this, LoginActivity.class);
         //startActivity(intent);
@@ -39,12 +106,7 @@ public class HomeScreen extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    //--Produk---
-    public void btn_produk(View v) {
 
-        Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.DaftarProduk.class);
-        startActivity(panggil_class);
-    }
 
     //--Regional---
     public void btn_regional(View v) {
@@ -78,6 +140,16 @@ public class HomeScreen extends AppCompatActivity {
 
         Intent panggil_class = new Intent(this, pusat.android.makananbekuenak.com.aplikasi_pusat.Laporan.class);
         startActivity(panggil_class);
+
+        Button pengaturan = (Button) findViewById(R.id.btnPesanan);
+
+        pengaturan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Laporan.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 }
