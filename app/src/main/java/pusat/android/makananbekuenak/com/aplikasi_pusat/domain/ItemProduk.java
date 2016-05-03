@@ -5,6 +5,7 @@ package pusat.android.makananbekuenak.com.aplikasi_pusat.domain;
  */
 public class ItemProduk {
 
+
     private int id;
     private String kode;
     private String nama;
