@@ -17,6 +17,7 @@ import java.util.List;
 
 import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemproduk;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.service.ProdukHandler;
 
 
 /**
@@ -24,23 +25,23 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk;
  */
 public class DaftarProduk extends AppCompatActivity {
 
-
     private ProdukHandler handler;
     ListView lv;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daftar_produk);
 
+        getSupportActionBar().setTitle("PRODUK");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_action_wallet_travel);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
         handler = new ProdukHandler(getApplicationContext());
 
         lv = (ListView) findViewById(R.id.lv_daftar);
-
-
-
 
         loadContactData();
 
@@ -98,7 +99,6 @@ public class DaftarProduk extends AppCompatActivity {
                                 i.putExtra("kode", produks.get(position).getKode());
                                 i.putExtra("nama", produks.get(position).getNama());
                                 i.putExtra("image", produks.get(position).getImage());
-
                                 startActivity(i);
                                 break;
                             case 1:
@@ -108,7 +108,6 @@ public class DaftarProduk extends AppCompatActivity {
                                 intent.putExtra("kode", produks.get(position).getKode());
                                 intent.putExtra("nama", produks.get(position).getNama());
                                 intent.putExtra("image", produks.get(position).getImage());
-
                                 startActivity(intent);
                                 break;
 

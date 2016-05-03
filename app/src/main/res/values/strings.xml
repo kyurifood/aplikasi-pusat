@@ -7,7 +7,6 @@
     <string name="pk3">Kalimanta</string>
     <string name="pk4">Sumatra</string>
     <string-array name="pklist">
-        <item>@string/pk1</item>
         <item>@string/pk2</item>
         <item>@string/pk3</item>
         <item>@string/pk4</item>

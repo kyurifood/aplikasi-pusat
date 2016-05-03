@@ -5,19 +5,6 @@
     tools:context=".Produk"
     android:weightSum="1">
 
-
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/linearLayout"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_marginLeft="164dp"-->
-        <!--android:layout_marginStart="164dp"></LinearLayout>-->
-
-
     <ScrollView
         android:scrollbarSize="3dp"
         style="@style/scrollbar"
