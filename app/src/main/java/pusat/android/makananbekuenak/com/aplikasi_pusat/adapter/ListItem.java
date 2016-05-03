@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.List;
 
+import pusat.android.makananbekuenak.com.aplikasi_pusat.Produk;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.EditProduk;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item;
@@ -21,10 +21,12 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item;
 public class ListItem extends BaseAdapter {
     private Context context;
     private List<Item> items;
+    private String flag;
 
 
-    public ListItem(Context context, List<Item> items) {
+    public ListItem(Context context, List<Item> items, String flag) {
         this.context = context;
+        this.flag = flag;
         this.items = items;
     }
 
@@ -73,8 +75,11 @@ public class ListItem extends BaseAdapter {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ((Produk) context).showEditDialog(position, item);
-                ((EditProduk) context).showEditDialog(position, item);
+                if (flag.equals("1")) {
+                    ((Produk) context).showEditDialog(position, item);
+                }else {
+                    ((EditProduk) context).showEditProdukDialog(position, item);
+                }
             }
         });
 

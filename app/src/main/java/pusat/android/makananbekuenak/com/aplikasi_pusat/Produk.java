@@ -150,7 +150,7 @@ public class Produk extends AppCompatActivity {
                     item.setHarga(txtharga.getText().toString());
                     if (adapter == null) {
                         items.add(item);
-                        adapter = new ListItem(Produk.this, items);
+                        adapter = new ListItem(Produk.this, items, "1");
                         lvItem.setAdapter(adapter);
                     } else {
                         adapter.addItem(item);
