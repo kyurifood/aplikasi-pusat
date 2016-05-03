@@ -2,8 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="600dp"
+    style="@style/Panel.Vertical"
     android:id="@+id/linearLayout">
 
     <LinearLayout android:layout_height="wrap_content"
@@ -17,53 +16,41 @@
             android:layout_height="137dp"
             android:text="|Produk"
             android:textSize="20dp"
+            android:src="@drawable/poot"
             android:id="@+id/foto"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
-    <LinearLayout android:layout_height="wrap_content"
+
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginRight="13dp"
-        android:layout_marginLeft="13dp">
-        <Button
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:hint="Kode"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="unggah"
-            android:id="@+id/button"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <EditText
-        android:hint="Kode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/kode" />
+            android:id="@+id/kode" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <EditText
-        android:hint="Nama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nama" />
+        <EditText
+            android:hint="Nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nama" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <EditText
-        android:hint="Harga Awal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/hargaawal" />
+        <EditText
+            android:hint="Harga Awal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/hargaawal" />
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -97,4 +84,3 @@
 
     </LinearLayout>
 </LinearLayout>
-

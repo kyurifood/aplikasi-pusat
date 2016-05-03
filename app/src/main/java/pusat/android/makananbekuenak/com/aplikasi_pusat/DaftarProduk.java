@@ -34,6 +34,10 @@ public class DaftarProduk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daftar_produk);
 
+        getSupportActionBar().setTitle("PRODUK");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_action_wallet_travel);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 /*
         List<ItemProduk> items = new ArrayList<>();
         ItemProduk item1 = new ItemProduk();
@@ -57,7 +61,6 @@ public class DaftarProduk extends AppCompatActivity {
         items.add(item3);
         items.add(item4);
 */
-
 
         // Generate sample data into string arrays
         itemkode = new String[] { "001", "002", "003", "004" };
@@ -113,8 +116,6 @@ public class DaftarProduk extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 
     public void panggilclass (){
         Intent panggil = new Intent(getApplicationContext(), Produk.class);

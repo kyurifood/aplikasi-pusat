@@ -82,42 +82,40 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textColor="@android:color/black"
-                android:enabled="true"
-                android:id="@+id/item_check1" />
+                android:checked="true"
+                android:clickable="false"
+                android:id="@+id/cb_baru"
+                />
             <CheckBox
                 style="@style/Text.Label"
                 android:theme="@style/Platform.AppCompat.Light"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textColor="@android:color/black"
-                android:enabled="false"
-                android:id="@+id/item_check2" />
+                android:clickable="false"
+                android:id="@+id/cb_lunas" />
             <CheckBox
                 style="@style/Text.Label"
                 android:theme="@style/Platform.AppCompat.Light"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textColor="@android:color/black"
-                android:enabled="false"
-                android:id="@+id/item_check3" />
+                android:clickable="false"
+                android:id="@+id/cb_dikirm" />
             <CheckBox
                 style="@style/Text.Label"
                 android:theme="@style/Platform.AppCompat.Light"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textColor="@android:color/black"
-                android:enabled="false"
-                android:id="@+id/item_check4" />
+                android:clickable="false"
+                android:id="@+id/cb_diterima" />
         </LinearLayout>
-
-
     </LinearLayout>
-
 
     <LinearLayout style="@style/ComponentLayout"
         android:orientation="horizontal"
         android:layout_weight="1">
-
 
         <LinearLayout style="@style/ComponentLayout"
             android:orientation="vertical"

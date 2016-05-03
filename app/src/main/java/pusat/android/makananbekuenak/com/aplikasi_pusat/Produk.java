@@ -1,7 +1,5 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
-
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -29,8 +27,8 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItem;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item;
 
 public class Produk extends AppCompatActivity {
-    private static final int PICK_FROM_CAMERA = 1;
-    private static final int PICK_FROM_GALLERY = 2;
+
+    private static final int SELECT_PHOTO = 100;
     ImageView imgview;
     ListView lvItem;
     ListItem adapter;
@@ -45,10 +43,6 @@ public class Produk extends AppCompatActivity {
 
     EditText txtkode, txtnama, txtharga,txthargaawal;
 
-
-
-
-
     String[] isikode;
     String[] isinama;
 
@@ -61,6 +55,7 @@ public class Produk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk);
 
+        getSupportActionBar().setTitle("TAMBAH PRODUK");
 
 
         // Locate the TextViews in singleitemview.xml
@@ -73,9 +68,6 @@ public class Produk extends AppCompatActivity {
         // Locate the ImageView in singleitemview.xml
         imgview = (ImageView) findViewById(R.id.foto);
 
-
-
-        Button buttonGallery = (Button) findViewById(R.id.button);
         Button addNewItem = (Button) findViewById(R.id.tambahharga);
         Spinner mSpinner= (Spinner)findViewById(R.id.spinnerregional);
 
@@ -101,34 +93,14 @@ public class Produk extends AppCompatActivity {
             }
         });
 
-        buttonGallery.setOnClickListener(new View.OnClickListener() {
-
+        imgview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent();
-// call android default gallery
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-// ******** code for crop image
-                intent.putExtra("crop", "true");
-                intent.putExtra("aspectX", 0);
-                intent.putExtra("aspectY", 0);
-                intent.putExtra("outputX", 200);
-                intent.putExtra("outputY", 150);
-
-                try {
-
-                    intent.putExtra("return-data", true);
-                    startActivityForResult(Intent.createChooser(intent,
-                            "Complete action using"), PICK_FROM_GALLERY);
-
-                } catch (ActivityNotFoundException e) {
-// Do nothing for now
-                }
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, SELECT_PHOTO);
             }
         });
-
         /*        // Retrieve data from MainActivity on listview item click
        Intent i = getIntent();
         // Get a single position
@@ -150,31 +122,24 @@ public class Produk extends AppCompatActivity {
 */
 
     }
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == PICK_FROM_CAMERA) {
-            Bundle extras = data.getExtras();
-            if (extras != null) {
-                Bitmap photo = extras.getParcelable("data");
-                imgview.setImageBitmap(photo);
-
-            }
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case SELECT_PHOTO:
+                if(resultCode == RESULT_OK){
+                    android.net.Uri selectedImage = data.getData();
+                    java.io.InputStream imageStream = null;
+                    try {
+                        imageStream = getContentResolver().openInputStream(selectedImage);
+                    } catch (java.io.FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    Bitmap yourSelectedImage = android.graphics.BitmapFactory.decodeStream(imageStream);
+                    imgview.setImageBitmap(yourSelectedImage);
+                }
         }
-
-        if (requestCode == PICK_FROM_GALLERY) {
-            Bundle extras2 = data.getExtras();
-            if (extras2 != null) {
-                Bitmap photo = extras2.getParcelable("data");
-                imgview.setImageBitmap(photo);
-
-            }
-
-        }
-
-
-
     }
-
 
     public void showAddDialog() {
 
@@ -282,21 +247,12 @@ public class Produk extends AppCompatActivity {
         addNewItemDialog.show();
     }
 
-
-
-
-
-
     private void submitForm() {
         // Submit your form here. your form is valid
         Toast.makeText(Produk.this, "Data Disimpan", Toast.LENGTH_SHORT).show();
 
         panggilclass();
     }
-
-
-
-
     //    public boolean validasiCPass(String cpass) {
 //        return cpass.length() > 0;
 //    }
@@ -351,16 +307,10 @@ public class Produk extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.simpan) {
 
-
-
-
-
             //String cpass = txtcpas.getText().toString();
             String kode = txtkode.getText().toString();
             String nama = txtnama.getText().toString();
             String hargawal = txthargaawal.getText().toString();
-
-
 
             if (!validateKode(kode)) {
                 txtkode.setError("silahkan masukan kode");
@@ -378,24 +328,18 @@ public class Produk extends AppCompatActivity {
                 {
                     Toast.makeText(Produk.this, "Kesalahan dalam Harga Awal", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
             else submitForm();
 
             return true;
-
         }
 
         return super.onOptionsItemSelected(item);
     }
+
     public void panggilclass (){
         Intent panggil = new Intent(getApplicationContext(), DaftarProduk.class);
         startActivity(panggil);
     }
-
-
-
-
 
 }

@@ -1,25 +1,11 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
-
-
-
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ListView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Toast;
-import java.util.ArrayList;
-import java.util.List;
-import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListBarangAdapter;
-import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ListBarang;
-
 
 public class Laporan extends AppCompatActivity {
 
@@ -30,14 +16,17 @@ public class Laporan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.laporan);
 
+        getSupportActionBar().setTitle("LAPORAN");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_av_my_library_books);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         btn_prdk = (Button) findViewById(R.id.btn_produk);
 
-
         btn_prdk.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Produk.class);
-                startActivity(intent);
+                //Intent intent = new Intent(getApplicationContext(), Produk.class);
+                //startActivity(intent);
             }
         });
 
@@ -45,8 +34,8 @@ public class Laporan extends AppCompatActivity {
 
         btn_mrktr.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Marketer.class);
-                startActivity(intent);
+                //Intent intent = new Intent(getApplicationContext(), Marketer.class);
+                //startActivity(intent);
             }
         });
 
@@ -54,8 +43,8 @@ public class Laporan extends AppCompatActivity {
 
         btn_dstrbtr.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Distributor.class);
-                startActivity(intent);
+                //Intent intent = new Intent(getApplicationContext(), Distributor.class);
+                //startActivity(intent);
             }
         });
 

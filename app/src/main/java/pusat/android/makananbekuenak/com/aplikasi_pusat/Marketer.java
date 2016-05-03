@@ -9,5 +9,10 @@ public class Marketer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.marketer);
+
+        getSupportActionBar().setTitle("MARKETER");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_action_account_child);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
 }
