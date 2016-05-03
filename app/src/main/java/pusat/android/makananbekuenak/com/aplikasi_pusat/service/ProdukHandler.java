@@ -1,4 +1,4 @@
-package pusat.android.makananbekuenak.com.aplikasi_pusat;
+package pusat.android.makananbekuenak.com.aplikasi_pusat.service;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -31,6 +31,7 @@ public class ProdukHandler extends SQLiteOpenHelper {
     private static final String COLUMN_KODE = "kode";
     private static final String COLUMN_NAMA = "nama";
     private static final String COLUMN_IMAGE = "image";
+    private static final String COLUMN_HARGA = "";
 
     private String[] columns= {COLUMN_ID, COLUMN_KODE, COLUMN_NAMA, COLUMN_IMAGE};
 
@@ -47,7 +48,8 @@ public class ProdukHandler extends SQLiteOpenHelper {
                 + COLUMN_ID + " INTEGER PRIMARY KEY,"
                 + COLUMN_KODE + " TEXT,"
                 + COLUMN_NAMA + " TEXT,"
-                + COLUMN_IMAGE + " TEXT"
+                + COLUMN_IMAGE + " TEXT,"
+                + COLUMN_HARGA + ""
                 + ")";
         db.execSQL(CREATE_TABLE);
     }
@@ -74,7 +76,6 @@ public class ProdukHandler extends SQLiteOpenHelper {
         vals.put(COLUMN_KODE, contact.getKode());
         vals.put(COLUMN_NAMA, contact.getNama());
         vals.put(COLUMN_IMAGE, contact.getImage());
-
 
         // Insert values into table
         long i = db.insert(TABLE_PRODUK, null, vals);

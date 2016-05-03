@@ -28,6 +28,7 @@
             android:id="@+id/poto"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:adjustViewBounds="true"
             android:layout_margin="5dp"/>
 
 

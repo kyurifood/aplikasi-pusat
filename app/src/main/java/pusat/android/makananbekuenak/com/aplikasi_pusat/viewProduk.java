@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import pusat.android.makananbekuenak.com.aplikasi_pusat.service.ProdukHandler;
+
 /**
  * Created by fikran on 02/05/16.
  */
@@ -24,7 +26,11 @@ public class viewProduk extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
 
         ImageView iv_photo = (ImageView) findViewById(R.id.poto);
-        iv_photo.setImageBitmap(BitmapFactory.decodeFile(extras.getString("image")));
+        if (extras.getString("image").isEmpty()){
+            iv_photo.setImageResource(R.drawable.poot);
+        }else {
+            iv_photo.setImageBitmap(BitmapFactory.decodeFile(extras.getString("image")));
+        }
 
         TextView tv_kode = (TextView) findViewById(R.id.liatkode);
         tv_kode.setText(extras.getString("kode"));

@@ -10,6 +10,15 @@ public class ItemProduk {
     private String kode;
     private String nama;
     private String image;
+    private int HargaAwal;
+
+    public int getHargaAwal() {
+        return HargaAwal;
+    }
+
+    public void setHargaAwal(int hargaAwal) {
+        HargaAwal = hargaAwal;
+    }
 
     public ItemProduk(){
 
@@ -20,16 +29,6 @@ public class ItemProduk {
         this.nama = nama;
         this.image = image;
     }
-
-    public boolean isSelected() {
-        return selected;
-    }
-
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
-
-    private boolean selected;
 
 
     public String getKode() {

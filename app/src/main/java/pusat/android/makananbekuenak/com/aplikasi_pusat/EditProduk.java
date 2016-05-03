@@ -25,6 +25,7 @@ import java.util.List;
 
 import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItem;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.service.ProdukHandler;
 
 /**
  * Created by fikran on 23/04/16.
@@ -48,11 +49,9 @@ public class EditProduk extends AppCompatActivity {
     private String kode;
     private String nama;
     private String img;
-    private String picturePath = "";
+    private String picturePath = "Tambah Foto";
     private ProdukHandler handler;
     Bundle extras;
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,38 +64,20 @@ public class EditProduk extends AppCompatActivity {
 
         handler = new ProdukHandler(getApplicationContext());
 
-
-
         txtkode = (EditText) findViewById(R.id.kode);
         txtnama = (EditText) findViewById(R.id.nama);
-
-
-        // Locate the TextViews in singleitemview.xml
-
-
-
         txthargaawal = (EditText) findViewById(R.id.hargaawal);
-
-        // Locate the ImageView in singleitemview.xml
         imgview = (ImageView) findViewById(R.id.foto);
-
-
 
         Bundle extras = getIntent().getExtras();
 
-
         imgview.setImageBitmap(BitmapFactory.decodeFile(extras.getString("image")));
-
-
         txtkode.setText(extras.getString("kode"));
-
-
         txtnama.setText(extras.getString("nama"));
-
+        txthargaawal.setText(extras.getString("harga"));
 
         Button addNewItem = (Button) findViewById(R.id.tambahharga);
         Spinner mSpinner= (Spinner)findViewById(R.id.spinnerregional);
-
 
         lvItem = (ListView) findViewById(R.id.lv_item);
         ViewGroup.LayoutParams listViewParams = (ViewGroup.LayoutParams) lvItem.getLayoutParams();
@@ -131,11 +112,8 @@ public class EditProduk extends AppCompatActivity {
 
             }
         });
-
-
-
-
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
@@ -145,8 +123,7 @@ public class EditProduk extends AppCompatActivity {
             android.net.Uri imageUri = data.getData();
             String[] filePathColumn = { android.provider.MediaStore.Images.Media.DATA };
 
-            android.database.Cursor cursor = getContentResolver().query(imageUri,
-                    filePathColumn, null, null, null);
+            android.database.Cursor cursor = getContentResolver().query(imageUri,filePathColumn, null, null, null);
             cursor.moveToFirst();
 
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
@@ -154,7 +131,11 @@ public class EditProduk extends AppCompatActivity {
             cursor.close();
 
             ImageView imgview = (ImageView) findViewById(R.id.foto);
-            imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(picturePath));
+            if (picturePath.isEmpty()){
+                imgview.setImageResource(R.drawable.produk);
+            }else {
+                imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(picturePath));
+            }
 
         }
     }
@@ -209,29 +190,27 @@ public class EditProduk extends AppCompatActivity {
 
         addNewItemDialogBuilder.setView(promptsView);
         addNewItemDialogBuilder.setCancelable(false);
+        addNewItemDialogBuilder.setTitle("Harga / Regional");
+        addNewItemDialogBuilder.setIcon(R.drawable.ic_border_color_black_18dp);
         addNewItemDialog = addNewItemDialogBuilder.create();
         addNewItemDialog.show();
     }
 
-    public void showEditDialog(final int position, Item item) {
+    public void showEditProdukDialog(final int position, Item item) {
         if (addNewItemDialogBuilder == null) {
             addNewItemDialogBuilder = new AlertDialog.Builder(EditProduk.this);
         }
 
         promptsView = LayoutInflater.from(EditProduk.this).inflate(R.layout.hargarigional, null);
-
         Spinner mSpinner= (Spinner) promptsView.findViewById(R.id.spinnerregional);
-
 
         txtharga = (EditText) promptsView.findViewById(R.id.harga);
         txtharga.setText(item.getHarga());
         spinnerregional = (Spinner) promptsView.findViewById(R.id.spinnerregional);
+
         String s = (String)(spinnerregional.getSelectedItem());
         item.setRegional(s);
-
         mSpinner.setOnItemSelectedListener(new OnSpinnerItemClicked());
-
-
         Button save = (Button) promptsView.findViewById(R.id.ok);
         save.setOnClickListener(new View.OnClickListener()
 
@@ -243,8 +222,7 @@ public class EditProduk extends AppCompatActivity {
                     String s = (String)(spinnerregional.getSelectedItem());
                     newitem.setRegional(s);
                     newitem.setHarga(txtharga.getText().toString());
-
-
+                    Toast.makeText(EditProduk.this, "Berhasil Diupdate" ,Toast.LENGTH_SHORT).show();
                     adapter.editItem(position, newitem);
                     addNewItemDialog.dismiss();
                 }
@@ -255,6 +233,7 @@ public class EditProduk extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(EditProduk.this, "Update Dibatalkan", Toast.LENGTH_SHORT).show();
                 addNewItemDialog.dismiss();
             }
         });
@@ -265,17 +244,11 @@ public class EditProduk extends AppCompatActivity {
         addNewItemDialog.show();
     }
 
-
-
-
-
-
     private void submitForm() {
         // Submit your form here. your form is valid
         Toast.makeText(EditProduk.this, "Data Diedit", Toast.LENGTH_SHORT).show();
 
         panggilclass();
-
 
         kode = txtkode.getText().toString();
         nama = txtnama.getText().toString();
@@ -294,17 +267,8 @@ public class EditProduk extends AppCompatActivity {
         }else{
             Toast.makeText(getApplicationContext(), "Contact data not added. Please try again", Toast.LENGTH_LONG).show();
         }
-
-
-
     }
 
-
-
-
-    //    public boolean validasiCPass(String cpass) {
-//        return cpass.length() > 0;
-//    }
     public boolean validateKode(String kode) {
         return kode.length() > 0;
     }
@@ -330,12 +294,8 @@ public class EditProduk extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
         }
-
-
         public void onNothingSelected(AdapterView parent) {
             // Do nothing.
-
-
         }
     }
 
@@ -356,16 +316,10 @@ public class EditProduk extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.simpan) {
 
-
-
-
-
             //String cpass = txtcpas.getText().toString();
             String kode = txtkode.getText().toString();
             String nama = txtnama.getText().toString();
             String hargawal = txthargaawal.getText().toString();
-
-
 
             if (!validateKode(kode)) {
                 txtkode.setError("silahkan masukan kode");
@@ -383,13 +337,10 @@ public class EditProduk extends AppCompatActivity {
                 {
                     Toast.makeText(EditProduk.this, "Kesalahan dalam Harga Awal", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
             else submitForm();
 
             return true;
-
         }
 
         return super.onOptionsItemSelected(item);
@@ -398,9 +349,5 @@ public class EditProduk extends AppCompatActivity {
         Intent panggil = new Intent(getApplicationContext(), DaftarProduk.class);
         startActivity(panggil);
     }
-
-
-
-
 
 }

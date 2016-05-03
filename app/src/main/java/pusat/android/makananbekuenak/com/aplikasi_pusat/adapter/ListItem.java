@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -62,9 +63,9 @@ public class ListItem extends BaseAdapter {
         delete.setOnClickListener(new View.OnClickListener() {
 
             @Override
-
             public void onClick(View v) {
                 deleteItem(position);
+                Toast.makeText(context,"Regional " + item.getRegional() + " Berhasil Dihapus", Toast.LENGTH_SHORT).show();
             }
         });
 
