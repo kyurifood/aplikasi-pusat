@@ -14,7 +14,7 @@
         <ImageView
             android:layout_width="158dp"
             android:layout_height="137dp"
-            android:src="@drawable/poot"
+            android:src="@drawable/image_add"
             android:id="@+id/foto"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>

@@ -1,7 +1,7 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +30,7 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item;
  * Created by fikran on 23/04/16.
  */
 public class EditProduk extends AppCompatActivity {
-    private static final int SELECT_PHOTO = 100;
+    private static int RESULT_LOAD_IMAGE = 1;
     ImageView imgview;
     ListView lvItem;
     ListItem adapter;
@@ -45,15 +45,14 @@ public class EditProduk extends AppCompatActivity {
 
     EditText txtkode, txtnama, txtharga,txthargaawal;
 
+    private String kode;
+    private String nama;
+    private String img;
+    private String picturePath = "";
+    private ProdukHandler handler;
+    Bundle extras;
 
 
-
-
-    String[] isikode;
-    String[] isinama;
-
-    int[] flag;
-    int position;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +61,9 @@ public class EditProduk extends AppCompatActivity {
 
         getSupportActionBar().setTitle("EDIT PRODUK");
 
+        extras = getIntent().getExtras();
+
+        handler = new ProdukHandler(getApplicationContext());
 
 
 
@@ -78,6 +80,18 @@ public class EditProduk extends AppCompatActivity {
         // Locate the ImageView in singleitemview.xml
         imgview = (ImageView) findViewById(R.id.foto);
 
+
+
+        Bundle extras = getIntent().getExtras();
+
+
+        imgview.setImageBitmap(BitmapFactory.decodeFile(extras.getString("image")));
+
+
+        txtkode.setText(extras.getString("kode"));
+
+
+        txtnama.setText(extras.getString("nama"));
 
 
         Button addNewItem = (Button) findViewById(R.id.tambahharga);
@@ -105,52 +119,43 @@ public class EditProduk extends AppCompatActivity {
             }
         });
 
-        imgview.setOnClickListener(new View.OnClickListener() {
+        ImageView iv_user_photo = (ImageView) findViewById(R.id.foto);
+        iv_user_photo.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
-                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-                photoPickerIntent.setType("image/*");
-                startActivityForResult(photoPickerIntent, SELECT_PHOTO);
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                startActivityForResult(intent, RESULT_LOAD_IMAGE);
+
             }
         });
 
-//             // Retrieve data from MainActivity on listview item click
-       Intent i = getIntent();
-        // Get a single position
-        position = i.getExtras().getInt("position");
-        // Get the list of rank
-        isikode = i.getStringArrayExtra("itemkode");
-        // Get the list of country
-        isinama = i.getStringArrayExtra("itemnama");
-        // Get the list of flag
-        flag = i.getIntArrayExtra("flag");
 
-        // Load the text into the TextViews followed by the position
-        txtkode.setText(isikode[position]);
-        txtnama.setText(isinama[position]);
-
-
-        // Load the image into the ImageView followed by the position
-        imgview.setImageResource(flag[position]);
 
 
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
-        switch(requestCode) {
-            case SELECT_PHOTO:
-                if(resultCode == RESULT_OK){
-                    android.net.Uri selectedImage = data.getData();
-                    java.io.InputStream imageStream = null;
-                    try {
-                        imageStream = getContentResolver().openInputStream(selectedImage);
-                    } catch (java.io.FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    Bitmap yourSelectedImage = android.graphics.BitmapFactory.decodeStream(imageStream);
-                    imgview.setImageBitmap(yourSelectedImage);
-                }
+
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+            android.net.Uri imageUri = data.getData();
+            String[] filePathColumn = { android.provider.MediaStore.Images.Media.DATA };
+
+            android.database.Cursor cursor = getContentResolver().query(imageUri,
+                    filePathColumn, null, null, null);
+            cursor.moveToFirst();
+
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            picturePath = cursor.getString(columnIndex);
+            cursor.close();
+
+            ImageView imgview = (ImageView) findViewById(R.id.foto);
+            imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(picturePath));
+
         }
     }
 
@@ -270,6 +275,28 @@ public class EditProduk extends AppCompatActivity {
         Toast.makeText(EditProduk.this, "Data Diedit", Toast.LENGTH_SHORT).show();
 
         panggilclass();
+
+
+        kode = txtkode.getText().toString();
+        nama = txtnama.getText().toString();
+        ImageView iv_photograph = (ImageView) findViewById(R.id.foto);
+        img = picturePath;
+
+        pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk produk = new pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk();
+        produk.setId(extras.getInt("id")); // Update the data where id = extras.getInt("id").
+        produk.setKode(txtkode.getText().toString());
+        produk.setNama(txtnama.getText().toString());
+        produk.setImage(picturePath);
+        Boolean edit = handler.editProduk(produk);
+        if(edit){
+            Intent intent = new Intent(EditProduk.this, DaftarProduk.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(getApplicationContext(), "Contact data not added. Please try again", Toast.LENGTH_LONG).show();
+        }
+
+
+
     }
 
 

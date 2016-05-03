@@ -1,12 +1,16 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.List;
@@ -34,6 +38,9 @@ public class DaftarProduk extends AppCompatActivity {
         handler = new ProdukHandler(getApplicationContext());
 
         lv = (ListView) findViewById(R.id.lv_daftar);
+
+
+
 
         loadContactData();
 
@@ -68,13 +75,51 @@ public class DaftarProduk extends AppCompatActivity {
     private void loadContactData(){
         // Code for loading contact list in ListView
         // Reading all contacts
-        List<ItemProduk> produks = handler.readAllProduks();
+        final List<ItemProduk> produks = handler.readAllProduks();
 
         // Initialize Custom Adapter
         ListItemproduk adapter = new ListItemproduk(this, produks);
 
         // Set Adapter to ListView
         lv.setAdapter(adapter);
+
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                final CharSequence[] dialogitem = {"View", "Edit"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(DaftarProduk.this);
+                builder.setTitle("Pilih Menu");
+                builder.setItems(dialogitem, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        switch (item) {
+                            case 0:
+                                Intent i = new Intent(getApplicationContext(), viewProduk.class);
+                                i.putExtra("id", produks.get(position).getId());
+                                i.putExtra("kode", produks.get(position).getKode());
+                                i.putExtra("nama", produks.get(position).getNama());
+                                i.putExtra("image", produks.get(position).getImage());
+
+                                startActivity(i);
+                                break;
+                            case 1:
+
+                                Intent intent = new Intent(DaftarProduk.this, EditProduk.class);
+                                intent.putExtra("id", produks.get(position).getId());
+                                intent.putExtra("kode", produks.get(position).getKode());
+                                intent.putExtra("nama", produks.get(position).getNama());
+                                intent.putExtra("image", produks.get(position).getImage());
+
+                                startActivity(intent);
+                                break;
+
+                        }
+                    }
+                });
+                builder.create().show();
+                return false;
+            }
+        });
+
 
         // See the log int LogCat
         for(ItemProduk c : produks){

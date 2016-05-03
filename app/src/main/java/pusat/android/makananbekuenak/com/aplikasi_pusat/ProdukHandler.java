@@ -118,7 +118,7 @@ public class ProdukHandler extends SQLiteOpenHelper {
     }
 
     // Update contact contact
-    public boolean editContact(ItemProduk produk){
+    public boolean editProduk(ItemProduk produk){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues vals = new ContentValues();
