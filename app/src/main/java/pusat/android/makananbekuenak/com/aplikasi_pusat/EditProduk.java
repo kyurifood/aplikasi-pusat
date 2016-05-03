@@ -170,7 +170,7 @@ public class EditProduk extends AppCompatActivity {
 
                     if (adapter == null) {
                         items.add(item);
-                        adapter = new ListItem(EditProduk.this, items);
+                        adapter = new ListItem(EditProduk.this, items, "2");
                         lvItem.setAdapter(adapter);
                     } else {
                         adapter.addItem(item);
