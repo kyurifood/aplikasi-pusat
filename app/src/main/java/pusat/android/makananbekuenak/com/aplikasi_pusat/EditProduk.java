@@ -49,7 +49,7 @@ public class EditProduk extends AppCompatActivity {
     private String kode;
     private String nama;
     private String img;
-    private String picturePath = "Tambah Foto";
+    private String picturePath = "";
     private ProdukHandler handler;
     Bundle extras;
 
@@ -196,7 +196,7 @@ public class EditProduk extends AppCompatActivity {
         addNewItemDialog.show();
     }
 
-    public void showEditProdukDialog(final int position, Item item) {
+    public void showEditDialog(final int position, Item item) {
         if (addNewItemDialogBuilder == null) {
             addNewItemDialogBuilder = new AlertDialog.Builder(EditProduk.this);
         }
