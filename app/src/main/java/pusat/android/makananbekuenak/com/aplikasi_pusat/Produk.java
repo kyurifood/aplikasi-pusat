@@ -117,7 +117,7 @@ public class Produk extends AppCompatActivity {
             cursor.close();
 
             ImageView imgview = (ImageView) findViewById(R.id.foto);
-                imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(picturePath));
+            imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(picturePath));
 
         }
     }

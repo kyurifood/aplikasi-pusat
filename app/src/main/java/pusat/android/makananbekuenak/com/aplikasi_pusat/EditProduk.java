@@ -131,11 +131,8 @@ public class EditProduk extends AppCompatActivity {
             cursor.close();
 
             ImageView imgview = (ImageView) findViewById(R.id.foto);
-            if (picturePath.isEmpty()){
-                imgview.setImageResource(R.drawable.produk);
-            }else {
-                imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(picturePath));
-            }
+            imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(picturePath));
+
 
         }
     }
@@ -151,7 +148,6 @@ public class EditProduk extends AppCompatActivity {
         final Spinner mSpinner= (Spinner) promptsView.findViewById(R.id.spinnerregional);
         txtharga = (EditText) promptsView.findViewById(R.id.harga);
         spinnerregional = (Spinner) promptsView.findViewById(R.id.spinnerregional);
-
         mSpinner.setOnItemSelectedListener(new OnSpinnerItemClicked());
 
 
@@ -196,7 +192,7 @@ public class EditProduk extends AppCompatActivity {
         addNewItemDialog.show();
     }
 
-    public void showEditProdukDialog(final int position, Item item) {
+    public void showEditProdukDialog(final int position, final Item item) {
         if (addNewItemDialogBuilder == null) {
             addNewItemDialogBuilder = new AlertDialog.Builder(EditProduk.this);
         }
@@ -207,9 +203,9 @@ public class EditProduk extends AppCompatActivity {
         txtharga = (EditText) promptsView.findViewById(R.id.harga);
         txtharga.setText(item.getHarga());
         spinnerregional = (Spinner) promptsView.findViewById(R.id.spinnerregional);
-
-        String s = (String)(spinnerregional.getSelectedItem());
+        String s = spinnerregional.getSelectedItem().toString();
         item.setRegional(s);
+
         mSpinner.setOnItemSelectedListener(new OnSpinnerItemClicked());
         Button save = (Button) promptsView.findViewById(R.id.ok);
         save.setOnClickListener(new View.OnClickListener()
@@ -247,9 +243,7 @@ public class EditProduk extends AppCompatActivity {
     private void submitForm() {
         // Submit your form here. your form is valid
         Toast.makeText(EditProduk.this, "Data Diedit", Toast.LENGTH_SHORT).show();
-
         panggilclass();
-
         kode = txtkode.getText().toString();
         nama = txtnama.getText().toString();
         ImageView iv_photograph = (ImageView) findViewById(R.id.foto);

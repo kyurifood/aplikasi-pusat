@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
                         String text = sb.toString();
                         text = text.substring(0, text.length() - 2);
-                        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), text + ", Lunas", Toast.LENGTH_SHORT).show();
                         mode.finish();
                         break;
                     default:

@@ -48,8 +48,7 @@ public class ProdukHandler extends SQLiteOpenHelper {
                 + COLUMN_ID + " INTEGER PRIMARY KEY,"
                 + COLUMN_KODE + " TEXT,"
                 + COLUMN_NAMA + " TEXT,"
-                + COLUMN_IMAGE + " TEXT,"
-                + COLUMN_HARGA + ""
+                + COLUMN_IMAGE + " TEXT"
                 + ")";
         db.execSQL(CREATE_TABLE);
     }
