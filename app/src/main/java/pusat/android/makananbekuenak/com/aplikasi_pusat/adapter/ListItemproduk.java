@@ -22,7 +22,6 @@ public class ListItemproduk extends BaseAdapter {
     private List<ItemProduk> items;
     private Context context;
     private LayoutInflater inflater;
-
     public ListItemproduk(Context _context, List<ItemProduk> _items){
         inflater = LayoutInflater.from(_context);
         this.items = _items;

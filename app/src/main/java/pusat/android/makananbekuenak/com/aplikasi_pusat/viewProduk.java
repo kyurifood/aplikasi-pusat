@@ -23,6 +23,8 @@ public class viewProduk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_produk);
 
+        getSupportActionBar().setTitle("Lihat Produk");
+
         Bundle extras = getIntent().getExtras();
 
         ImageView iv_photo = (ImageView) findViewById(R.id.poto);
@@ -37,6 +39,10 @@ public class viewProduk extends AppCompatActivity {
 
         TextView tv_nama = (TextView) findViewById(R.id.liatnama);
         tv_nama.setText(extras.getString("nama"));
+
+        TextView tv_hrgaawal = (TextView) findViewById(R.id.liathargaawal);
+        tv_hrgaawal.setText(extras.getString("hargaawal"));
+
 
 
 

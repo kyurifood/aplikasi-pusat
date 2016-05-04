@@ -67,7 +67,7 @@ public class ListItemAdapter extends BaseAdapter {
         CheckBox baru = (CheckBox) convertView.findViewById(R.id.cb_baru);
         final CheckBox lunas = (CheckBox) convertView.findViewById(R.id.cb_lunas);
 
-        lunas.setChecked(item.isLunas());
+        lunas.setChecked(item.isLunas() == true);
         no_order.setText(item.getNo_order());
         tanggal_pesan.setText(item.getTanggal_pesan());
         nama.setText(item.getNama());
@@ -77,7 +77,6 @@ public class ListItemAdapter extends BaseAdapter {
         btnAction1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 lunas.setChecked(true);
                 Toast.makeText(context, item.getNo_order() + ", Lunas", Toast.LENGTH_SHORT).show();
 

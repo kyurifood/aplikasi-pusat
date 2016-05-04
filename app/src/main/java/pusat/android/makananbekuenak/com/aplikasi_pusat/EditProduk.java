@@ -48,8 +48,9 @@ public class EditProduk extends AppCompatActivity {
 
     private String kode;
     private String nama;
+    private String hargaawal;
     private String img;
-    private String picturePath = "Tambah Foto";
+    private String picturePath = "";
     private ProdukHandler handler;
     Bundle extras;
 
@@ -74,7 +75,7 @@ public class EditProduk extends AppCompatActivity {
         imgview.setImageBitmap(BitmapFactory.decodeFile(extras.getString("image")));
         txtkode.setText(extras.getString("kode"));
         txtnama.setText(extras.getString("nama"));
-        txthargaawal.setText(extras.getString("harga"));
+        txthargaawal.setText(extras.getString("hargaawal"));
 
         Button addNewItem = (Button) findViewById(R.id.tambahharga);
         Spinner mSpinner= (Spinner)findViewById(R.id.spinnerregional);
@@ -246,6 +247,7 @@ public class EditProduk extends AppCompatActivity {
         panggilclass();
         kode = txtkode.getText().toString();
         nama = txtnama.getText().toString();
+        hargaawal = txthargaawal.getText().toString();
         ImageView iv_photograph = (ImageView) findViewById(R.id.foto);
         img = picturePath;
 
@@ -253,7 +255,8 @@ public class EditProduk extends AppCompatActivity {
         produk.setId(extras.getInt("id")); // Update the data where id = extras.getInt("id").
         produk.setKode(txtkode.getText().toString());
         produk.setNama(txtnama.getText().toString());
-        produk.setImage(picturePath);
+        produk.setHargaawal(txthargaawal.getText().toString());
+        produk.setImage(img);
         Boolean edit = handler.editProduk(produk);
         if(edit){
             Intent intent = new Intent(EditProduk.this, DaftarProduk.class);
