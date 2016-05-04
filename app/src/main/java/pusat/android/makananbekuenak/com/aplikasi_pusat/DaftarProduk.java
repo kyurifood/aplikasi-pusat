@@ -98,6 +98,7 @@ public class DaftarProduk extends AppCompatActivity {
                                 i.putExtra("id", produks.get(position).getId());
                                 i.putExtra("kode", produks.get(position).getKode());
                                 i.putExtra("nama", produks.get(position).getNama());
+                                i.putExtra("hargaawal", produks.get(position).getHargaawal());
                                 i.putExtra("image", produks.get(position).getImage());
                                 startActivity(i);
                                 break;
@@ -107,6 +108,7 @@ public class DaftarProduk extends AppCompatActivity {
                                 intent.putExtra("id", produks.get(position).getId());
                                 intent.putExtra("kode", produks.get(position).getKode());
                                 intent.putExtra("nama", produks.get(position).getNama());
+                                intent.putExtra("hargaawal", produks.get(position).getHargaawal());
                                 intent.putExtra("image", produks.get(position).getImage());
                                 startActivity(intent);
                                 break;

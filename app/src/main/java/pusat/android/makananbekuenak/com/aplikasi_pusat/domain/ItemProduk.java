@@ -10,23 +10,24 @@ public class ItemProduk {
     private String kode;
     private String nama;
     private String image;
-    private int HargaAwal;
+    private String Hargaawal;
 
-    public int getHargaAwal() {
-        return HargaAwal;
+    public String getHargaawal() {
+        return Hargaawal;
     }
 
-    public void setHargaAwal(int hargaAwal) {
-        HargaAwal = hargaAwal;
+    public void setHargaawal(String hargaawal) {
+        Hargaawal = hargaawal;
     }
 
     public ItemProduk(){
 
     }
 
-    public ItemProduk (String kode, String nama, String image){
+    public ItemProduk (String kode, String nama, String Hargaawal, String image){
         this.kode = kode;
         this.nama = nama;
+        this.Hargaawal = Hargaawal;
         this.image = image;
     }
 

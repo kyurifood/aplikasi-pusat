@@ -30,10 +30,11 @@ public class ProdukHandler extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_KODE = "kode";
     private static final String COLUMN_NAMA = "nama";
+    private static final String COLUMN_HARGAAWAL = "hargaawal";
     private static final String COLUMN_IMAGE = "image";
-    private static final String COLUMN_HARGA = "";
 
-    private String[] columns= {COLUMN_ID, COLUMN_KODE, COLUMN_NAMA, COLUMN_IMAGE};
+
+    private String[] columns= {COLUMN_ID, COLUMN_KODE, COLUMN_NAMA, COLUMN_HARGAAWAL, COLUMN_IMAGE};
 
     // Create database
     public ProdukHandler(Context context) {
@@ -48,8 +49,8 @@ public class ProdukHandler extends SQLiteOpenHelper {
                 + COLUMN_ID + " INTEGER PRIMARY KEY,"
                 + COLUMN_KODE + " TEXT,"
                 + COLUMN_NAMA + " TEXT,"
-                + COLUMN_IMAGE + " TEXT,"
-                + COLUMN_HARGA + ""
+                + COLUMN_HARGAAWAL + " TEXT,"
+                + COLUMN_IMAGE + " TEXT"
                 + ")";
         db.execSQL(CREATE_TABLE);
     }
@@ -75,6 +76,7 @@ public class ProdukHandler extends SQLiteOpenHelper {
         ContentValues vals = new ContentValues();
         vals.put(COLUMN_KODE, contact.getKode());
         vals.put(COLUMN_NAMA, contact.getNama());
+        vals.put(COLUMN_HARGAAWAL, contact.getHargaawal());
         vals.put(COLUMN_IMAGE, contact.getImage());
 
         // Insert values into table
@@ -107,7 +109,8 @@ public class ProdukHandler extends SQLiteOpenHelper {
             produk.setId(Integer.parseInt(cursor.getString(0)));
             produk.setKode(cursor.getString(1));
             produk.setNama(cursor.getString(2));
-            produk.setImage(cursor.getString(3));
+            produk.setHargaawal(cursor.getString(3));
+            produk.setImage(cursor.getString(4));
 
             produks.add(produk);
             cursor.moveToNext();
@@ -125,6 +128,8 @@ public class ProdukHandler extends SQLiteOpenHelper {
         ContentValues vals = new ContentValues();
         vals.put(COLUMN_KODE, produk.getKode());
         vals.put(COLUMN_NAMA, produk.getNama());
+        vals.put(COLUMN_HARGAAWAL, produk.getHargaawal());
+        vals.put(COLUMN_IMAGE, produk.getImage());
 
         // updating row
         int i = db.update(TABLE_PRODUK, vals, COLUMN_ID + " = ?",  new String[] { String.valueOf(produk.getId()) });
