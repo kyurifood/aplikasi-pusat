@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="pusat.android.makananbekuenak.com.aplikasi_pusat.LoginActivity" android:theme="@style/AppTheme.Dark" />
+        <activity android:name="pusat.android.makananbekuenak.com.aplikasi_pusat.LoginActivity" />
         <activity android:name="pusat.android.makananbekuenak.com.aplikasi_pusat.SignupActivity" android:theme="@style/AppTheme.Dark" />
         <activity android:name=".Distributor" />
         <activity android:name=".Marketer" />

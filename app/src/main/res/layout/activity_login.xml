@@ -12,33 +12,30 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <!--  Email Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+        <ImageView android:src="@drawable/poot"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
+
             <EditText android:id="@+id/input_email"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Email" />
-        </android.support.design.widget.TextInputLayout>
+                android:hint="Email"
+                android:drawableLeft="@drawable/ic_action_account_box"/>
+        <requestFocus/>
 
-        <!--  Password Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
             <EditText android:id="@+id/input_password"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password"/>
-        </android.support.design.widget.TextInputLayout>
+                android:hint="Password"
+                android:drawableLeft="@drawable/ic_action_https"/>
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_login"
@@ -47,6 +44,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
+            style="@style/Hijau"
             android:text="Login"/>
 
         <TextView android:id="@+id/link_signup"
