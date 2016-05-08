@@ -268,7 +268,7 @@
         android:layout_height="136dp"
         android:layout_gravity="center"
         android:scrollbarSize="3dp"
-        style="@style/scrollbar"
+        style="@style/scrollbarlihat"
         android:id="@+id/lv_detail" />
 
     <LinearLayout

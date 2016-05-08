@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import pusat.android.makananbekuenak.com.aplikasi_pusat.Lihatdetail;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.ui.Lihatdetail;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item_Pesanan;
 

@@ -10,8 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
 
-import pusat.android.makananbekuenak.com.aplikasi_pusat.Produk;
-import pusat.android.makananbekuenak.com.aplikasi_pusat.EditProduk;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.ui.Produk;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.ui.EditProduk;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item;
 
