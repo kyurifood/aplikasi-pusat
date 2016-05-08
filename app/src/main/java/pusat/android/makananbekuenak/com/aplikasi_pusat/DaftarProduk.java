@@ -1,15 +1,23 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemproduk;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk;
 
 
 /**
@@ -18,15 +26,9 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemproduk;
 public class DaftarProduk extends AppCompatActivity {
 
 
-    ListView lvdaftar;
-    ListItemproduk adapter;
-
-
-    String[] itemkode;
-    String[] itemnama;
-    int[] flag;
-
-
+    private ProdukHandler handler;
+    ListView lv;
+    private String[] item1kode;
 
 
     @Override
@@ -38,7 +40,7 @@ public class DaftarProduk extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.bar_ic_action_wallet_travel);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-/*
+
         List<ItemProduk> items = new ArrayList<>();
         ItemProduk item1 = new ItemProduk();
         item1.setKode("001");
@@ -48,50 +50,15 @@ public class DaftarProduk extends AppCompatActivity {
         item2.setKode("002");
         item2.setNama("takoyaki");
 
-        ItemProduk item3 = new ItemProduk();
-        item3.setKode("003");
-        item3.setNama("okonomiyahi");
+        handler = new ProdukHandler(getApplicationContext());
 
-        final ItemProduk item4 = new ItemProduk();
-        item4.setKode("004");
-        item4.setNama("biyapong");
+        lv = (ListView) findViewById(R.id.lv_daftar);
 
-        items.add(item1);
-        items.add(item2);
-        items.add(item3);
-        items.add(item4);
-*/
 
         // Generate sample data into string arrays
-        itemkode = new String[] { "001", "002", "003", "004" };
+        item1kode = new String[]{"001", "002", "003", "004"};
 
-        itemnama = new String[] { "karapao", "takoyaki", "ramen", "biyapong" };
-        flag = new int[] { R.drawable.produk, R.drawable.produk,
-                R.drawable.produk, R.drawable.produk};
-
-
-        lvdaftar = (ListView) findViewById(R.id.lv_daftar);
-
-        adapter = new ListItemproduk(this, itemkode, itemnama, flag);
-       // adapter = new ListItemproduk(getApplicationContext(), items);
-        lvdaftar.setAdapter(adapter);
-        lvdaftar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(), EditProduk.class);
-
-                // Pass all data rank
-                i.putExtra("itemkode", itemkode);
-                // Pass all data country
-                i.putExtra("itemnama", itemnama);
-
-                // Pass all data flag
-                i.putExtra("flag", flag);
-                // Pass a single position
-                i.putExtra("position", position);
-                startActivity(i);
-            }
-        });
+        loadContactData();
 
     }
     @Override
@@ -121,6 +88,64 @@ public class DaftarProduk extends AppCompatActivity {
         Intent panggil = new Intent(getApplicationContext(), Produk.class);
         startActivity(panggil);
     }
+    private void loadContactData(){
+        // Code for loading contact list in ListView
+        // Reading all contacts
+        final List<ItemProduk> produks = handler.readAllProduks();
+
+        // Initialize Custom Adapter
+        ListItemproduk adapter = new ListItemproduk(this, produks);
+
+        // Set Adapter to ListView
+        lv.setAdapter(adapter);
+
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                final CharSequence[] dialogitem = {"View", "Edit"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(DaftarProduk.this);
+                builder.setTitle("Pilih Menu");
+                builder.setItems(dialogitem, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        switch (item) {
+                            case 0:
+                                Intent i = new Intent(getApplicationContext(), viewProduk.class);
+                                i.putExtra("id", produks.get(position).getId());
+                                i.putExtra("kode", produks.get(position).getKode());
+                                i.putExtra("nama", produks.get(position).getNama());
+                                i.putExtra("image", produks.get(position).getImage());
+
+                                startActivity(i);
+                                break;
+                            case 1:
+
+                                Intent intent = new Intent(DaftarProduk.this, EditProduk.class);
+                                intent.putExtra("id", produks.get(position).getId());
+                                intent.putExtra("kode", produks.get(position).getKode());
+                                intent.putExtra("nama", produks.get(position).getNama());
+                                intent.putExtra("image", produks.get(position).getImage());
+
+                                startActivity(intent);
+                                break;
+
+                        }
+                    }
+                });
+                builder.create().show();
+                return false;
+            }
+        });
+
+
+        // See the log int LogCat
+        for(ItemProduk c : produks){
+            String record = "ID=" + c.getId() + " | kode=" + c.getKode() + " | " + c.getNama();
+            Log.d("Record", record);
+        }
+
+    }
+
+
 
 
 }

@@ -30,30 +30,41 @@ public class Produk extends AppCompatActivity {
 
     private static final int SELECT_PHOTO = 100;
     ImageView imgview;
+    private ProdukHandler handler;
     ListView lvItem;
+    ListView lvtem;
     ListItem adapter;
+    pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemproduk list;
 
     private Spinner spinnerregional;
 
     AlertDialog.Builder addNewItemDialogBuilder = null;
     AlertDialog addNewItemDialog = null;
     View promptsView;
+    private String kode;
+    private String nama;
+    private String img;
+    private String picturePath = "";
+    private static int RESULT_LOAD_IMAGE = 1;
+
+
+    String[] isikode;
+    String[] isinama;
+
 
     List<Item> items = new ArrayList<>();
 
     EditText txtkode, txtnama, txtharga,txthargaawal;
 
-    String[] isikode;
-    String[] isinama;
 
-    int[] flag;
-    int position;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk);
+
+        handler = new ProdukHandler(getApplicationContext());
 
         getSupportActionBar().setTitle("TAMBAH PRODUK");
 
@@ -73,6 +84,7 @@ public class Produk extends AppCompatActivity {
 
 
         lvItem = (ListView) findViewById(R.id.lv_item);
+        lvtem = (ListView) findViewById(R.id.lv_daftar);
         ViewGroup.LayoutParams listViewParams = (ViewGroup.LayoutParams) lvItem.getLayoutParams();
         listViewParams.height = 380;
         lvItem.requestLayout();
@@ -121,13 +133,27 @@ public class Produk extends AppCompatActivity {
         imgview.setImageResource(flag[position]);
 */
 
+        ImageView iv_user_photo = (ImageView) findViewById(R.id.foto);
+        iv_user_photo.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                startActivityForResult(intent, RESULT_LOAD_IMAGE);
+
+            }
+        });
+
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch(requestCode) {
+        switch (requestCode) {
             case SELECT_PHOTO:
-                if(resultCode == RESULT_OK){
+                if (resultCode == RESULT_OK) {
                     android.net.Uri selectedImage = data.getData();
                     java.io.InputStream imageStream = null;
                     try {
@@ -138,7 +164,28 @@ public class Produk extends AppCompatActivity {
                     Bitmap yourSelectedImage = android.graphics.BitmapFactory.decodeStream(imageStream);
                     imgview.setImageBitmap(yourSelectedImage);
                 }
+                // TODO Auto-generated method stub
+                super.onActivityResult(requestCode, resultCode, data);
+
+                if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+                    android.net.Uri imageUri = data.getData();
+                    String[] filePathColumn = {android.provider.MediaStore.Images.Media.DATA};
+
+                    android.database.Cursor cursor = getContentResolver().query(imageUri,
+                            filePathColumn, null, null, null);
+                    cursor.moveToFirst();
+
+                    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                    picturePath = cursor.getString(columnIndex);
+                    cursor.close();
+
+                    ImageView imgview = (ImageView) findViewById(R.id.foto);
+                    imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(picturePath));
+
+                }
+
         }
+
     }
 
     public void showAddDialog() {
@@ -252,6 +299,27 @@ public class Produk extends AppCompatActivity {
         Toast.makeText(Produk.this, "Data Disimpan", Toast.LENGTH_SHORT).show();
 
         panggilclass();
+
+        kode = txtkode.getText().toString();
+        nama = txtnama.getText().toString();
+        ImageView iv_photograph = (ImageView) findViewById(R.id.foto);
+        img = picturePath;
+
+        pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk produk = new pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk();
+        produk.setKode(kode);
+        produk.setNama(nama);
+        produk.setImage(img);
+         Boolean added = handler.addProdukDetails(produk);
+          if(added){
+          Intent intent = new Intent(Produk.this, DaftarProduk.class);
+           startActivity(intent);
+                }else{
+                    Toast.makeText(getApplicationContext(), "Contact data not added. Please try again", Toast.LENGTH_LONG).show();
+                }
+
+
+
+
     }
     //    public boolean validasiCPass(String cpass) {
 //        return cpass.length() > 0;
@@ -343,3 +411,4 @@ public class Produk extends AppCompatActivity {
     }
 
 }
+

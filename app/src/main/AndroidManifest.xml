@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".HomeScreen" >
+        <activity android:name=".SplashScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,6 +19,7 @@
         <activity android:name="pusat.android.makananbekuenak.com.aplikasi_pusat.SignupActivity" android:theme="@style/AppTheme.Dark" />
         <activity android:name=".Distributor" />
         <activity android:name=".Marketer" />
+        <activity android:name=".viewProduk" />
         <activity android:name=".Produk"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustPan|adjustResize" >
@@ -42,6 +43,7 @@
                 android:value="pusat.android.makananbekuenak.com.aplikasi_pusat.DaftarProduk" />
             <!-- END Coding Kembali Ke Menu Utama-->
         </activity>
+        <activity android:name=".HomeScreen"/>
         <activity android:name=".Regional"/>
         <activity android:name=".Laporan"/>
         <activity android:name=".MainActivity"/>

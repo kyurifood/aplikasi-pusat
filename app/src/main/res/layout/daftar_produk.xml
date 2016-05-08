@@ -8,4 +8,5 @@
         android:divider="@android:color/transparent"
         android:id="@+id/lv_daftar"/>
 
+
 </LinearLayout>
