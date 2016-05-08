@@ -10,7 +10,8 @@
         android:orientation="horizontal"
         android:layout_marginRight="13dp"
         android:layout_marginLeft="13dp"
-        android:layout_marginTop="13dp">
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="8dp">
         <ImageView
             android:layout_width="158dp"
             android:layout_height="137dp"
@@ -53,17 +54,21 @@
     </android.support.design.widget.TextInputLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
         android:text="Harga / Regional"
         android:id="@+id/textView3"
         android:layout_gravity="center_horizontal" />
 
     <Button
+        style="@style/Hijau"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
         android:text="+"
+        android:textStyle="bold"
         android:id="@+id/tambahharga"
         android:layout_gravity="right" />
     <LinearLayout android:layout_height="wrap_content"
@@ -73,9 +78,7 @@
         android:layout_marginLeft="13dp">
 
         <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbarSize="3dp"
+            style="@style/LayoutMatchParent"
             android:layout_gravity="center"
             android:divider="@android:color/transparent"
             android:id="@+id/lv_item" />

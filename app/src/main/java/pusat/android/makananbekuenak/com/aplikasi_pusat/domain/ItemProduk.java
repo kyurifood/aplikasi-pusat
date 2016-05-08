@@ -5,30 +5,31 @@ package pusat.android.makananbekuenak.com.aplikasi_pusat.domain;
  */
 public class ItemProduk {
 
+
     private int id;
     private String kode;
     private String nama;
     private String image;
+    private String Hargaawal;
+
+    public String getHargaawal() {
+        return Hargaawal;
+    }
+
+    public void setHargaawal(String hargaawal) {
+        Hargaawal = hargaawal;
+    }
 
     public ItemProduk(){
 
     }
 
-    public ItemProduk (String kode, String nama, String image){
+    public ItemProduk (String kode, String nama, String Hargaawal, String image){
         this.kode = kode;
         this.nama = nama;
+        this.Hargaawal = Hargaawal;
         this.image = image;
     }
-
-    public boolean isSelected() {
-        return selected;
-    }
-
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
-
-    private boolean selected;
 
 
     public String getKode() {

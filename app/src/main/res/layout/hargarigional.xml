@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Harga per Regional"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Regional"
+        android:textStyle="bold"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="2dp"/>
+        android:layout_marginLeft="15dp"/>
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:prompt="@string/pk1"
         android:entries="@array/pklist"
         android:id="@+id/spinnerregional"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:spinnerMode="dialog"
         style="@style/spinnerDropDownItemStyle"/>
 
+    <View style="@style/HorizontalDivider"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,18 +47,20 @@
 
     <LinearLayout
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="18dp">
+        android:layout_marginBottom="10dp">
     <Button
+        style="@style/Hijau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ok"
         android:id="@+id/ok" />
 
     <Button
+        style="@style/Merah"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="kembali"

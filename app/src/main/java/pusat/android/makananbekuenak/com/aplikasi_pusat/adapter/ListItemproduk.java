@@ -22,7 +22,6 @@ public class ListItemproduk extends BaseAdapter {
     private List<ItemProduk> items;
     private Context context;
     private LayoutInflater inflater;
-
     public ListItemproduk(Context _context, List<ItemProduk> _items){
         inflater = LayoutInflater.from(_context);
         this.items = _items;
@@ -56,11 +55,15 @@ public class ListItemproduk extends BaseAdapter {
 
         TextView kode = (TextView) view.findViewById(R.id.item_kode);
         TextView nama = (TextView) view.findViewById(R.id.item_nama);
+
         ImageView flag = (ImageView) view.findViewById(R.id.flag);
 
         kode.setText(produk.getKode());
         nama.setText(produk.getNama());
-        flag.setImageBitmap(BitmapFactory.decodeFile(produk.getImage()));
+        if(produk.getImage().isEmpty())
+            flag.setImageResource(R.drawable.poot);
+        else
+            flag.setImageBitmap(BitmapFactory.decodeFile(produk.getImage()));
 
 
         return view;

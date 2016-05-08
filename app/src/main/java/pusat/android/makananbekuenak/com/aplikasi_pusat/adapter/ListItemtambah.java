@@ -52,14 +52,8 @@ public class ListItemtambah extends BaseAdapter {
         TextView itemkode = (TextView) convertView.findViewById(R.id.item_kode);
         TextView itemnama = (TextView) convertView.findViewById(R.id.item_nama);
 
-
-
         itemkode.setText(item.getKode());
         itemnama.setText(item.getNama());
-
-
-
-
 
         return convertView;
     }

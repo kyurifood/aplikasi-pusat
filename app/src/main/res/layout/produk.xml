@@ -2,21 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Panel.Vertical"
-    tools:context=".Produk"
+    tools:context=".ui.Produk"
     android:weightSum="1">
-
-
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/linearLayout"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_marginLeft="164dp"-->
-        <!--android:layout_marginStart="164dp"></LinearLayout>-->
-
 
     <ScrollView
         android:scrollbarSize="3dp"
