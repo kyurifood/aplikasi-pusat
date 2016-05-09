@@ -1,8 +1,11 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -46,10 +49,7 @@ public class EditProduk extends AppCompatActivity {
 
     EditText txtkode, txtnama, txtharga,txthargaawal;
 
-    private String kode;
-    private String nama;
-    private String hargaawal;
-    private String img;
+
     private String picturePath = "";
     private ProdukHandler handler;
     Bundle extras;
@@ -68,10 +68,10 @@ public class EditProduk extends AppCompatActivity {
         txtkode = (EditText) findViewById(R.id.kode);
         txtnama = (EditText) findViewById(R.id.nama);
         txthargaawal = (EditText) findViewById(R.id.hargaawal);
-        imgview = (ImageView) findViewById(R.id.foto);
+
 
         Bundle extras = getIntent().getExtras();
-
+        imgview = (ImageView) findViewById(R.id.foto);
         imgview.setImageBitmap(BitmapFactory.decodeFile(extras.getString("image")));
         txtkode.setText(extras.getString("kode"));
         txtnama.setText(extras.getString("nama"));
@@ -101,12 +101,12 @@ public class EditProduk extends AppCompatActivity {
             }
         });
 
-        ImageView iv_user_photo = (ImageView) findViewById(R.id.foto);
-        iv_user_photo.setOnClickListener(new View.OnClickListener() {
+
+        imgview.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-                // TODO Auto-generated method stub
+
                 Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
                 startActivityForResult(intent, RESULT_LOAD_IMAGE);
@@ -114,29 +114,25 @@ public class EditProduk extends AppCompatActivity {
             }
         });
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
+
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
-            android.net.Uri imageUri = data.getData();
-            String[] filePathColumn = { android.provider.MediaStore.Images.Media.DATA };
+            Uri imageUri = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
-            android.database.Cursor cursor = getContentResolver().query(imageUri,filePathColumn, null, null, null);
+            Cursor cursor = getContentResolver().query(imageUri,
+                    filePathColumn, null, null, null);
             cursor.moveToFirst();
 
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             picturePath = cursor.getString(columnIndex);
             cursor.close();
 
-            ImageView imgview = (ImageView) findViewById(R.id.foto);
-            if (picturePath.isEmpty()){
-                imgview.setImageResource(R.drawable.produk);
-            }else {
-                imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(picturePath));
-            }
+            ImageView imageView = (ImageView) findViewById(R.id.foto);
+            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
         }
     }
@@ -251,18 +247,12 @@ public class EditProduk extends AppCompatActivity {
 
         panggilclass();
 
-        kode = txtkode.getText().toString();
-        nama = txtnama.getText().toString();
-        hargaawal = txthargaawal.getText().toString();
-        ImageView iv_photograph = (ImageView) findViewById(R.id.foto);
-        img = picturePath;
-
         pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk produk = new pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk();
         produk.setId(extras.getInt("id")); // Update the data where id = extras.getInt("id").
         produk.setKode(txtkode.getText().toString());
         produk.setNama(txtnama.getText().toString());
         produk.setHargaawal(txthargaawal.getText().toString());
-        produk.setImage(img);
+        produk.setImage(picturePath);
         Boolean edit = handler.editProduk(produk);
         if(edit){
             Intent intent = new Intent(EditProduk.this, DaftarProduk.class);
