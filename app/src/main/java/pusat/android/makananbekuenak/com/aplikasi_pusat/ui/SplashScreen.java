@@ -15,7 +15,7 @@ public class SplashScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        Thread timer=new Thread(){
+        Thread timer = new Thread(){
             public void run(){
                 try{
                     //berapalama splasscreen akan ditampilkan dalam milisecond

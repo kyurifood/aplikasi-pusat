@@ -72,8 +72,6 @@ public class EditProduk extends AppCompatActivity {
         txtkode = (EditText) findViewById(R.id.kode);
         txtnama = (EditText) findViewById(R.id.nama);
 
-        // Locate the TextViews in singleitemview.xml
-
         txthargaawal = (EditText) findViewById(R.id.hargaawal);
         imgview = (ImageView) findViewById(R.id.foto);
 
@@ -105,9 +103,6 @@ public class EditProduk extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showAddDialog();
-            }
-
-            private void showAddDialog() {
             }
         });
 
@@ -183,9 +178,7 @@ public class EditProduk extends AppCompatActivity {
 
 
         Button save = (Button) promptsView.findViewById(R.id.ok);
-        save.setOnClickListener(new View.OnClickListener()
-
-        {
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!hasError()) {
@@ -239,9 +232,8 @@ public class EditProduk extends AppCompatActivity {
 
         mSpinner.setOnItemSelectedListener(new OnSpinnerItemClicked());
         Button save = (Button) promptsView.findViewById(R.id.ok);
-        save.setOnClickListener(new View.OnClickListener()
+        save.setOnClickListener(new View.OnClickListener() {
 
-        {
             @Override
             public void onClick (View v){
                 if (!hasError()) {
@@ -295,9 +287,7 @@ public class EditProduk extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Contact data not added. Please try again", Toast.LENGTH_LONG).show();
         }
     }
-    //    public boolean validasiCPass(String cpass) {
-//        return cpass.length() > 0;
-//    }
+
     public boolean validateKode(String kode) {
         return kode.length() > 0;
     }
