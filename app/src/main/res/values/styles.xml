@@ -6,17 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-
     </style>
-
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@color/hijau</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:background">@color/white</item>
     </style>
-
 
     <style name="OrangeButtonTheme" parent="Theme.AppCompat.Light">
         <item name="colorControlHighlight">@color/colorAccentDark</item>
@@ -68,8 +64,6 @@
 
         <item name="colorButtonNormal">@color/primary_darker</item>
     </style>
-
-
 
     <style name="LayoutMatchParent.Vertical">
         <item name="android:orientation">vertical</item>
@@ -127,18 +121,12 @@
         <item name="android:gravity">right</item>
     </style>
 
-
-
     <style name="Text.Label">
         <item name="android:textColor">@color/black_secondary_text</item>
         <item name="android:textSize">@dimen/abc_text_size_medium_material</item>
     </style>
 
-
     <!--Line-->
-
-
-
     <style name="spinnerItemStyle">
         <item name="android:padding">10dp</item>
         <item name="android:textSize">25sp</item>
@@ -202,6 +190,4 @@
         <item name="android:layout_height">@dimen/line_width</item>
         <item name="android:background">@drawable/line_horizontal</item>
     </style>
-
-
 </resources>
