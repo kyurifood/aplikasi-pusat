@@ -5,6 +5,7 @@
     android:padding="10dp" >
 
     <Button
+        style="@style/Merah"
         android:id="@+id/btn_back"
         android:text="Back to Daftar"
         android:layout_width="fill_parent"
@@ -14,48 +15,57 @@
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_above="@id/btn_back">
+        android:layout_above="@id/btn_back"
+        android:background="@drawable/panel_bg">
         <TextView
-
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LIHAT PRODUK"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
+            android:text="PRODUK DETAILS"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginBottom="10dp"/>
 
         <ImageView
+            android:layout_gravity="center_horizontal"
             android:id="@+id/poto"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:adjustViewBounds="true"
             android:layout_margin="5dp"/>
 
-
-
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp">
 
 
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp" >
+                android:padding="5dp"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kode:"
+                    android:text="Kode"
+                    android:layout_weight="0.3"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
-                    android:id="@+id/liatkode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text=":"/>
 
+                <TextView
+                    android:id="@+id/liatkode"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
             </TableRow>
@@ -67,16 +77,23 @@
                 android:padding="5dp" >
 
                 <TextView
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="nama:"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:text="Nama"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_weight="0.3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text=":"/>
 
                 <TextView
                     android:id="@+id/liatnama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
             </TableRow>
@@ -91,14 +108,23 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="harga awal:"
+                    android:text="Harga Awal"
+                    android:textStyle="bold"
+                    android:layout_weight="0.3"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:text=":"/>
 
                 <TextView
                     android:id="@+id/liathargaawal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:layout_weight="1"
+                    android:textStyle="bold"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
             </TableRow>

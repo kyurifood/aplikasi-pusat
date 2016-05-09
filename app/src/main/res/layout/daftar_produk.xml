@@ -1,11 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/DefaultLayout"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <ListView style="@style/LayoutMatchParent"
         android:dividerHeight="@dimen/component_padding_margin"
         android:divider="@android:color/transparent"
-        android:id="@+id/lv_daftar" />
+        android:id="@+id/lv_daftar"/>
+
 
 </LinearLayout>
