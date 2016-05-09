@@ -1,6 +1,7 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat.ui;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -32,6 +33,7 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.service.ProdukHandler;
  * Created by fikran on 23/04/16.
  */
 public class EditProduk extends AppCompatActivity {
+    private static final int SELECT_PHOTO = 100;
     private static int RESULT_LOAD_IMAGE = 1;
     ImageView imgview;
     ListView lvItem;
@@ -68,6 +70,9 @@ public class EditProduk extends AppCompatActivity {
 
         txtkode = (EditText) findViewById(R.id.kode);
         txtnama = (EditText) findViewById(R.id.nama);
+
+        // Locate the TextViews in singleitemview.xml
+
         txthargaawal = (EditText) findViewById(R.id.hargaawal);
         imgview = (ImageView) findViewById(R.id.foto);
 
@@ -100,8 +105,17 @@ public class EditProduk extends AppCompatActivity {
             public void onClick(View v) {
                 showAddDialog();
             }
+
+            private void showAddDialog() {
+            }
         });
 
+        imgview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, SELECT_PHOTO);
         ImageView iv_user_photo = (ImageView) findViewById(R.id.foto);
         iv_user_photo.setOnClickListener(new View.OnClickListener() {
 
@@ -111,13 +125,26 @@ public class EditProduk extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
                 startActivityForResult(intent, RESULT_LOAD_IMAGE);
-
             }
         });
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case SELECT_PHOTO:
+                if(resultCode == RESULT_OK) {
+                    android.net.Uri selectedImage = data.getData();
+                    java.io.InputStream imageStream = null;
+                    try {
+                        imageStream = getContentResolver().openInputStream(selectedImage);
+                    } catch (java.io.FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    Bitmap yourSelectedImage = android.graphics.BitmapFactory.decodeStream(imageStream);
+                    imgview.setImageBitmap(yourSelectedImage);
+                }
         // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -134,8 +161,6 @@ public class EditProduk extends AppCompatActivity {
 
             ImageView imgview = (ImageView) findViewById(R.id.foto);
             imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(picturePath));
-
-
         }
     }
 
@@ -266,7 +291,9 @@ public class EditProduk extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Contact data not added. Please try again", Toast.LENGTH_LONG).show();
         }
     }
-
+    //    public boolean validasiCPass(String cpass) {
+//        return cpass.length() > 0;
+//    }
     public boolean validateKode(String kode) {
         return kode.length() > 0;
     }
@@ -313,7 +340,6 @@ public class EditProduk extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.simpan) {
-
             //String cpass = txtcpas.getText().toString();
             String kode = txtkode.getText().toString();
             String nama = txtnama.getText().toString();
@@ -322,7 +348,6 @@ public class EditProduk extends AppCompatActivity {
             if (!validateKode(kode)) {
                 txtkode.setError("silahkan masukan kode");
                 {
-
                     Toast.makeText(EditProduk.this, "Kesalahan dalam pengisian kode", Toast.LENGTH_SHORT).show();
                 }
             } else if (!validateNama(nama)) {
@@ -347,5 +372,6 @@ public class EditProduk extends AppCompatActivity {
         Intent panggil = new Intent(getApplicationContext(), DaftarProduk.class);
         startActivity(panggil);
     }
+}
 
 }

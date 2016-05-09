@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
@@ -28,6 +29,7 @@ public class DaftarProduk extends AppCompatActivity {
 
     private ProdukHandler handler;
     ListView lv;
+    private String[] item1kode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,17 @@ public class DaftarProduk extends AppCompatActivity {
 
         getSupportActionBar().setTitle("PRODUK");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.bar_ic_action_wallet_travel);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        List<ItemProduk> items = new ArrayList<>();
+        ItemProduk item1 = new ItemProduk();
+        item1.setKode("001");
+        item1.setNama("karapao");
+
+        ItemProduk item2 = new ItemProduk();
+        item2.setKode("002");
+        item2.setNama("takoyaki");
         getSupportActionBar().setLogo(R.drawable.bar_ic_briefcase_1);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
@@ -43,6 +56,9 @@ public class DaftarProduk extends AppCompatActivity {
         handler = new ProdukHandler(getApplicationContext());
 
         lv = (ListView) findViewById(R.id.lv_daftar);
+
+        // Generate sample data into string arrays
+        item1kode = new String[]{"001", "002", "003", "004"};
 
         loadContactData();
 
