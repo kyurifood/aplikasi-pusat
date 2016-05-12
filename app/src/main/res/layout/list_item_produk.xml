@@ -1,39 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="wrap_content"
+    android:background="@drawable/panel_bg">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="regional"
-        android:id="@+id/list_item_regional" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="harga"
-        android:id="@+id/list_item_harga" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="edit"
-            android:id="@+id/edit"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hapus"
-        android:id="@+id/delete" />
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="regional"
+                android:id="@+id/list_item_regional" />
 
-
-    </LinearLayout>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="harga"
+                android:textStyle="bold"
+                android:id="@+id/list_item_harga" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <Button
+                style="@style/Hijau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="edit"
+                android:id="@+id/edit"/>
+            <Button
+                style="@style/Merah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hapus"
+                android:id="@+id/delete"/>
+        </LinearLayout>
 </LinearLayout>
