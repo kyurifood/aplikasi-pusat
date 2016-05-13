@@ -62,7 +62,7 @@ public class ListItemAdapter extends BaseAdapter {
         final TextView bank = (TextView) convertView.findViewById(R.id.bank);
         final TextView nominal = (TextView) convertView.findViewById(R.id.nominal);
 
-        Button btnAction1 = (Button) convertView.findViewById(R.id.btn_action_1);
+        final Button btnAction1 = (Button) convertView.findViewById(R.id.btn_action_1);
         Button btnAction2 = (Button) convertView.findViewById(R.id.btn_action_2);
         CheckBox baru = (CheckBox) convertView.findViewById(R.id.cb_baru);
         final CheckBox lunas = (CheckBox) convertView.findViewById(R.id.cb_lunas);
@@ -78,6 +78,9 @@ public class ListItemAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 lunas.setChecked(true);
+                if (lunas.isChecked()){
+                    btnAction1.setEnabled(false);
+                }
                 Toast.makeText(context, item.getNo_order() + ", Lunas", Toast.LENGTH_SHORT).show();
 
             }

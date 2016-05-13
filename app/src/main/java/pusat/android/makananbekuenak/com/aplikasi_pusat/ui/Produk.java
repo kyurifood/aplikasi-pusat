@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,6 +49,7 @@ public class Produk extends AppCompatActivity {
     private String img;
     private String picturePath = "";
     private static int RESULT_LOAD_IMAGE = 1;
+    String idProduk, idProdukDetail= "";
 
 
     String[] isikode;
@@ -61,6 +63,10 @@ public class Produk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.produk);
 
+        idProduk = String.valueOf(((int)(Math.random()* 50 +1)));
+        idProdukDetail = String.valueOf((int)(Math.random()* 50 +1));
+        Log.i("id produk ", idProduk);
+        Log.i("id produk detail ", idProdukDetail);
         handler = new ProdukHandler(getApplicationContext());
 
         getSupportActionBar().setTitle("TAMBAH PRODUK");
@@ -184,8 +190,12 @@ public class Produk extends AppCompatActivity {
                 if (!hasError()) {
                     Item item = new Item();
                     String s = (String) (spinnerregional.getSelectedItem());
+                    item.setId(idProdukDetail);
                     item.setRegional(s);
                     item.setHarga(txtharga.getText().toString());
+                    item.setIdproduk((idProduk));
+                    handler.addProdukDetail(item);
+
                     if (adapter == null) {
                         items.add(item);
                         adapter = new ListItem(Produk.this, items, "1");
@@ -278,6 +288,7 @@ public class Produk extends AppCompatActivity {
         img = picturePath;
 
         pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk produk = new pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk();
+        produk.setId(idProduk);
         produk.setKode(kode);
         produk.setNama(nama);
         produk.setHargaawal(hargaawal);
