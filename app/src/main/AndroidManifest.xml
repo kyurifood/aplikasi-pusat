@@ -2,62 +2,66 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pusat.android.makananbekuenak.com.aplikasi_pusat" >
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".HomeScreen" >
+
+        <activity android:name=".ui.SplashScreen"  >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="pusat.android.makananbekuenak.com.aplikasi_pusat.LoginActivity" android:theme="@style/AppTheme.Dark" />
-        <activity android:name="pusat.android.makananbekuenak.com.aplikasi_pusat.SignupActivity" android:theme="@style/AppTheme.Dark" />
-        <activity android:name=".Distributor" />
-        <activity android:name=".Marketer" />
-        <activity android:name=".viewProduk" />
-        <activity android:name=".Produk"
+        <activity android:name=".ui.HomeScreen"/>
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.SignupActivity" android:theme="@style/AppTheme.Dark" />
+        <activity android:name=".ui.Distributor" />
+        <activity android:name=".ui.Marketer" />
+        <activity android:name=".ui.viewProduk" />
+        <activity android:name=".ui.Produk"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize" >
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:parentActivityName=".ui.DaftarProduk">
             <!--Coding Kembali Ke Menu Utama-->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="pusat.android.makananbekuenak.com.aplikasi_pusat.DaftarProduk" />
+                android:value=".ui.DaftarProduk" />
             <!-- END Coding Kembali Ke Menu Utama-->
         </activity>
         <activity
-            android:name=".Pesanan"
+            android:name=".ui.Pesanan"
             android:label="Pesanan">
         </activity>
 
-        <activity android:name=".EditProduk"
+        <activity android:name=".ui.EditProduk"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize" >
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:parentActivityName=".ui.DaftarProduk">
             <!--Coding Kembali Ke Menu Utama-->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="pusat.android.makananbekuenak.com.aplikasi_pusat.DaftarProduk" />
+                android:value=".ui.DaftarProduk" />
             <!-- END Coding Kembali Ke Menu Utama-->
         </activity>
-        <activity android:name=".Regional"/>
-        <activity android:name=".Laporan"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".DaftarProduk"/>
-        <activity android:name=".Lihatdetail"
+        <activity android:name=".ui.Regional"/>
+        <activity android:name=".ui.Laporan"/>
+        <activity android:name=".ui.MainActivity"/>
+        <activity android:name=".ui.DaftarProduk"/>
+        <activity android:name=".ui.Lihatdetail"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustPan|adjustResize" >
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:parentActivityName=".ui.MainActivity">
             <!--Coding Kembali Ke Menu Utama-->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="pusat.android.makananbekuenak.com.aplikasi_pusat.MainActivity" />
+                android:value=".ui.MainActivity" />
             <!-- END Coding Kembali Ke Menu Utama-->
         </activity>
-
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     </application>
 
