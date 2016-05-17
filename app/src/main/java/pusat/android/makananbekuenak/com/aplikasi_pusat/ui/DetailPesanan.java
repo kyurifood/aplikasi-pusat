@@ -1,7 +1,9 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat.ui;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +21,7 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item_lihat_detail
  * Created by rinaldy on 25/04/16.
  */
 
-public class Lihatdetail extends AppCompatActivity {
+public class DetailPesanan extends Fragment {
 
     String get_nama, get_bank, get_kode, get_tanggal, get_nominal, get_regional, get_distributor, get_marketer,
             get_costomer, get_nohp, get_alamatpenerima, get_produk, get_ongkir, get_pajak;
@@ -29,29 +31,26 @@ public class Lihatdetail extends AppCompatActivity {
     ListItemDaftarBelanja adapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.lihat_detail_tmpl);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        View preview = inflater.inflate(R.layout.lihat_detail_tmpl, container, false);
 
-        getSupportActionBar().setTitle("Details Order");
-
-        TextView nama = (TextView) findViewById(R.id.nama_penerima);
-        TextView bank = (TextView) findViewById(R.id.bank);
-        TextView kode = (TextView) findViewById(R.id.no_order);
-        TextView tanggal = (TextView) findViewById(R.id.tanggal_pesan);
-        TextView nilai_transaksi = (TextView) findViewById(R.id.nilai_transaksi);
-        TextView regional = (TextView) findViewById(R.id.regional);
-        TextView distributor = (TextView) findViewById(R.id.distributor);
-        TextView marketer = (TextView) findViewById(R.id.marketer);
-        TextView customer = (TextView) findViewById(R.id.costumer);
-        TextView nohp = (TextView) findViewById(R.id.hp_penerima);
-        TextView alamat = (TextView) findViewById(R.id.alamat_penerima);
-        TextView produk = (TextView) findViewById(R.id.produk);
-        TextView ongkir = (TextView) findViewById(R.id.ongkir);
-        TextView pajak = (TextView) findViewById(R.id.pajak);
+        TextView nama = (TextView) preview.findViewById(R.id.nama_penerima);
+        TextView bank = (TextView) preview.findViewById(R.id.bank);
+        TextView kode = (TextView) preview.findViewById(R.id.no_order);
+        TextView tanggal = (TextView) preview.findViewById(R.id.tanggal_pesan);
+        TextView nilai_transaksi = (TextView) preview.findViewById(R.id.nilai_transaksi);
+        TextView regional = (TextView) preview.findViewById(R.id.regional);
+        TextView distributor = (TextView) preview.findViewById(R.id.distributor);
+        TextView marketer = (TextView) preview.findViewById(R.id.marketer);
+        TextView customer = (TextView) preview.findViewById(R.id.costumer);
+        TextView nohp = (TextView) preview.findViewById(R.id.hp_penerima);
+        TextView alamat = (TextView) preview.findViewById(R.id.alamat_penerima);
+        TextView produk = (TextView) preview.findViewById(R.id.produk);
+        TextView ongkir = (TextView) preview.findViewById(R.id.ongkir);
+        TextView pajak = (TextView) preview.findViewById(R.id.pajak);
 
 
-        Bundle b = getIntent().getExtras();
+        Bundle b = getActivity().getIntent().getExtras();
         get_nama = b.getString("panggil_nama");
         get_bank = b.getString("panggil_bank");
         get_kode = b.getString("panggil_kode");
@@ -66,6 +65,7 @@ public class Lihatdetail extends AppCompatActivity {
         get_produk = b.getString("panggil_produk");
         get_ongkir = b.getString("panggil_ongkir");
         get_pajak = b.getString("panggil_pajak");
+
         nama.setText("" + get_nama);
         bank.setText("" + get_bank);
         kode.setText("" + get_kode);
@@ -80,8 +80,6 @@ public class Lihatdetail extends AppCompatActivity {
         produk.setText(""+get_produk);
         ongkir.setText(""+get_ongkir);
         pajak.setText(""+get_pajak);
-
-
 
 
         List<Item_lihat_detail> items = new ArrayList<>();
@@ -108,7 +106,7 @@ public class Lihatdetail extends AppCompatActivity {
         items.add(daftar3);
 
 
-        lvItem = (ListView) findViewById(R.id.lv_detail);
+        lvItem = (ListView) preview.findViewById(R.id.lv_detail);
 
         ViewGroup.LayoutParams listViewParams = (ViewGroup.LayoutParams)
 
@@ -125,8 +123,10 @@ public class Lihatdetail extends AppCompatActivity {
 
         lvItem.requestLayout();
 
-        adapter = new ListItemDaftarBelanja(Lihatdetail.this, items);
+        adapter = new ListItemDaftarBelanja(getActivity(), items);
         lvItem.setAdapter(adapter);
+
+        return preview;
     }
 
 }

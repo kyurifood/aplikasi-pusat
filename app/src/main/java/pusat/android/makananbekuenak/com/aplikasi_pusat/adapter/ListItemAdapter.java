@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import pusat.android.makananbekuenak.com.aplikasi_pusat.ui.Lihatdetail;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item_Pesanan;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.ui.Details;
 
 /**
  * Created by opaw on 3/30/16.
@@ -24,7 +24,7 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item_Pesanan;
 public class ListItemAdapter extends BaseAdapter {
 
     String var_nama, var_tanggal, var_kode, var_bank, var_nominal, var_regional, var_distributor, var_marketer,
-            var_costomer, var_nohp, var_alamatpenerima, var_produk, var_ongkir, var_pajak;
+            var_costomer, var_nohp, var_alamatpenerima, var_produk, var_ongkir, var_pajak, var_tgl, var_resi, var_pengirim;
 
     public Context context;
     private List<Item_Pesanan> items;
@@ -62,12 +62,13 @@ public class ListItemAdapter extends BaseAdapter {
         final TextView bank = (TextView) convertView.findViewById(R.id.bank);
         final TextView nominal = (TextView) convertView.findViewById(R.id.nominal);
 
-        Button btnAction1 = (Button) convertView.findViewById(R.id.btn_action_1);
+        final Button btnAction1 = (Button) convertView.findViewById(R.id.btn_action_1);
         Button btnAction2 = (Button) convertView.findViewById(R.id.btn_action_2);
         CheckBox baru = (CheckBox) convertView.findViewById(R.id.cb_baru);
         final CheckBox lunas = (CheckBox) convertView.findViewById(R.id.cb_lunas);
 
-        lunas.setChecked(item.isLunas() == true);
+        btnAction1.setEnabled(item.isBtnlunas());
+        lunas.setChecked(item.isLunas());
         no_order.setText(item.getNo_order());
         tanggal_pesan.setText(item.getTanggal_pesan());
         nama.setText(item.getNama());
@@ -78,6 +79,11 @@ public class ListItemAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 lunas.setChecked(true);
+                item.setLunas(true);
+                if (lunas.isChecked()){
+                    btnAction1.setEnabled(false);
+                    item.setBtnlunas(false);
+                }
                 Toast.makeText(context, item.getNo_order() + ", Lunas", Toast.LENGTH_SHORT).show();
 
             }
@@ -100,10 +106,13 @@ public class ListItemAdapter extends BaseAdapter {
                 var_produk = String.valueOf(item.getProduk());
                 var_ongkir = String.valueOf(item.getOngkir());
                 var_pajak = String.valueOf(item.getPajak());
+                var_pengirim = String.valueOf(item.getPengiriman());
+                var_resi = String.valueOf(item.getResi());
+                var_tgl = String.valueOf(item.getTgl());
 
 
                 Intent i = null;
-                i = new Intent(context, Lihatdetail.class);
+                i = new Intent(context, Details.class);
                 Bundle b = new Bundle();
 
                 b.putString("panggil_nama", var_nama);
@@ -120,6 +129,9 @@ public class ListItemAdapter extends BaseAdapter {
                 b.putString("panggil_produk", var_produk);
                 b.putString("panggil_ongkir", var_ongkir);
                 b.putString("panggil_pajak", var_pajak);
+                b.putString("panggil_tgl", var_tgl);
+                b.putString("panggil_resi", var_resi);
+                b.putString("panggil_pengirim", var_pengirim);
                 i.putExtras(b);
                 context.startActivity(i);
             }

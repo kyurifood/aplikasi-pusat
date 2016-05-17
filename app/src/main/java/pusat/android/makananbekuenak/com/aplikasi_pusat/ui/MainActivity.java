@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         item1.setOngkir("12.000");
         item1.setPajak("10.000");
         item1.setNominal("20000");
+        item1.setResi("123456789012");
+        item1.setTgl("Mei,10 2016");
+        item1.setPengiriman("TIKI");
+        item1.setBtnlunas(true);
 
         Item_Pesanan item2 = new Item_Pesanan();
         item2.setNo_order("002");
@@ -64,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
         item2.setOngkir("13.000");
         item2.setPajak("12.000");
         item2.setNominal("26000");
+        item2.setResi("87832444509");
+        item2.setTgl("April,4 2016");
+        item2.setPengiriman("TIKI");
+        item2.setBtnlunas(true);
 
         Item_Pesanan item3 = new Item_Pesanan();
         item3.setNo_order("003");
@@ -80,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
         item3.setOngkir("10.000");
         item3.setPajak("9.000");
         item3.setNominal("32000");
+        item3.setResi("546546565672");
+        item3.setTgl("Juni,1 2016");
+        item3.setPengiriman("JNE");
+        item3.setBtnlunas(true);
 
         items.add(item1);
         items.add(item2);
@@ -122,9 +134,11 @@ public class MainActivity extends AppCompatActivity {
                                 sb.append(x.getNo_order());
                                 sb.append(", ");
                                 x.setLunas(true);
+                                x.setBtnlunas(false);
                             }
 
                         }
+
 
                         String text = sb.toString();
                         text = text.substring(0, text.length() - 2);

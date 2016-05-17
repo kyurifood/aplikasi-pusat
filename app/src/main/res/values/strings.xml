@@ -19,4 +19,7 @@
         <item>@string/p2</item>
         <item>@string/p3</item>
     </string-array>
+
+    <string name="title_section1">Detail Pesanan</string>
+    <string name="title_section2">Detail Pengiriman</string>
 </resources>

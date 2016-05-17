@@ -21,6 +21,43 @@ public class Item_Pesanan {
     private String produk;
     private String ongkir;
     private String pajak;
+    private String resi;
+    private String tgl;
+    private String pengiriman;
+    private boolean lunas;
+    private boolean btnlunas;
+
+    public boolean isBtnlunas() {
+        return btnlunas;
+    }
+
+    public void setBtnlunas(boolean btnlunas) {
+        this.btnlunas = btnlunas;
+    }
+
+    public String getResi() {
+        return resi;
+    }
+
+    public void setResi(String resi) {
+        this.resi = resi;
+    }
+
+    public String getTgl() {
+        return tgl;
+    }
+
+    public void setTgl(String tgl) {
+        this.tgl = tgl;
+    }
+
+    public String getPengiriman() {
+        return pengiriman;
+    }
+
+    public void setPengiriman(String pengiriman) {
+        this.pengiriman = pengiriman;
+    }
 
     public String getDistributor() {
         return distributor;
@@ -102,8 +139,6 @@ public class Item_Pesanan {
     public void setLunas(boolean lunas) {
         this.lunas = lunas;
     }
-
-    private boolean lunas;
 
     public boolean isButton2() {
         return button2;
