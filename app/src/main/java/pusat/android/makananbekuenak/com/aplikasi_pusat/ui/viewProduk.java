@@ -1,15 +1,19 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat.ui;
 
-import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.util.Log;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pusat.android.makananbekuenak.com.aplikasi_pusat.R;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.adapter.ListItemLiat;
+import pusat.android.makananbekuenak.com.aplikasi_pusat.domain.Item;
 import pusat.android.makananbekuenak.com.aplikasi_pusat.service.ProdukHandler;
 
 /**
@@ -18,15 +22,20 @@ import pusat.android.makananbekuenak.com.aplikasi_pusat.service.ProdukHandler;
 public class viewProduk extends AppCompatActivity {
 
    private ProdukHandler handler;
+    ListView lvItem;
+    ListItemLiat adapter;
+    List<Item> items = new ArrayList<>();
+    Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.view_produk);
+        setContentView(R.layout.view_produk_scrol);
 
         getSupportActionBar().setTitle("Lihat Produk");
 
-        Bundle extras = getIntent().getExtras();
+        extras = getIntent().getExtras();
+        handler = new ProdukHandler(getApplicationContext());
 
         ImageView iv_photo = (ImageView) findViewById(R.id.poto);
         if (extras.getString("image").isEmpty()){
@@ -43,20 +52,18 @@ public class viewProduk extends AppCompatActivity {
 
         TextView tv_hrgaawal = (TextView) findViewById(R.id.liathargaawal);
         tv_hrgaawal.setText(extras.getString("hargaawal"));
+        Log.i("id produk ", String.valueOf(extras.getString("id")));
+        List<Item> items = handler.getProdukDetailByProdukId(String.valueOf(extras.getString("id")));
+        lvItem = (ListView) findViewById(R.id.lv_item_liat);
+
+        adapter = new ListItemLiat(viewProduk.this, items, "0");
+        lvItem.setAdapter(adapter);
 
 
 
 
-        Button btn_back = (Button) findViewById(R.id.btn_back);
-        btn_back.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View arg0) {
-                finish();
-                Intent intent = new Intent(viewProduk.this, DaftarProduk.class);
-                startActivity(intent);
-            }
-        });
+
 
     }
 }

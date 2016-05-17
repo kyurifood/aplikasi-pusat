@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/relative"
     android:padding="10dp" >
 
-    <Button
-        style="@style/Merah"
-        android:id="@+id/btn_back"
-        android:text="Back to Daftar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
 
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_above="@id/btn_back"
         android:background="@drawable/panel_bg">
         <TextView
             android:layout_marginTop="10dp"
@@ -132,5 +125,28 @@
 
         </TableLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Harga per Regional"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginRight="13dp"
+            android:layout_marginLeft="13dp">
+
+            <ListView
+                style="@style/LayoutMatchParent"
+                android:layout_gravity="center"
+                android:divider="@android:color/transparent"
+                android:id="@+id/lv_item_liat" />
+
+
+        </LinearLayout>
+
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

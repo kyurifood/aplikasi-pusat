@@ -1,16 +1,20 @@
 package pusat.android.makananbekuenak.com.aplikasi_pusat.domain;
 
+import java.util.List;
+
 /**
  * Created by fikran on 21/04/16.
  */
 public class ItemProduk {
 
 
-    private int id;
+    private String id;
     private String kode;
     private String nama;
     private String image;
     private String Hargaawal;
+    private List<Item> produkDetail;
+
 
     public String getHargaawal() {
         return Hargaawal;
@@ -48,12 +52,20 @@ public class ItemProduk {
         this.nama = nama;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public List<Item> getProdukDetail() {
+        return produkDetail;
+    }
+
+    public void setProdukDetail(List<Item> produkDetail) {
+        this.produkDetail = produkDetail;
     }
 
     public String getImage() {

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -80,11 +81,16 @@ public class EditProduk extends AppCompatActivity {
         txtkode.setText(extras.getString("kode"));
         txtnama.setText(extras.getString("nama"));
         txthargaawal.setText(extras.getString("hargaawal"));
+        Log.i("id produk ", String.valueOf(extras.getString("id")));
+        List<Item> items = handler.getProdukDetailByProdukId(String.valueOf(extras.getString("id")));
+        lvItem = (ListView) findViewById(R.id.lv_item);
+
+        adapter = new ListItem(EditProduk.this, items, "0");
+        lvItem.setAdapter(adapter);
 
         Button addNewItem = (Button) findViewById(R.id.tambahharga);
         Spinner mSpinner= (Spinner)findViewById(R.id.spinnerregional);
 
-        lvItem = (ListView) findViewById(R.id.lv_item);
         ViewGroup.LayoutParams listViewParams = (ViewGroup.LayoutParams) lvItem.getLayoutParams();
         listViewParams.height = 380;
         lvItem.requestLayout();
@@ -268,7 +274,7 @@ public class EditProduk extends AppCompatActivity {
         img = picturePath;
 
         pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk produk = new pusat.android.makananbekuenak.com.aplikasi_pusat.domain.ItemProduk();
-        produk.setId(extras.getInt("id")); // Update the data where id = extras.getInt("id").
+        produk.setId(extras.getString("id")); // Update the data where id = extras.getInt("id").
         produk.setKode(txtkode.getText().toString());
         produk.setNama(txtnama.getText().toString());
         produk.setHargaawal(txthargaawal.getText().toString());
